@@ -1,5 +1,4 @@
 {
-  "homepage": "https://alehsabadashgmail.github.io/code-area/",
   "name": "code-area",
   "version": "0.1.0",
   "private": true,
@@ -23,8 +22,6 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
@@ -72,7 +69,6 @@
     "@storybook/testing-library": "^0.0.11",
     "@types/node-sass": "^4.11.2",
     "babel-plugin-named-exports-order": "^0.0.2",
-    "gh-pages": "^4.0.0",
     "prop-types": "^15.8.1",
     "webpack": "^5.73.0"
   }

@@ -1,5 +1,5 @@
 {
-  "homepage": "https://AlehSabadashGmail.github.io/code-area",
+  "homepage": "https://alehsabadashgmail.github.io/code-area/",
   "name": "code-area",
   "version": "0.1.0",
   "private": true,
@@ -23,7 +23,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "predeploy": "npm i npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "craco start",
     "build": "craco build",

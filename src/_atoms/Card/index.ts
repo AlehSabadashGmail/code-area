@@ -1,2 +1,2 @@
-export { Card } from './Card';
-export type { CardType } from './Card.d';
+export { Card } from './Card'
+export type { CardType } from './Card.d'

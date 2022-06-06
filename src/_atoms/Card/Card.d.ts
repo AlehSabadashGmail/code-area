@@ -1,4 +1,4 @@
 export type CardType = {
-  children: string,
+  children: string
   className?: string
-};
+}

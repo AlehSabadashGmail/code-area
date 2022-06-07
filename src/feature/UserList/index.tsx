@@ -3,7 +3,7 @@ import {
   FilterConfirmProps,
   SorterResult,
 } from 'antd/lib/table/interface'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { Dispatch, useEffect, useRef, useState } from 'react'
 import { Button, Input, InputRef, Space, Table, Typography } from 'antd'
 import type { TablePaginationConfig } from 'antd/lib/table'
 import { SearchOutlined } from '@ant-design/icons'
@@ -11,27 +11,16 @@ import ColumnGroup from 'antd/lib/table/ColumnGroup'
 import Highlighter from 'react-highlight-words'
 import Column from 'antd/lib/table/Column'
 import moment from 'moment'
-import axios from 'axios'
 
 import { IUser, IUserState } from '../../store/user/type'
 import '../UserList/styles.scss'
-import { useDispatch } from 'react-redux'
 import { loadUsersAsync } from '../../store/user/usersThunk'
-import { AppDispatch } from '../../store'
-
-interface Params {
-  pagination?: TablePaginationConfig
-  sorter?: SorterResult<IUser> | SorterResult<IUser>[]
-  total?: number
-  sortField?: string
-  sortOrder?: string
-}
-
-type DataIndex = keyof IUser
+import { useAppDispatch, useAppSelector } from '../../hooks'
+import { clearUsers, setUsers } from '../../store/user/userSlice'
 
 const UserList: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>()
-  const [user, setUser] = useState([])
+  const dispatch = useAppDispatch()
+  const { user } = useAppSelector((state) => state.user)
   const [value, setValue] = useState('')
 
   const FilterByNameInput = (
@@ -42,25 +31,25 @@ const UserList: React.FC = () => {
         const currValue = e.target.value
         if (currValue === '') {
           setValue('')
-          setUser(user)
+          dispatch(setUsers(user))
         } else {
           setValue(currValue)
           const filteredData = user.filter((entry: IUser) =>
             entry.user_name.includes(currValue),
           )
-          setUser(filteredData)
+          dispatch(setUsers(filteredData))
         }
       }}
     />
   )
 
-  // const sortColumnIn = (column_field: string | number) => {
-  //   if (typeof column_field === 'string') {
-  //     ;(a: IUser, b: IUser) => a.first_name.localeCompare(b.first_name)
-  //   } else {
-  //     ;(a: IUser, b: IUser) => a.age - b.age
-  //   }
-  // }
+  const sortColumnIn = (column_field: IUser) => {
+    if (typeof column_field === 'string') {
+      return (a: IUser, b: IUser) => a.first_name.localeCompare(b.first_name)
+    } else {
+      return (a: IUser, b: IUser) => a.age - b.age
+    }
+  }
 
   useEffect(() => {
     dispatch(loadUsersAsync())
@@ -68,7 +57,9 @@ const UserList: React.FC = () => {
 
   return (
     <div>
-      <Typography className="header-list-user">User List</Typography>
+      <Typography className="header-list-user">
+        User List: {user.length}
+      </Typography>
       <div className="user-list">
         <Table dataSource={user} size="middle" bordered>
           <ColumnGroup title="User name">
@@ -111,6 +102,7 @@ const UserList: React.FC = () => {
           />
         </Table>
       </div>
+      {/* <div>{users}</div> */}
     </div>
   )
 }

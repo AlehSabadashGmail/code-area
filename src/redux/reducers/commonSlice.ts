@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {}
 
-export const userSlice = createSlice({
-  name: 'user',
+export const commonSlice = createSlice({
+  name: 'common',
   initialState,
   reducers: {},
 })
 
-export default userSlice.reducer
+export default commonSlice.reducer

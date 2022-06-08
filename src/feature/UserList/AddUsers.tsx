@@ -1,6 +1,7 @@
 import { Button, Input } from 'antd'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Modal } from '../../_atoms/Modal'
+import UsersService from '../../services/services'
 import { INITIAL_DATA } from './constants'
 import './styles.scss'
 

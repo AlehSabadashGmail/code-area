@@ -6,7 +6,7 @@ import { routes } from './Config/config.routes'
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path={routes.homePage} element={<HomePage />} />
+      <Route path={routes.default} element={<HomePage />} />
       <Route path={routes.usersList} element={<UserList />} />
     </Routes>
   )

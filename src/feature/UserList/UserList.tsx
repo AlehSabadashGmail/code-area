@@ -1,19 +1,8 @@
-import {
-  ColumnsType,
-  ColumnType,
-  FilterConfirmProps,
-  SorterResult,
-} from 'antd/lib/table/interface'
-import React, { Dispatch, useEffect, useRef, useState } from 'react'
-import { Button, Input, InputRef, Space, Table, Typography } from 'antd'
-import type { TablePaginationConfig } from 'antd/lib/table'
-import { SearchOutlined } from '@ant-design/icons'
-import ColumnGroup from 'antd/lib/table/ColumnGroup'
-import Highlighter from 'react-highlight-words'
-import Column from 'antd/lib/table/Column'
-import moment from 'moment'
+import { ColumnsType } from 'antd/lib/table/interface'
+import React, { useEffect, useState } from 'react'
+import { Input, Table, Typography } from 'antd'
 
-import { IUser, IUserState } from '../../store/user/type'
+import { IUser } from '../../store/user/type'
 import '../UserList/styles.scss'
 import { loadUsersAsync } from '../../store/user/usersThunk'
 import { useAppDispatch, useAppSelector } from '../../hooks'

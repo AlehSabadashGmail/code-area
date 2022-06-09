@@ -8,5 +8,4 @@ const apiClient = () => {
 
   return axiosInstance
 }
-
 export default apiClient

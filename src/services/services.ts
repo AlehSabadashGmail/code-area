@@ -1,8 +1,8 @@
 import apiClient from '../helper/api'
+import { IUser } from '../store/user/type'
 
 class UsersService {
   getAllUsers = () => apiClient().get('users')
-  postUsers = () => apiClient().post('users')
 }
 
 export default new UsersService()

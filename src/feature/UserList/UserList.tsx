@@ -19,6 +19,7 @@ import { loadUsersAsync } from '../../store/user/usersThunk'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { setUsers } from '../../store/user/userSlice'
 import { getDateFormat } from '../../helper/helper'
+import { AddUser } from './AddUsers/AddUsers'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -38,7 +39,6 @@ export const UserList: React.FC = () => {
       dispatch(setUsers(filteredData))
     }
   }
-
   const FilterByNameInput = (
     <Input
       placeholder="Search user name"
@@ -113,6 +113,7 @@ export const UserList: React.FC = () => {
       <div className="user-list">
         <Table dataSource={user} size="middle" columns={columns} bordered />
       </div>
+      <AddUser />
     </div>
   )
 }

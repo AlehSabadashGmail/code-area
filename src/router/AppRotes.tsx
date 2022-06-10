@@ -1,13 +1,12 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage } from '../feature/HomePage'
-import { UserList } from '../feature/UserList'
+import { HomePage, UsersPage } from '../components/_pages'
 import { routes } from './Config/config.routes'
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path={routes.default} element={<HomePage />} />
-      <Route path={routes.usersList} element={<UserList />} />
+      <Route path={routes.usersList} element={<UsersPage />} />
     </Routes>
   )
 }

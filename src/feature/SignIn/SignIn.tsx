@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 import { RULES_FORM } from '../../helper/helper'
 import '../SignIn/style.scss'
-import { IUser, IUserState } from '../../store/user/type'
 
 type FormData = {
   email: string
@@ -22,7 +21,7 @@ export const SignIn = () => {
   }
 
   return (
-    <Form
+    <Form<FormData>
       name="basic"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}

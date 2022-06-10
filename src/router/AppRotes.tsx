@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage } from '../feature/HomePage'
+import { HomePage, UserList } from '../components/_pages'
 import { SignIn } from '../feature/SignIn/SignIn'
-import { UserList } from '../feature/UserList'
 import { routes } from './Config/config.routes'
 
 const AppRoutes = () => {

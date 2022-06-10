@@ -1,5 +1,6 @@
 import { IUser } from '../../redux/user/type'
-import { format } from 'date-fns'
+import moment from 'moment'
+import { getDateNow } from 'src/helper/helper'
 
 export type FormData = {
   id: string
@@ -14,7 +15,7 @@ export type FormData = {
 }
 
 export const initialData = (formData: FormData): IUser => ({
-  id: Date.now().toString(),
+  id: moment().toISOString(),
   first_name: formData.first_name,
   last_name: formData.last_name,
   user_name: formData.user_name,
@@ -22,5 +23,5 @@ export const initialData = (formData: FormData): IUser => ({
   age: formData.age,
   role: formData.role,
   password: formData.password,
-  created_at: format(new Date(), 'MM/dd/yyyy'),
+  created_at: getDateNow(),
 })

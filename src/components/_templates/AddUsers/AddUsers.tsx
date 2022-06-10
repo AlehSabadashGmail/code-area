@@ -8,7 +8,7 @@ import { loadUsersAsync } from 'src/redux/user/usersThunk'
 import { Modal } from 'src/components/_atoms/Modal'
 import './AddUsers.scss'
 import { getIsLoading } from 'src/redux/user/selectors'
-import { MODAL_TITLE } from './constants'
+import { MODAL_TITLE, OPTIONS } from './constants'
 import { formRules } from './rules'
 
 const { Option } = Select
@@ -114,10 +114,11 @@ export const AddUsers = () => {
             />
           </Form.Item>
           <Form.Item label="Role" name="role" rules={[roleRules]}>
-            <Select disabled={isDisabled} placeholder="Select role">
-              <Option value="Admin" children="admin" />
-              <Option value="User" children="user" />
-            </Select>
+            <Select
+              disabled={isDisabled}
+              options={OPTIONS}
+              placeholder="Select role"
+            />
           </Form.Item>
           <Form.Item label="Age" name="age" rules={[ageRule]}>
             <InputNumber disabled={isDisabled} placeholder="Input age" />

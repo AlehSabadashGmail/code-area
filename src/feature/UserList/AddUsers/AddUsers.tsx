@@ -1,11 +1,11 @@
 import { Button, Form, Input, InputNumber, Select } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { Modal } from '../../../_atoms/Modal'
+import { Modal } from '_atoms/Modal'
 import './addUsers.scss'
-import { IUser } from '../../../store/user/type'
-import apiClient from '../../../helper/api'
-import { useAppDispatch, useAppSelector } from '../../../hooks'
-import { loadUsersAsync } from '../../../store/user/usersThunk'
+import { IUser } from 'store/user/type'
+import apiClient from 'helper/api'
+import { useAppDispatch, useAppSelector } from 'hooks'
+import { loadUsersAsync } from 'store/user/usersThunk'
 import { FormData, initialData } from '../constants'
 
 const { Option } = Select

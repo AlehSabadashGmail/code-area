@@ -95,7 +95,6 @@ export const UserList: React.FC = () => {
       title: 'Created at',
       dataIndex: 'created_at',
       key: 'created_at',
-      defaultSortOrder: 'descend',
       sorter: (a, b: IUser) => a.created_at.localeCompare(b.created_at),
       render: (date: string) => getDateFormat(date),
     },

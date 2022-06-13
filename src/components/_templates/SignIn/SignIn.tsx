@@ -1,23 +1,48 @@
+import React, { useContext, useEffect, useState } from 'react'
 import { Button, Checkbox, Form, Input, Space, Typography } from 'antd'
 import { LockOutlined, MailOutlined } from '@ant-design/icons'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-import { RULES_FORM } from '../../helper/helper'
+import { RULES_FORM } from '../../../helper/helper'
 import '../SignIn/style.scss'
+import { loadUsersAsync } from '../../../redux/user/usersThunk'
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
+import { ContextLocalStorage } from '../../../router/AppRotes'
 
 type FormData = {
-  email: string
+  username: string
   password: string
 }
 
-// const prepareUser = (formData: FormData): IUserState => ({
-//   email: formData.address,
-//   password: formData.password,
-// })
-
 export const SignIn = () => {
-  const onFinish = (values: any) => {
-    console.log('Success:', values)
+  const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const { user } = useAppSelector((state) => state.user)
+
+  useEffect(() => {
+    dispatch(loadUsersAsync())
+  }, [])
+
+  const username = user.map((item) => item.user_name)
+  const password = user.map((item) => item.password)
+
+  const setUsernameLocal = useContext(ContextLocalStorage)
+
+  const onFinish = (values: FormData) => {
+    if (
+      username.indexOf(values.username) > -1 &&
+      password.indexOf(values.password) > -1
+    ) {
+      if (setUsernameLocal) {
+        setUsernameLocal(values.username)
+        navigate('/users')
+      }
+    } else {
+      if (setUsernameLocal) {
+        setUsernameLocal(null)
+        alert('Вы не авторизованны')
+      }
+    }
   }
 
   return (

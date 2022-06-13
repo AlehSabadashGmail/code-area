@@ -3,7 +3,6 @@ import moment from 'moment'
 import { getDateNow } from 'src/helper/helper'
 
 export type FormData = {
-  id: string
   first_name: string
   last_name: string
   user_name: string
@@ -11,11 +10,9 @@ export type FormData = {
   age: number
   role: string
   password: string
-  created_at: string
 }
 
 export const initialData = (formData: FormData): IUser => ({
-  id: moment().toISOString(),
   first_name: formData.first_name,
   last_name: formData.last_name,
   user_name: formData.user_name,
@@ -23,5 +20,4 @@ export const initialData = (formData: FormData): IUser => ({
   age: formData.age,
   role: formData.role,
   password: formData.password,
-  created_at: getDateNow(),
 })

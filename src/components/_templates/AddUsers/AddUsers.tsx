@@ -11,8 +11,6 @@ import { getIsLoading } from 'src/redux/user/selectors'
 import { MODAL_TITLE, OPTIONS } from './constants'
 import { formRules } from './rules'
 
-const { Option } = Select
-
 export const AddUsers = () => {
   const dispatch = useAppDispatch()
 
@@ -35,6 +33,9 @@ export const AddUsers = () => {
 
   const onFinish = (values: FormData) => {
     setFormValues(initialData(values))
+    if (formValues) {
+      createUser()
+    }
   }
 
   const loadingState = () => {
@@ -50,12 +51,6 @@ export const AddUsers = () => {
     loadingState()
   }, [isLoading])
 
-  useEffect(() => {
-    if (formValues) {
-      createUser()
-    }
-  }, [formValues])
-
   const {
     firstNameRules,
     lastNameRules,
@@ -68,7 +63,7 @@ export const AddUsers = () => {
 
   return (
     <div>
-      <Button onClick={toggleModal}>Create user</Button>
+      <Button onClick={toggleModal}>{MODAL_TITLE}</Button>
       <Modal title={MODAL_TITLE} isOpen={isModalOpen} onClose={toggleModal}>
         <Form name="complex-form" onFinish={onFinish}>
           <Form.Item

@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage } from '../feature/HomePage'
-import { UserList } from '../feature/UserList'
+import { HomePage, UserList } from '../components/_pages'
 import { routes } from './Config/config.routes'
 
 const AppRoutes = () => {

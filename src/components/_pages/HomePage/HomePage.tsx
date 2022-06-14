@@ -10,7 +10,7 @@ export const HomePage = () => {
   const LogOut = () => {
     if (setUsernameLocal) {
       setUsernameLocal(null)
-      navigate('/')
+      navigate('/login')
     }
   }
   return (

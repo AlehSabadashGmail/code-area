@@ -4,22 +4,22 @@ import { HomePage, UsersPage, SignInPage } from '../components/_pages'
 import { useLocalStorage } from '../redux/hooks'
 import { routes } from './Config/config.routes'
 
-type SetUsername = (x: string | null) => void
+type SetToken = (x: string | null) => void
 
-export const ContextLocalStorage = React.createContext<SetUsername | null>(null)
+export const ContextLocalStorage = React.createContext<SetToken | null>(null)
 
 const AppRoutes = () => {
-  const [username, setUsername] = useLocalStorage<string | null>(
-    'username',
-    localStorage.getItem('username'),
+  const [token, setToken] = useLocalStorage<string | null>(
+    'token',
+    localStorage.getItem('token'),
   )
 
   return (
-    <ContextLocalStorage.Provider value={setUsername}>
+    <ContextLocalStorage.Provider value={setToken}>
       <Routes>
-        {username === null ? (
+        {token === null ? (
           <>
-            <Route path={routes.default} element={<SignInPage />} />
+            <Route path={routes.login} element={<SignInPage />} />
           </>
         ) : (
           <>

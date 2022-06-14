@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { FormFilter } from '../components/_organisms'
 import { HomePage, UsersPage, SignInPage } from '../components/_pages'
 import { useLocalStorage } from '../redux/hooks'
 import { routes } from './Config/config.routes'
@@ -25,6 +26,7 @@ const AppRoutes = () => {
           <>
             <Route path={routes.homepage} element={<HomePage />} />
             <Route path={routes.usersList} element={<UsersPage />} />
+            <Route path={routes.filter} element={<FormFilter />} />
           </>
         )}
       </Routes>

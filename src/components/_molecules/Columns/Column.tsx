@@ -9,12 +9,7 @@ export const columns: ColumnsType<IUser> = [
     title: 'User name',
     dataIndex: 'user_name',
     key: 'user_name',
-    filterDropdown: ({
-      setSelectedKeys,
-      selectedKeys,
-      confirm,
-      clearFilters,
-    }) => {
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => {
       return (
         <>
           <Input
@@ -90,7 +85,7 @@ export const columns: ColumnsType<IUser> = [
     dataIndex: 'created_at',
     key: 'created_at',
     defaultSortOrder: 'descend',
-    sorter: (a, b: IUser) => a.created_at.localeCompare(b.created_at),
+    sorter: (a, b: IUser) => a.created_at?.localeCompare(b.created_at),
     render: (date: string) => getDateFormat(date),
   },
 ]

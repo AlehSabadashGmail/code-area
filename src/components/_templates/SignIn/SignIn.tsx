@@ -8,6 +8,7 @@ import '../SignIn/style.scss'
 import { loadUsersAsync } from '../../../redux/user/usersThunk'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { ContextLocalStorage } from '../../../router/AppRotes'
+import { getUserInfo } from '../../../redux/user/selectors'
 
 type FormData = {
   username: string
@@ -17,7 +18,7 @@ type FormData = {
 export const SignIn = () => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
-  const { user } = useAppSelector((state) => state.user)
+  const { user } = useAppSelector(getUserInfo)
 
   useEffect(() => {
     dispatch(loadUsersAsync())

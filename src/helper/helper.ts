@@ -12,3 +12,9 @@ export const RULES_FORM = {
     message: 'Please input your password!',
   },
 } as const
+
+export const OPTIONS = [
+  { value: 'admin', label: 'admin' },
+  { value: 'user', label: 'user' },
+  { value: 'observer', label: 'observer' },
+]

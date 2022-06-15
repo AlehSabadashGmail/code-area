@@ -1,7 +1,7 @@
 import { Button, Form, Input, InputNumber } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import React, { useState } from 'react'
-import api from '../../../helper/api'
+import apiClient from '../../../helper/api'
 import { IOrder } from '../../../redux/orders/type'
 import { Modal } from '../../_atoms/Modal'
 import { currentUser, initialOrderData, OrderData } from '../constants'
@@ -19,7 +19,7 @@ export const AddOrders = () => {
   const onClose = () => setModalState(false)
 
   const createOrders = () => {
-    api()
+    apiClient()
       .post('orders', ordersValues)
       .then((response) => console.log(response.data))
   }

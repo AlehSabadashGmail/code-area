@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+const token = JSON.parse(localStorage.getItem('token') || '')
+
 const apiClient = () => {
   const axiosInstance = axios.create({
     baseURL: 'https://core-area-api.herokuapp.com/',
@@ -7,7 +9,7 @@ const apiClient = () => {
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
+      Authorization: 'Bearer ' + token,
     },
   })
 

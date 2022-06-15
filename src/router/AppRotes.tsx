@@ -19,7 +19,7 @@ const AppRoutes = () => {
       <Routes>
         {token === null ? (
           <>
-            <Route path={routes.login} element={<SignInPage />} />
+            <Route path={routes.default} element={<SignInPage />} />
           </>
         ) : (
           <>

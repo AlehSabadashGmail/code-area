@@ -1,33 +1,33 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IUser, IUserState } from '../user/type'
+import { IUser, IUserState } from '../users/type'
 
 const initialState: IUserState = {
-  user: [],
+  users: [],
   isLoading: false,
   isLoaded: false,
   error: null,
 }
 
 export const userSlice = createSlice({
-  name: 'user',
+  name: 'users',
   initialState,
   reducers: {
     usersLoadStart(state: IUserState) {
       state.isLoading = false
-      state.user = []
+      state.users = []
     },
     usersLoadSuccess(state: IUserState, action: PayloadAction<IUser[]>) {
       state.isLoading = false
       state.error = ''
-      state.user = action.payload
+      state.users = action.payload
     },
     setUsers(state: IUserState, action: PayloadAction<IUser[]>) {
       const data = action.payload
       state.isLoaded = true
-      state.user = data
+      state.users = data
     },
     clearUsers(state: IUserState) {
-      state.user = []
+      state.users = []
     },
   },
 })

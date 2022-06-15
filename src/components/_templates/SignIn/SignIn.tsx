@@ -1,12 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { Button, Checkbox, Form, Input, Space, Typography } from 'antd'
 import { LockOutlined, MailOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 
 import { RULES_FORM } from '../../../helper/helper'
 import '../SignIn/style.scss'
-import { loadUsersAsync } from '../../../redux/user/usersThunk'
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { ContextLocalStorage } from '../../../router/AppRotes'
 import { getUserInfo } from '../../../redux/user/selectors'
 
@@ -17,33 +15,28 @@ type FormData = {
 
 export const SignIn = () => {
   const navigate = useNavigate()
-  const dispatch = useAppDispatch()
-  const { user } = useAppSelector(getUserInfo)
-
-  useEffect(() => {
-    dispatch(loadUsersAsync())
-  }, [])
-
-  const username = user.map((item) => item.user_name)
-  const password = user.map((item) => item.password)
-
   const setUsernameLocal = useContext(ContextLocalStorage)
 
   const onFinish = (values: FormData) => {
-    if (
-      username.indexOf(values.username) > -1 &&
-      password.indexOf(values.password) > -1
-    ) {
-      if (setUsernameLocal) {
-        setUsernameLocal(values.username)
-        navigate('/users')
-      }
-    } else {
-      if (setUsernameLocal) {
-        setUsernameLocal(null)
-        alert('Вы не авторизованны')
-      }
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        login: values.username,
+        password: values.password,
+      }),
     }
+    fetch('https://core-area-api.herokuapp.com/login', requestOptions)
+      .then((response) => response.json())
+      .then((response) => {
+        if (setUsernameLocal) {
+          setUsernameLocal(response.token)
+          navigate('/users')
+        }
+      })
   }
 
   return (

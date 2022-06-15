@@ -16,21 +16,20 @@ const AppRoutes = () => {
   )
 
   return (
-    <ContextLocalStorage.Provider value={setUsername}>
-      <Routes>
-        {username === null ? (
-          <>
-            <Route path={routes.default} element={<SignInPage />} />
-          </>
+    // <ContextLocalStorage.Provider value={setUsername}>
+    <Routes>
+      {/* {username === null ? (
+          <> */}
+      <Route path={routes.default} element={<SignInPage />} />
+      {/* </>
         ) : (
-          <>
-            <Route path={routes.homepage} element={<HomePage />} />
-            <Route path={routes.usersList} element={<UsersPage />} />
-            <Route path={routes.filter} element={<FormFilter />} />
-          </>
-        )}
-      </Routes>
-    </ContextLocalStorage.Provider>
+          <> */}
+      <Route path={routes.homepage} element={<HomePage />} />
+      <Route path={routes.usersList} element={<UsersPage />} />
+      {/* </>
+        )} */}
+    </Routes>
+    // </ContextLocalStorage.Provider>
   )
 }
 export default AppRoutes

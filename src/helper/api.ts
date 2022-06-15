@@ -8,7 +8,7 @@ const apiClient = () => {
       'Content-Type': 'application/json',
       Authorization:
         'Bearer ' +
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM4ZTE2NjIyLTU2ZTUtNDNjZi04MTM3LTAyMzBjMWNhOGQ0ZCIsImVtYWlsIjoiYmVybmFyZGJvbmRAaW5zZWN0dXMuY29tIiwidXNlcl9uYW1lIjoiWXRTdFdia3BRM3VpMiIsInBhc3N3b3JkIjoiRldlcDhvQzhtOU5uWjgiLCJleHAiOjE2NTUyMjI1MTMwMTMsImlhdCI6MTY1NTIxNTMxMzAxM30.E2ljeJO-RF4PE-J6YXQdQ1T3TEUctm_Nxv60qAKtn7Y',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhiNmIyNWY0LTg1YmUtNGQyMy1iOTMyLWIwODlkZGViMDRjMiIsImVtYWlsIjoiemFtb3JhbWF4d2VsbEBpbnNlY3R1cy5jb20iLCJ1c2VyX25hbWUiOiJNQWc0b3dheWpXdCIsInBhc3N3b3JkIjoiNUhURE9QNHd4Y3VJTmpTIiwiZXhwIjoxNjU1MjUwMzE3OTIxLCJpYXQiOjE2NTUyNDMxMTc5MjF9.4krHDEjiEsqdHYfIH5RkY_Xu__9A64BHo6uT8BfCVlw',
     },
   })
 

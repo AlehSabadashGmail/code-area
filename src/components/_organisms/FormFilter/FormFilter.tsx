@@ -3,6 +3,7 @@ import { Button, Form, Input, InputNumber, Select } from 'antd'
 
 import './style.scss'
 import { OPTIONS, RULES_FORM } from '../../../helper/helper'
+import { columns } from '../../_molecules'
 
 type FormData = {
   fullname: string

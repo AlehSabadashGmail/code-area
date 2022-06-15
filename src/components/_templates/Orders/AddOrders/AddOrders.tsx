@@ -1,15 +1,19 @@
 import { Button, Form, Input, InputNumber } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
-import React, { useState } from 'react'
-import apiClient from '../../../helper/api'
-import { IOrder } from '../../../redux/orders/type'
-import { Modal } from '../../_atoms/Modal'
-import { currentUser, initialOrderData, OrderData } from '../constants'
+import React, { useEffect, useState } from 'react'
+import apiClient from '../../../../helper/api'
+import { useAppDispatch } from '../../../../redux/hooks'
+import { loadOrdersAsync } from '../../../../redux/orders/orderThunk'
+import { IOrder } from '../../../../redux/orders/type'
+import { Modal } from '../../../_atoms/Modal'
+import { currentUser, initialOrderData, OrderData } from '../../constants'
 import './AddOrders.scss'
-import { CONSTANTS_TEXT } from './constants'
+import { CONSTANTS_TEXT } from '../constants'
 import { orderFormRules } from './rules'
 
 export const AddOrders = () => {
+  const dispatch = useAppDispatch()
+
   const [isModalOpen, setModalState] = useState(false)
   const [ordersValues, setOrdersValues] = useState<IOrder | null>(null)
 
@@ -21,14 +25,16 @@ export const AddOrders = () => {
   const createOrders = () => {
     apiClient()
       .post('orders', ordersValues)
-      .then((response) => console.log(response.data))
+      .then(() => {
+        dispatch(loadOrdersAsync())
+      })
   }
 
   const onFinish = (values: OrderData) => {
-    setOrdersValues(initialOrderData(values))
     if (ordersValues) {
       createOrders()
     }
+    setOrdersValues(initialOrderData(values))
   }
 
   const getCurrenLocation = () => {

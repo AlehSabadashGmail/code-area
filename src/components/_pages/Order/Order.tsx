@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { OrderList } from '../../_templates'
+import React from 'react'
+import { IOrdersState } from '../../../redux/orders/type'
+import { OrderList } from '../../_templates/Orders/OrderList'
 
-export const Order = () => {
+export const Order = ({ orders }: IOrdersState) => {
   return (
     <>
-      <div>Order</div>
-      <OrderList />
+      <OrderList orders={orders} />
     </>
   )
 }

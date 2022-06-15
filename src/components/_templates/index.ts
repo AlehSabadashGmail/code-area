@@ -1,3 +1,2 @@
-export { AddOrders } from './AddOrders'
-export { OrdersItem } from './OrdersItems'
-export { OrderList } from './OrderList'
+export { AddOrders } from './Orders/AddOrders'
+export { OrdersItems } from './Orders'

@@ -3,6 +3,23 @@ import { ColumnsType } from 'antd/lib/table/interface'
 import { getDateFormat } from '../../../helper/helper'
 import { IUser } from '../../../redux/users/type'
 import { SearchOutlined } from '@ant-design/icons'
+import { ButtonDeleteUser } from '../ButtonDeleteUser'
+
+const token = JSON.parse(localStorage.getItem('token') || '')
+
+const deleteUser = (id: string) => {
+  const requestOptions = {
+    method: 'DELETE',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token,
+    },
+  }
+  fetch(`https://core-area-api.herokuapp.com/users/${id}`, requestOptions).then(
+    () => console.log('Delete successful'),
+  )
+}
 
 export const columns: ColumnsType<IUser> = [
   {
@@ -79,5 +96,16 @@ export const columns: ColumnsType<IUser> = [
     defaultSortOrder: 'descend',
     sorter: (a, b: IUser) => a.created_at?.localeCompare(b.created_at),
     render: (date: string) => getDateFormat(date),
+  },
+  {
+    title: 'Delete Users',
+    dataIndex: 'delete',
+    render: (text, record, index) => (
+      <ButtonDeleteUser
+        onConfirm={(e) => {
+          deleteUser(record.id)
+        }}
+      />
+    ),
   },
 ]

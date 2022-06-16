@@ -17,7 +17,7 @@ const AppRoutes = () => {
   return (
     <ContextLocalStorage.Provider value={setToken}>
       <Routes>
-        {token === null ? (
+        {token === null || localStorage.length === 1 ? (
           <>
             <Route path={routes.default} element={<SignInPage />} />
           </>

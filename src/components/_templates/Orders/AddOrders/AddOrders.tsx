@@ -1,26 +1,22 @@
 import { Button, Form, Input, InputNumber } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import React, { useEffect, useState } from 'react'
-import apiClient from '../../../../helper/api'
-import { useAppDispatch } from '../../../../redux/hooks'
-import { loadOrdersAsync } from '../../../../redux/orders/orderThunk'
-import { IOrder } from '../../../../redux/orders/type'
-import { Modal } from '../../../_atoms/Modal'
-import { currentUser, initialOrderData, OrderData } from '../../constants'
+import apiClient from 'src/helper/api'
+import { useAppDispatch } from 'src/redux/hooks'
+import { loadOrdersAsync } from 'src/redux/orders/orderThunk'
+import { IOrder } from 'src/redux/orders/type'
 import './AddOrders.scss'
 import { CONSTANTS_TEXT } from '../constants'
-import { orderFormRules } from './rules'
+import { AreaModal } from 'src/components/_atoms/Modal'
+import { currentUser, initialOrderData, OrderData } from '../../constants'
+import { useRules } from './rules'
 
 export const AddOrders = () => {
   const dispatch = useAppDispatch()
 
-  const [isModalOpen, setModalState] = useState(false)
   const [ordersValues, setOrdersValues] = useState<IOrder | null>(null)
 
   const [form] = Form.useForm()
-
-  const toggleModal = () => setModalState(!isModalOpen)
-  const onClose = () => setModalState(false)
 
   const createOrders = () => {
     apiClient()
@@ -46,18 +42,15 @@ export const AddOrders = () => {
     })
   }
 
-  const { rule } = orderFormRules()
-
   return (
     <div>
-      <Button onClick={toggleModal}>{CONSTANTS_TEXT.CREATE_ORDERS}</Button>
-      <Modal
-        title={CONSTANTS_TEXT.CREATE_ORDERS}
-        isOpen={isModalOpen}
-        onClose={toggleModal}
-      >
+      <AreaModal buttonText="Create order" title="Create order">
         <Form name="complex-form" form={form} onFinish={onFinish}>
-          <Form.Item label="Product name" name="product_name" rules={[rule]}>
+          <Form.Item
+            label="Product name"
+            name="product_name"
+            rules={[useRules]}
+          >
             <Input
               autoComplete="new-password"
               placeholder="Please input product name"
@@ -65,15 +58,15 @@ export const AddOrders = () => {
           </Form.Item>
           <Form.Item label="Price">
             <Input.Group compact>
-              <Form.Item name="price_min" rules={[rule]}>
+              <Form.Item name="price_min" rules={[useRules]}>
                 <InputNumber placeholder="Min" />
               </Form.Item>
-              <Form.Item name="price_max" rules={[rule]}>
+              <Form.Item name="price_max" rules={[useRules]}>
                 <InputNumber className="site-input-right" placeholder="Max" />
               </Form.Item>
             </Input.Group>
           </Form.Item>
-          <Form.Item label="Address" name="address" rules={[rule]}>
+          <Form.Item label="Address" name="address" rules={[useRules]}>
             <Input
               autoComplete="new-password"
               placeholder="Please input address"
@@ -85,14 +78,14 @@ export const AddOrders = () => {
           <Form.Item
             label="Latitude"
             name={['location', 'latitude']}
-            rules={[rule]}
+            rules={[useRules]}
           >
             <Input placeholder="Input latitude" />
           </Form.Item>
           <Form.Item
             label="Longitude"
             name={['location', 'longitude']}
-            rules={[rule]}
+            rules={[useRules]}
           >
             <Input placeholder="Input longitude" />
           </Form.Item>
@@ -109,8 +102,10 @@ export const AddOrders = () => {
             </Button>
           </Form.Item>
         </Form>
-        <Button onClick={onClose}>{CONSTANTS_TEXT.BUTTON_CANCEL}</Button>
-      </Modal>
+        <Button type="primary" htmlType="submit">
+          Cancel
+        </Button>
+      </AreaModal>
     </div>
   )
 }

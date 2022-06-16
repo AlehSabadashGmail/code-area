@@ -1,4 +1,4 @@
-import Service from '../../services/services'
+import Service from 'src/services/services'
 import { ordersLoadStart, ordersLoadFinish } from '../reducers/ordersSlice'
 import { AppDispatch } from '../store'
 

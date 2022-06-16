@@ -1,3 +1,4 @@
+import { Typography } from 'antd'
 import { IOrder } from '../../redux/orders/type'
 
 export type OrderData = {
@@ -45,3 +46,5 @@ export const currentUser = {
   role: 'admin',
   created_at: '2022-02-21T07:47:53.231Z',
 }
+
+export const { Title } = Typography

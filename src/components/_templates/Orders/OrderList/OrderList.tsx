@@ -1,9 +1,11 @@
-import { List, Select, Typography } from 'antd'
+import { List, Select } from 'antd'
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useAppDispatch } from '../../../../redux/hooks'
-import { loadOrdersAsync } from '../../../../redux/orders/orderThunk'
-import { IOrder, IOrdersState } from '../../../../redux/orders/type'
+import { useAppDispatch } from 'src/redux/hooks'
+import { loadOrdersAsync } from 'src/redux/orders/orderThunk'
+import { IOrder, IOrdersState } from 'src/redux/orders/type'
+import { Title } from '../../constants'
 import { AddOrders } from '../AddOrders'
 import { CONSTANTS_TEXT, OPTIONS } from '../constants'
 import './OrderList.scss'
@@ -16,8 +18,6 @@ export const OrderList = ({ orders }: IOrdersState) => {
   useEffect(() => {
     setFilteredOrders(orders)
   }, [orders])
-
-  const { Title } = Typography
 
   useEffect(() => {
     dispatch(loadOrdersAsync())
@@ -34,6 +34,8 @@ export const OrderList = ({ orders }: IOrdersState) => {
         : orders,
     )
   }
+
+
 
   return (
     <div className="list_wrapper">

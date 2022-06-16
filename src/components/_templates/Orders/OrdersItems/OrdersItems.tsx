@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
-import { IOrdersState } from '../../../../redux/orders/type'
+import { IOrdersState } from 'src/redux/orders/type'
 import { OrderList } from '../OrderList'
-import { Typography } from 'antd'
 import './OrdersItems.scss'
 import { CONSTANTS_TEXT } from '../constants'
+import { Title } from '../../constants'
 
 export const OrdersItems = ({ orders }: IOrdersState) => {
   const { id } = useParams()
-
-  const { Title } = Typography
 
   const order = orders.find((p) => p.id == id)
 

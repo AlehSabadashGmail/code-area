@@ -1,21 +1,37 @@
-import React, { ReactNode } from 'react'
+import { Button, Modal } from 'antd'
+import React, { ReactNode, useState } from 'react'
 import './Modal.scss'
 
 interface ModalProps {
   title: string
-  isOpen: boolean
-  onClose: () => void
+  buttonText: string
   children: ReactNode
 }
 
-export const Modal = ({ title, isOpen, children }: ModalProps) => {
-  return isOpen ? (
-    <div className="modal">
-      <div className="modal_wrapper" />
-      <div className="modal_box">
-        <div className="modal_title">{title}</div>
-        <div>{children}</div>
-      </div>
-    </div>
-  ) : null
+export const AreaModal = ({ buttonText, title, children }: ModalProps) => {
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const showModal = () => {
+    setIsModalVisible(true)
+  }
+
+  const handleCancel = () => {
+    setIsModalVisible(false)
+  }
+
+  return (
+    <>
+      <Button type="primary" onClick={showModal}>
+        {buttonText}
+      </Button>
+      <Modal
+        okButtonProps={{ style: { display: 'none' } }}
+        title={title}
+        visible={isModalVisible}
+        onCancel={handleCancel}
+      >
+        {children}
+      </Modal>
+    </>
+  )
 }

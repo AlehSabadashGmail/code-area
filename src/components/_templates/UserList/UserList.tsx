@@ -5,10 +5,11 @@ import '../UserList/styles.scss'
 import { loadUsersAsync } from '../../../redux/user/usersThunk'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { List } from '../../_organisms'
+import { getUserInfo } from '../../../redux/user/selecor'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()
-  const { user } = useAppSelector((state) => state.user)
+  const { users } = useAppSelector(getUserInfo)
 
   useEffect(() => {
     dispatch(loadUsersAsync())
@@ -17,9 +18,9 @@ export const UserList: React.FC = () => {
   return (
     <div>
       <Typography className="header-list-user">
-        User List: {user.length}
+        User List: {users.length}
       </Typography>
-      <List children={user} className={'user-list'} />
+      <List children={users} className={'user-list'} />
     </div>
   )
 }

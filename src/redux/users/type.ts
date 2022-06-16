@@ -1,4 +1,5 @@
 export interface IUser {
+  [x: string]: any
   id: string
   is_active?: boolean
   image?: string
@@ -22,4 +23,5 @@ export interface IUserState {
   isLoading: boolean
   isLoaded: boolean
   error: any | null
+  filteredUsers: IUser[]
 }

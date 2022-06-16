@@ -1,4 +1,4 @@
-import { Button, Input } from 'antd'
+import { Input } from 'antd'
 import { ColumnsType } from 'antd/lib/table/interface'
 import { getDateFormat } from '../../../helper/helper'
 import { IUser } from '../../../redux/users/type'
@@ -27,14 +27,6 @@ export const columns: ColumnsType<IUser> = [
               confirm()
             }}
           />
-          <Button
-            onClick={() => {
-              confirm()
-            }}
-            type="primary"
-          >
-            Search
-          </Button>
         </>
       )
     },

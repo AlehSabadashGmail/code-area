@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { FormFilter } from '../components/_organisms'
 import { HomePage, UsersPage, SignInPage } from '../components/_pages'
 import { useLocalStorage } from '../redux/hooks'
 import { routes } from './Config/config.routes'

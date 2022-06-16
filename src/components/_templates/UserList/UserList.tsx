@@ -6,10 +6,12 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { List } from '../../_organisms'
 import { loadUsersAsync } from '../../../redux/users/usersThunk'
 import { ModalFilter } from '../../_molecules'
+import { getFilteredUsers, getUserInfo } from '../../../redux/users/selectors'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()
-  const { users } = useAppSelector((state) => state.user)
+  const { users } = useAppSelector(getUserInfo)
+  const filterdUsers = useAppSelector(getFilteredUsers)
 
   useEffect(() => {
     dispatch(loadUsersAsync())
@@ -18,10 +20,10 @@ export const UserList: React.FC = () => {
   return (
     <div>
       <Typography className="header-list-user">
-        User List: {users.length}
-        <ModalFilter />
+        User List: {filterdUsers.length}
+        <ModalFilter children={users} />
       </Typography>
-      <List children={users} className={'user-list'} />
+      <List children={filterdUsers} className={'user-list'} />
     </div>
   )
 }

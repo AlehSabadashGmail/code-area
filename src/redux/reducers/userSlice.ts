@@ -6,6 +6,7 @@ const initialState: IUserState = {
   isLoading: false,
   isLoaded: false,
   error: null,
+  filteredUsers: [],
 }
 
 export const userSlice = createSlice({
@@ -20,11 +21,16 @@ export const userSlice = createSlice({
       state.isLoading = false
       state.error = ''
       state.users = action.payload
+      state.filteredUsers = [...state.users]
     },
     setUsers(state: IUserState, action: PayloadAction<IUser[]>) {
       const data = action.payload
       state.isLoaded = true
       state.users = data
+      state.filteredUsers = [...state.users]
+    },
+    setFilteredUsers(state: IUserState, action: PayloadAction<IUser[]>) {
+      state.filteredUsers = action.payload
     },
     clearUsers(state: IUserState) {
       state.users = []
@@ -33,5 +39,10 @@ export const userSlice = createSlice({
 })
 
 export default userSlice.reducer
-export const { usersLoadStart, usersLoadSuccess, setUsers, clearUsers } =
-  userSlice.actions
+export const {
+  usersLoadStart,
+  usersLoadSuccess,
+  setUsers,
+  clearUsers,
+  setFilteredUsers,
+} = userSlice.actions

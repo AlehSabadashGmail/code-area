@@ -4,8 +4,9 @@ import { FilterOutlined } from '@ant-design/icons'
 
 import './style.scss'
 import { FormFilter } from '../../_organisms'
+import { ModalFilterType } from './ModalFilterType'
 
-export const ModalFilter: React.FC = () => {
+export const ModalFilter = ({ ...props }: ModalFilterType): JSX.Element => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const showModal = () => {
@@ -30,10 +31,10 @@ export const ModalFilter: React.FC = () => {
       <Modal
         title="Filter in table"
         visible={isModalVisible}
-        onOk={handleOk}
         onCancel={handleCancel}
+        okButtonProps={{ style: { display: 'none' } }}
       >
-        <FormFilter />
+        <FormFilter children={props.children} onClick={handleOk} />
       </Modal>
     </>
   )

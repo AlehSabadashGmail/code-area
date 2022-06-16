@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 import { RULES_FORM } from '../../../helper/helper'
 import '../SignIn/style.scss'
 import { ContextLocalStorage } from '../../../router/AppRotes'
-import { getUserInfo } from '../../../redux/user/selectors'
 
 type FormData = {
   username: string

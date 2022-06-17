@@ -8,6 +8,6 @@ export const HTTP_METHODS = {
 
 export const API_HOSTS = {
   AUTH: '/',
-  USERS: '/users',
+  USERS: '/',
   USERS_ID: '/users/:id',
 } as const

@@ -1,7 +1,14 @@
 import { SignInData } from '../../components/_templates/SignIn/api'
-import { error, finish, loading, setUsers } from '../reducers/userSlice'
+import {
+  error,
+  finish,
+  loading,
+  setUsers,
+  usersLoadSuccess,
+} from '../reducers/usersSlice'
 import { AppThunk } from '../store'
 import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
+import { reqestUserInfo as reqestUserInfoAPI } from '../../components/_templates/UserList/api'
 
 export type RequestSignInActionProps = {
   users: SignInData
@@ -27,3 +34,15 @@ export const requestSignIn =
       dispatch(finish())
     }
   }
+
+export const requestUserInfo = (): AppThunk => async (dispatch) => {
+  try {
+    dispatch(loading())
+    const response = await reqestUserInfoAPI()
+    dispatch(usersLoadSuccess(response.data))
+  } catch (err) {
+    dispatch(error({ error: err }))
+  } finally {
+    dispatch(finish())
+  }
+}

@@ -102,7 +102,7 @@ class Fetcher {
   ): Promise<AxiosResponse<TResponse>> =>
     this.request({
       ...requestConfig,
-      baseURL: '',
+      baseURL: API_HOSTS.USERS,
     })
 }
 

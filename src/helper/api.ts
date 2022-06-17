@@ -1,19 +1,13 @@
-import axios from 'axios'
+export const HTTP_METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  PATCH: 'PATCH',
+  DELETE: 'DELETE',
+} as const
 
-const token = JSON.parse(localStorage.getItem('token') || '')
-
-const apiClient = () => {
-  const axiosInstance = axios.create({
-    baseURL: 'https://core-area-api.herokuapp.com/',
-    responseType: 'json',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + token,
-    },
-  })
-
-  return axiosInstance
-}
-
-export default apiClient
+export const API_HOSTS = {
+  AUTH: '/',
+  USERS: '/users',
+  USERS_ID: '/users/:id',
+} as const

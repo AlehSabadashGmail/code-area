@@ -9,12 +9,7 @@ export const columns: ColumnsType<IUser> = [
     title: 'User name',
     dataIndex: 'user_name',
     key: 'user_name',
-    filterDropdown: ({
-      setSelectedKeys,
-      selectedKeys,
-      confirm,
-      clearFilters,
-    }) => {
+    filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => {
       return (
         <>
           <Input

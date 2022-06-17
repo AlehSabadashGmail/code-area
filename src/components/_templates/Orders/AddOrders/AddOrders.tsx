@@ -9,7 +9,7 @@ import './AddOrders.scss'
 import { CONSTANTS_TEXT } from '../constants'
 import { ModalDefault } from 'src/components/_atoms/Modal'
 import { currentUser, initialOrderData, OrderData } from '../../constants'
-import { useRules } from './rules'
+import { useRequire } from './rules'
 
 export const AddOrders = () => {
   const dispatch = useAppDispatch()
@@ -42,17 +42,13 @@ export const AddOrders = () => {
     })
   }
 
-  const require = useRules()
+  const require = useRequire()
 
   return (
     <div>
       <ModalDefault buttonText="Create order" title="Create order">
         <Form name="complex-form" form={form} onFinish={onFinish}>
-          <Form.Item
-            label="Product name"
-            name="product_name"
-            rules={[useRules]}
-          >
+          <Form.Item label="Product name" name="product_name" rules={[require]}>
             <Input
               autoComplete="new-password"
               placeholder="Please input product name"

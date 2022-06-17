@@ -1,4 +1,4 @@
-export const useRules = () => {
+export const useRequire = () => {
   return {
     required: true,
     message: 'This field is required!',

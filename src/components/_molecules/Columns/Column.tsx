@@ -1,3 +1,5 @@
+import { SearchOutlined } from '@ant-design/icons'
+
 import { ColumnsType } from 'antd/lib/table/interface'
 import { SearchOutlined } from '@ant-design/icons'
 import { Input } from 'antd'
@@ -7,7 +9,6 @@ import { IUser } from '../../../redux/users/type'
 import { ButtonDeleteUser } from '../ButtonDeleteUser'
 import { deleteUser } from './api'
 import { useAppDispatch } from '../../../redux/hooks'
-import { loadUsersAsync } from '../../../redux/users/usersThunk'
 
 export const Columns = () => {
   const dispatch = useAppDispatch()

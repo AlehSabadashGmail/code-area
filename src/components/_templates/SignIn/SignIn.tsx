@@ -1,41 +1,30 @@
-import React, { useContext } from 'react'
 import { Button, Checkbox, Form, Input, Space, Typography } from 'antd'
 import { LockOutlined, MailOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
 
+import { requestSignIn } from '../../../redux/users/action'
+import { useAppDispatch } from '../../../redux/hooks'
 import { RULES_FORM } from '../../../helper/helper'
+import { SignInData } from './api'
 import '../SignIn/style.scss'
-import { ContextLocalStorage } from '../../../router/AppRotes'
 
 type FormData = {
   username: string
   password: string
 }
 
+const prepareUser = (formData: FormData): SignInData => ({
+  login: formData.username,
+  password: formData.password,
+})
+
 export const SignIn = () => {
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const setUsernameLocal = useContext(ContextLocalStorage)
 
   const onFinish = (values: FormData) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        login: values.username,
-        password: values.password,
-      }),
-    }
-    fetch('https://core-area-api.herokuapp.com/login', requestOptions)
-      .then((response) => response.json())
-      .then((response) => {
-        if (setUsernameLocal) {
-          setUsernameLocal(response.token)
-          navigate('/users')
-        }
-      })
+    dispatch(requestSignIn({ users: prepareUser(values) }))
+    navigate('/home-page')
   }
 
   return (

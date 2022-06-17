@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { Typography } from 'antd'
 
 import '../UserList/styles.scss'
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { List } from '../../_organisms'
 import { loadUsersAsync } from '../../../redux/users/usersThunk'
 import { ModalFilter } from '../../_molecules'
@@ -14,7 +13,7 @@ export const UserList: React.FC = () => {
   const filterdUsers = useAppSelector(getFilteredUsers)
 
   useEffect(() => {
-    dispatch(loadUsersAsync())
+    dispatch(requestUserInfo())
   }, [])
 
   return (

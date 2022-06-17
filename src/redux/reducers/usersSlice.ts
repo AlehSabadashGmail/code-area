@@ -13,6 +13,10 @@ export const userSlice = createSlice({
   name: 'users',
   initialState,
   reducers: {
+    loading(state: IUserState) {
+      state.isLoading = true
+      state.error = null
+    },
     usersLoadStart(state: IUserState) {
       state.isLoading = false
       state.users = []
@@ -23,8 +27,18 @@ export const userSlice = createSlice({
       state.users = action.payload
       state.filteredUsers = [...state.users]
     },
-    setUsers(state: IUserState, action: PayloadAction<IUser[]>) {
-      const data = action.payload
+    finish(state: IUserState) {
+      state.isLoading = false
+    },
+    error(
+      state: IUserState,
+      action: PayloadAction<{ error: IUserState['error'] }>,
+    ) {
+      const { error } = action.payload
+      state.error = error
+    },
+    setUsers(state: IUserState, action: PayloadAction<{ data: IUser[] }>) {
+      const { data } = action.payload
       state.isLoaded = true
       state.users = data
       state.filteredUsers = [...state.users]

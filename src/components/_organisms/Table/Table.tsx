@@ -1,9 +1,10 @@
 import { Table } from 'antd'
 import cn from 'classnames'
-import { columns } from '../../_molecules/Columns/Column'
+import { Columns } from '../../_molecules/Columns/Column'
 import { TableType } from './Table.d'
 
 export const List = ({ ...props }: TableType) => {
+  const columns = Columns()
   return (
     <div className={cn('user-list', props.className)}>
       <Table

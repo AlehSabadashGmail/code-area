@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { useAppSelector } from '../../../redux/hooks'
-import { getOrders } from '../../../redux/orders/selectors'
-import { routes } from '../../../router/Config/config.routes'
-import { Order } from '../../_pages/Order'
+import { Order } from 'src/components/_pages'
+import { useAppSelector } from 'src/redux/hooks'
+import { getOrders } from 'src/redux/orders/selectors'
+import { routes } from 'src/router/Config/config.routes'
 import { OrdersItems } from './OrdersItems'
 
 export const OrdersRoutes = () => {

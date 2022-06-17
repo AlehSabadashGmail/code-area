@@ -7,7 +7,7 @@ import { loadOrdersAsync } from 'src/redux/orders/orderThunk'
 import { IOrder } from 'src/redux/orders/type'
 import './AddOrders.scss'
 import { CONSTANTS_TEXT } from '../constants'
-import { AreaModal } from 'src/components/_atoms/Modal'
+import { ModalDefault } from 'src/components/_atoms/Modal'
 import { currentUser, initialOrderData, OrderData } from '../../constants'
 import { useRules } from './rules'
 
@@ -42,9 +42,11 @@ export const AddOrders = () => {
     })
   }
 
+  const require = useRules()
+
   return (
     <div>
-      <AreaModal buttonText="Create order" title="Create order">
+      <ModalDefault buttonText="Create order" title="Create order">
         <Form name="complex-form" form={form} onFinish={onFinish}>
           <Form.Item
             label="Product name"
@@ -58,15 +60,15 @@ export const AddOrders = () => {
           </Form.Item>
           <Form.Item label="Price">
             <Input.Group compact>
-              <Form.Item name="price_min" rules={[useRules]}>
+              <Form.Item name="price_min" rules={[require]}>
                 <InputNumber placeholder="Min" />
               </Form.Item>
-              <Form.Item name="price_max" rules={[useRules]}>
+              <Form.Item name="price_max" rules={[require]}>
                 <InputNumber className="site-input-right" placeholder="Max" />
               </Form.Item>
             </Input.Group>
           </Form.Item>
-          <Form.Item label="Address" name="address" rules={[useRules]}>
+          <Form.Item label="Address" name="address" rules={[require]}>
             <Input
               autoComplete="new-password"
               placeholder="Please input address"
@@ -78,14 +80,14 @@ export const AddOrders = () => {
           <Form.Item
             label="Latitude"
             name={['location', 'latitude']}
-            rules={[useRules]}
+            rules={[require]}
           >
             <Input placeholder="Input latitude" />
           </Form.Item>
           <Form.Item
             label="Longitude"
             name={['location', 'longitude']}
-            rules={[useRules]}
+            rules={[require]}
           >
             <Input placeholder="Input longitude" />
           </Form.Item>
@@ -102,10 +104,7 @@ export const AddOrders = () => {
             </Button>
           </Form.Item>
         </Form>
-        <Button type="primary" htmlType="submit">
-          Cancel
-        </Button>
-      </AreaModal>
+      </ModalDefault>
     </div>
   )
 }

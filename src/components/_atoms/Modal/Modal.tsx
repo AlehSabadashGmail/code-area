@@ -8,7 +8,7 @@ interface ModalProps {
   children: ReactNode
 }
 
-export const AreaModal = ({ buttonText, title, children }: ModalProps) => {
+export const ModalDefault = ({ buttonText, title, children }: ModalProps) => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const showModal = () => {
@@ -24,12 +24,7 @@ export const AreaModal = ({ buttonText, title, children }: ModalProps) => {
       <Button type="primary" onClick={showModal}>
         {buttonText}
       </Button>
-      <Modal
-        okButtonProps={{ style: { display: 'none' } }}
-        title={title}
-        visible={isModalVisible}
-        onCancel={handleCancel}
-      >
+      <Modal title={title} visible={isModalVisible} onCancel={handleCancel}>
         {children}
       </Modal>
     </>

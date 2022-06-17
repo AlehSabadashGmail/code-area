@@ -1,7 +1,7 @@
 import { List, Select } from 'antd'
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import apiClient from 'src/helper/api'
 import { useAppDispatch } from 'src/redux/hooks'
 import { loadOrdersAsync } from 'src/redux/orders/orderThunk'
 import { IOrder, IOrdersState } from 'src/redux/orders/type'
@@ -16,14 +16,18 @@ export const OrderList = ({ orders }: IOrdersState) => {
   const [filteredOrders, setFilteredOrders] = useState<IOrder[]>()
 
   useEffect(() => {
-    setFilteredOrders(orders)
-  }, [orders])
-
-  useEffect(() => {
     dispatch(loadOrdersAsync())
   }, [])
 
-  const handleChange = (value: []) => {
+  useEffect(() => {
+    apiClient()
+      .get('orders?status=in+storage')
+      .then((response) => {
+        setFilteredOrders(response.data)
+      })
+  }, [orders])
+
+  const handleChange = (value: string[]) => {
     setFilteredOrders(
       value.length
         ? orders.filter((order: IOrder) =>
@@ -35,15 +39,12 @@ export const OrderList = ({ orders }: IOrdersState) => {
     )
   }
 
-
-
   return (
     <div className="list_wrapper">
       <Select
         mode="multiple"
-        style={{
-          width: '100%',
-        }}
+        className="select"
+        defaultValue={['in storage']}
         placeholder="select statuses"
         onChange={handleChange}
         optionLabelProp="label"

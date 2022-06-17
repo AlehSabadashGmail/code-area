@@ -1,1 +1,1 @@
-export { AreaModal } from './Modal'
+export { ModalDefault } from './Modal'

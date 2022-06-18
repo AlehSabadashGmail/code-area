@@ -1,22 +1,26 @@
-import { Button, Form, Input, InputNumber } from 'antd'
+import { Button, Form, Input, InputNumber, Modal } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import api from '../../../helper/api'
 import { IOrder } from '../../../redux/orders/type'
-import { Modal } from '../../_atoms/Modal'
 import { currentUser, initialOrderData, OrderData } from '../constants'
-import './AddOrders.scss'
 import { CONSTANTS_TEXT } from './constants'
-import { orderFormRules } from './rules'
+import { useRequire } from '../../../rules/rules'
 
 export const AddOrders = () => {
-  const [isModalOpen, setModalState] = useState(false)
+  const [visible, setVisible] = useState(false)
   const [ordersValues, setOrdersValues] = useState<IOrder | null>(null)
 
   const [form] = Form.useForm()
 
-  const toggleModal = () => setModalState(!isModalOpen)
-  const onClose = () => setModalState(false)
+  const showModal = () => {
+    setVisible(true)
+  }
+
+  const handleCancel = () => {
+    setVisible(false)
+    form.resetFields()
+  }
 
   const createOrders = () => {
     api()
@@ -29,6 +33,8 @@ export const AddOrders = () => {
     if (ordersValues) {
       createOrders()
     }
+    setVisible(false)
+    form.resetFields()
   }
 
   const getCurrenLocation = () => {
@@ -40,18 +46,19 @@ export const AddOrders = () => {
     })
   }
 
-  const { rule } = orderFormRules()
+  const require = useRequire()
 
   return (
     <div>
-      <Button onClick={toggleModal}>{CONSTANTS_TEXT.CREATE_ORDERS}</Button>
+      <Button onClick={showModal}>{CONSTANTS_TEXT.CREATE_ORDERS}</Button>
       <Modal
+        visible={visible}
+        onOk={form.submit}
+        onCancel={handleCancel}
         title={CONSTANTS_TEXT.CREATE_ORDERS}
-        isOpen={isModalOpen}
-        onClose={toggleModal}
       >
-        <Form name="complex-form" form={form} onFinish={onFinish}>
-          <Form.Item label="Product name" name="product_name" rules={[rule]}>
+        <Form form={form} onFinish={onFinish}>
+          <Form.Item label="Product name" name="product_name" rules={[require]}>
             <Input
               autoComplete="new-password"
               placeholder="Please input product name"
@@ -59,15 +66,15 @@ export const AddOrders = () => {
           </Form.Item>
           <Form.Item label="Price">
             <Input.Group compact>
-              <Form.Item name="price_min" rules={[rule]}>
+              <Form.Item name="price_min" rules={[require]}>
                 <InputNumber placeholder="Min" />
               </Form.Item>
-              <Form.Item name="price_max" rules={[rule]}>
+              <Form.Item name="price_max" rules={[require]}>
                 <InputNumber className="site-input-right" placeholder="Max" />
               </Form.Item>
             </Input.Group>
           </Form.Item>
-          <Form.Item label="Address" name="address" rules={[rule]}>
+          <Form.Item label="Address" name="address" rules={[require]}>
             <Input
               autoComplete="new-password"
               placeholder="Please input address"
@@ -79,14 +86,14 @@ export const AddOrders = () => {
           <Form.Item
             label="Latitude"
             name={['location', 'latitude']}
-            rules={[rule]}
+            rules={[require]}
           >
             <Input placeholder="Input latitude" />
           </Form.Item>
           <Form.Item
             label="Longitude"
             name={['location', 'longitude']}
-            rules={[rule]}
+            rules={[require]}
           >
             <Input placeholder="Input longitude" />
           </Form.Item>
@@ -97,13 +104,7 @@ export const AddOrders = () => {
               rows={4}
             />
           </Form.Item>
-          <Form.Item colon={false}>
-            <Button type="primary" htmlType="submit">
-              {CONSTANTS_TEXT.BUTTON_SAVE}
-            </Button>
-          </Form.Item>
         </Form>
-        <Button onClick={onClose}>{CONSTANTS_TEXT.BUTTON_CANCEL}</Button>
       </Modal>
     </div>
   )

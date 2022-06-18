@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage, UserList } from '../components/_pages'
+import { HomePage, UserList, OrdersList } from '../components/_pages'
 import { routes } from './Config/config.routes'
 
 const AppRoutes = () => {
@@ -7,6 +7,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path={routes.default} element={<HomePage />} />
       <Route path={routes.usersList} element={<UserList />} />
+      <Route path={routes.ordersList} element={<OrdersList />} />
     </Routes>
   )
 }

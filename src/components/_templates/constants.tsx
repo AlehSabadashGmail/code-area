@@ -2,7 +2,6 @@ import { Typography } from 'antd'
 import { IOrder } from '../../redux/orders/type'
 
 export type OrderData = {
-  user_id: string
   product_name: string
   price_min: number
   price_max: number
@@ -17,15 +16,7 @@ export type OrderData = {
 export const initialOrderData = (orderData: OrderData): IOrder => ({
   // send the id of the logged user
   user_id: currentUser.id,
-  product_name: orderData.product_name,
-  price_min: orderData.price_min,
-  price_max: orderData.price_max,
-  location: {
-    latitude: orderData.location.latitude,
-    longitude: orderData.location.longitude,
-  },
-  address: orderData.address,
-  description: orderData.description,
+  ...orderData,
 })
 
 export const currentUser = {

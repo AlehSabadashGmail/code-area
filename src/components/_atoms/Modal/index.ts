@@ -1,1 +1,0 @@
-export { ModalDefault } from './Modal'

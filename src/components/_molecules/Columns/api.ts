@@ -1,21 +1,11 @@
-import { AppDispatch } from '../../../redux'
-import { loadUsersAsync } from '../../../redux/users/usersThunk'
+import { HTTP_METHODS } from '../../../helper/api'
+import { IUser } from '../../../redux/users/type'
+import Fetcher from '../../../services/Fetcher'
 
-const token = JSON.parse(localStorage.getItem('token') || '')
+const fetcher = new Fetcher()
 
-export const deleteUser = (id: string, dispatch: AppDispatch) => {
-  const requestOptions = {
-    method: 'DELETE',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + token,
-    },
-  }
-
-  fetch(`https://core-area-api.herokuapp.com/users/${id}`, requestOptions).then(
-    () => {
-      dispatch(loadUsersAsync())
-    },
-  )
-}
+export const reqestDeleteUsers = (id: string) =>
+  fetcher.requestDelete<any, any>({
+    url: `users/${id}`,
+    method: HTTP_METHODS.DELETE,
+  })

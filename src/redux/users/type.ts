@@ -1,5 +1,4 @@
 export interface IUser {
-  [x: string]: any
   id: string
   is_active?: boolean
   image?: string

@@ -5,8 +5,8 @@ import './style.scss'
 import { OPTIONS, RULES_FORM_FILTER } from '../../../helper/helper'
 import { FormDataFilters, FormFilterType } from './FormFilterType'
 import { useAppDispatch } from '../../../redux/hooks'
-import { setFilteredUsers } from '../../../redux/reducers/userSlice'
 import { filterFunction } from './constans'
+import { setFilteredUsers } from '../../../redux/reducers/usersSlice'
 
 export const FormFilter = ({ ...props }: FormFilterType): JSX.Element => {
   const dispatch = useAppDispatch()

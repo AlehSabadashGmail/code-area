@@ -24,7 +24,7 @@ export const SignIn = () => {
 
   const onFinish = (values: FormData) => {
     dispatch(requestSignIn({ users: prepareUser(values) }))
-    navigate('/home-page')
+    navigate('/users')
   }
 
   return (

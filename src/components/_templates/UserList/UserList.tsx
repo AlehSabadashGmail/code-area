@@ -3,9 +3,10 @@ import { Typography } from 'antd'
 
 import '../UserList/styles.scss'
 import { List } from '../../_organisms'
-import { loadUsersAsync } from '../../../redux/users/usersThunk'
 import { ModalFilter } from '../../_molecules'
 import { getFilteredUsers, getUserInfo } from '../../../redux/users/selectors'
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
+import { requestUserInfo } from '../../../redux/users/action'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()

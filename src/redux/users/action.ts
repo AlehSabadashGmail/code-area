@@ -5,10 +5,12 @@ import {
   loading,
   setUsers,
   usersLoadSuccess,
+  remove,
 } from '../reducers/usersSlice'
 import { AppThunk } from '../store'
 import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
 import { reqestUserInfo as reqestUserInfoAPI } from '../../components/_templates/UserList/api'
+import { reqestDeleteUsers as reqestDeleteUsersAPI } from '../../components/_molecules/Columns/api'
 
 export type RequestSignInActionProps = {
   users: SignInData
@@ -46,3 +48,20 @@ export const requestUserInfo = (): AppThunk => async (dispatch) => {
     dispatch(finish())
   }
 }
+
+export const deleteUsers =
+  (id: string): AppThunk =>
+  async (dispatch) => {
+    try {
+      dispatch(loading())
+      const result = await reqestDeleteUsersAPI(id)
+      if (result) {
+        dispatch(remove({ id }))
+        dispatch(requestUserInfo())
+      }
+    } catch (err) {
+      dispatch(error({ error: err }))
+    } finally {
+      dispatch(finish())
+    }
+  }

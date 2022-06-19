@@ -1,36 +1,20 @@
 import { SearchOutlined } from '@ant-design/icons'
 
 import { ColumnsType } from 'antd/lib/table/interface'
-import { SearchOutlined } from '@ant-design/icons'
 import { Input } from 'antd'
 
 import { getDateFormat } from '../../../helper/helper'
 import { IUser } from '../../../redux/users/type'
 import { ButtonDeleteUser } from '../ButtonDeleteUser'
-import { deleteUser } from './api'
 import { useAppDispatch } from '../../../redux/hooks'
+import { deleteUsers } from '../../../redux/users/action'
 
 export const Columns = () => {
   const dispatch = useAppDispatch()
 
-  const token = JSON.parse(localStorage.getItem('token') || '')
-
   const deleteUser = (id: string) => {
-    const requestOptions = {
-      method: 'DELETE',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + token,
-      },
-    }
-
-    fetch(
-      `https://core-area-api.herokuapp.com/users/${id}`,
-      requestOptions,
-    ).then(() => {
-      dispatch(loadUsersAsync())
-    })
+    dispatch(deleteUsers(id))
+    console.log(id)
   }
 
   const columns: ColumnsType<IUser> = [

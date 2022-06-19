@@ -1,6 +1,6 @@
 import { IUserState } from './type'
 
-export const getUserInfo = (state: { user: IUserState }) => state.user
+export const getUserInfo = (state: { users: IUserState }) => state.users
 
-export const getFilteredUsers = (state: { user: IUserState }) =>
-  state.user.filteredUsers
+export const getFilteredUsers = (state: { users: IUserState }) =>
+  state.users.filteredUsers

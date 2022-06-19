@@ -20,7 +20,7 @@ export const UserList: React.FC = () => {
       <Typography className="header-list-user">
         User List: {users.length}
       </Typography>
-      <List children={users} className={'user-list'} />
+      <List data={users} className={'user-list'} />
     </div>
   )
 }

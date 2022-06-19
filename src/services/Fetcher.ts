@@ -6,7 +6,7 @@ import axios, {
 } from 'axios'
 import { API_HOSTS, HTTP_METHODS } from '../helper/api'
 
-interface IRequest<TData = undefined> extends Omit<AxiosRequestConfig, 'data'> {
+interface IRequest<TData = {}> extends Omit<AxiosRequestConfig, 'data'> {
   prefixURL?: string
   data?: TData
 }
@@ -56,7 +56,6 @@ class Fetcher {
     const { status } = response as AxiosResponse<TResponse>
     if (response) {
       if (status === 401) {
-        // TODO: redirect to login
         // cleanUpPrivateStorage()
       }
       if (status === 403 || status === 500) {

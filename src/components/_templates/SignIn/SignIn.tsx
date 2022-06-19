@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import { requestSignIn } from '../../../redux/users/action'
 import { useAppDispatch } from '../../../redux/hooks'
 import { RULES_FORM } from '../../../helper/helper'
-import { SignInData } from './api'
 import '../SignIn/style.scss'
+import { SignInData } from '.'
 
 type FormData = {
   username: string

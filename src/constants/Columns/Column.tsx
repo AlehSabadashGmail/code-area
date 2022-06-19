@@ -1,9 +1,9 @@
 import { SearchOutlined } from '@ant-design/icons'
 
 import { ColumnsType } from 'antd/lib/table/interface'
-import { getDateFormat } from '../../../helper/helper'
-import { IUser } from '../../../redux/users/type'
-import { InputDefault } from '../../_atoms'
+import { getDateFormat } from '../../helper/helper'
+import { IUser } from '../../redux/users/type'
+import { InputDefault } from '../../components/_atoms'
 
 export const columns: ColumnsType<IUser> = [
   {

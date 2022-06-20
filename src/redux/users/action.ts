@@ -1,4 +1,4 @@
-import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
+import { reqestSignIn as requestSignInAPI } from 'src/components/_templates/SignIn/api'
 import { error, finish, loading, setUsers } from '../reducers/userSlice'
 import { AppThunk } from '../store'
 import { RequestSignInActionProps } from '../types/RequestSignInActionProps'

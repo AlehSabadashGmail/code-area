@@ -1,22 +1,29 @@
 import { Route, Routes } from 'react-router-dom'
 import { HomePage, UsersPage, SignInPage } from '../components/_pages'
 import { routes } from './Config/config.routes'
+import { PrivateRoute } from './PrivateRoute'
 
 const AppRoutes = () => {
-  const isAuthenticated = localStorage.getItem('token')
-
   return (
     <Routes>
-      {!isAuthenticated ? (
-        <>
-          <Route path={routes.default} element={<SignInPage />} />
-        </>
-      ) : (
-        <>
-          <Route path={routes.homepage} element={<HomePage />} />
-          <Route path={routes.usersList} element={<UsersPage />} />
-        </>
-      )}
+      <Route path={routes.default} element={<SignInPage />} />
+
+      <Route
+        path={routes.homepage}
+        element={
+          <PrivateRoute>
+            <HomePage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path={routes.usersList}
+        element={
+          <PrivateRoute>
+            <UsersPage />
+          </PrivateRoute>
+        }
+      />
     </Routes>
   )
 }

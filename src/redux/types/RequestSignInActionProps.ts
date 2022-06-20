@@ -1,4 +1,4 @@
-import { SignInData } from '../../components/_templates/SignIn'
+import { SignInData } from 'src/components/_templates/SignIn'
 
 export type RequestSignInActionProps = {
   users: SignInData

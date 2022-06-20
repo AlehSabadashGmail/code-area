@@ -1,15 +1,14 @@
 import { Button, Form, Input, InputNumber, Select } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { IUser } from 'src/redux/user/type'
-import apiClient from 'src/helper/api'
-import { FormData, initialData } from '../constants'
+import { initialData } from '../constants'
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
-import { loadUsersAsync } from 'src/redux/user/usersThunk'
 import { Modal } from 'src/components/_atoms/Modal'
 import './AddUsers.scss'
-import { getIsLoading } from 'src/redux/user/selectors'
 import { MODAL_TITLE, OPTIONS } from './constants'
 import { formRules } from './rules'
+import { getIsLoading } from 'src/redux/users/selecor'
+import { requestAddUsers } from 'src/redux/users/action'
+import { FormData } from './apiType'
 
 export const AddUsers = () => {
   const dispatch = useAppDispatch()
@@ -17,25 +16,13 @@ export const AddUsers = () => {
   const { isLoading } = useAppSelector(getIsLoading)
 
   const [isModalOpen, setModalState] = useState(false)
-  const [formValues, setFormValues] = useState<IUser | null>(null)
   const [isDisabled, setIsDisabled] = useState(false)
 
   const toggleModal = () => setModalState(!isModalOpen)
   const onClose = () => setModalState(false)
 
-  const createUser = () => {
-    apiClient()
-      .post('users', formValues)
-      .then(() => {
-        dispatch(loadUsersAsync())
-      })
-  }
-
   const onFinish = (values: FormData) => {
-    setFormValues(initialData(values))
-    if (formValues) {
-      createUser()
-    }
+    dispatch(requestAddUsers({ users: initialData(values) }))
   }
 
   const loadingState = () => {

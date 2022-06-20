@@ -7,7 +7,7 @@ const AppRoutes = () => {
 
   return (
     <Routes>
-      {isauthenticated === '' || localStorage.length === 1 ? (
+      {!isauthenticated ? (
         <>
           <Route path={routes.default} element={<SignInPage />} />
         </>

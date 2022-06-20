@@ -11,7 +11,7 @@ import {
 } from '../reducers/usersSlice'
 
 export const requestSignIn =
-  ({ users, onSuccess, onError }: RequestSignInActionProps): AppThunk =>
+  ({ users }: RequestSignInActionProps): AppThunk =>
   async (dispatch) => {
     try {
       dispatch(loading())
@@ -19,11 +19,7 @@ export const requestSignIn =
       if (data) {
         dispatch(setUsers({ data: data.users }))
         localStorage.setItem('token', data.token)
-        onSuccess && onSuccess()
       }
-    } catch (err) {
-      dispatch(error({ error: err }))
-      onError && onError()
     } finally {
       dispatch(finish())
     }
@@ -34,8 +30,6 @@ export const requestUserInfo = (): AppThunk => async (dispatch) => {
     dispatch(loading())
     const response = await reqestUserInfoAPI()
     dispatch(usersLoadSuccess(response.data))
-  } catch (err) {
-    dispatch(error({ error: err }))
   } finally {
     dispatch(finish())
   }

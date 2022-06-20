@@ -1,5 +1,5 @@
 import React from 'react'
-import { SignIn } from '../../_templates'
+import { SignIn } from 'src/components/_templates'
 
 export const SignInPage = () => (
   <div>

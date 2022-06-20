@@ -1,6 +1,6 @@
 import { Table } from 'antd'
 import cn from 'classnames'
-import { columns } from '../../../constants'
+import { columns } from 'src/constants'
 
 import { TableType } from './Table.d'
 

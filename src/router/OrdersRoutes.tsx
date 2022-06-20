@@ -4,7 +4,7 @@ import { Order } from 'src/components/_pages'
 import { useAppSelector } from 'src/redux/hooks'
 import { getOrders } from 'src/redux/orders/selectors'
 import { routes } from 'src/router/Config/config.routes'
-import { OrdersItems } from './OrdersItems'
+import { OrdersItems } from '../components/_templates/Orders/OrdersItems'
 
 export const OrdersRoutes = () => {
   const { orders } = useAppSelector(getOrders)

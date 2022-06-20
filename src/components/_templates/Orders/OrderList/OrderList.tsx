@@ -1,14 +1,15 @@
-import { List, Select } from 'antd'
+import { List, Select, Typography } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import apiClient from 'src/helper/api'
 import { useAppDispatch } from 'src/redux/hooks'
 import { loadOrdersAsync } from 'src/redux/orders/orderThunk'
 import { IOrder, IOrdersState } from 'src/redux/orders/type'
-import { Title } from '../../constants'
+import { CONSTANTS_TEXT, OPTIONS } from 'src/Text'
 import { AddOrders } from '../AddOrders'
-import { CONSTANTS_TEXT, OPTIONS } from '../constants'
 import './OrderList.scss'
+
+const { Title } = Typography
 
 export const OrderList = ({ orders }: IOrdersState) => {
   const dispatch = useAppDispatch()

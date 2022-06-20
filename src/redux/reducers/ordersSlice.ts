@@ -18,7 +18,7 @@ export const ordersSlice = createSlice({
     ordersLoadFinish(state: IOrdersState, action: PayloadAction<IOrder[]>) {
       state.isLoading = false
       state.error = ''
-      state.orders = action.payload.reverse()
+      state.orders = action.payload
     },
   },
 })

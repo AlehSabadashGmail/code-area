@@ -1,12 +1,16 @@
-import { Button, Form, Input, InputNumber, Modal, notification } from 'antd'
+import { Button, Form, Input, InputNumber, Modal } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import React, { useState } from 'react'
 import api from 'src/helper/api'
 import { useRequire } from 'src/rules/rules'
 import { OrderData } from 'src/api/Orders/api'
 import { CONSTANTS_TEXT, CURRENT_USER } from 'src/Text'
+import { useAppDispatch } from 'src/redux/hooks'
+import { loadOrdersAsync } from 'src/redux/orders/orderThunk'
 
 export const AddOrders = () => {
+  const dispatch = useAppDispatch()
+
   const [visible, setVisible] = useState(false)
 
   const [form] = Form.useForm()
@@ -23,11 +27,7 @@ export const AddOrders = () => {
   const onFinish = (values: OrderData) => {
     api()
       .post('orders', { ...values, user_id: CURRENT_USER.id })
-      .then(() =>
-        notification.open({
-          message: 'Order successfully created!',
-        }),
-      )
+      .then(() => dispatch(loadOrdersAsync()))
     setVisible(false)
     form.resetFields()
   }

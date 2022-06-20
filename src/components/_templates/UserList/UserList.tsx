@@ -4,8 +4,8 @@ import { Typography } from 'antd'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { getFilteredUsers } from '../../../redux/users/selectors'
 import { requestUserInfo } from '../../../redux/users/action'
-import { USER_LIST } from '../../../constants'
 import { List } from '../../_organisms'
+import { USER_LIST } from '../../../constants'
 import './style.scss'
 
 export const UserList: React.FC = () => {

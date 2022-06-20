@@ -6,7 +6,7 @@ const fetcher = new Fetcher()
 
 export const reqestSignIn = (data: SignInData) =>
   fetcher.requestToReceive<SignInData, SignInResponse>({
-    url: 'https://core-area-api.herokuapp.com/login',
+    url: 'login',
     method: HTTP_METHODS.POST,
     data,
   })

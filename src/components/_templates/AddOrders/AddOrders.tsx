@@ -1,15 +1,13 @@
 import { Button, Form, Input, InputNumber, Modal } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
-import React, { useEffect, useState } from 'react'
-import api from '../../../helper/api'
-import { IOrder } from '../../../redux/orders/type'
-import { currentUser, initialOrderData, OrderData } from '../constants'
-import { CONSTANTS_TEXT } from './constants'
-import { useRequire } from '../../../rules/rules'
+import React, { useState } from 'react'
+import api from 'src/helper/api'
+import { useRequire } from 'src/rules/rules'
+import { OrderData } from 'src/api/Orders/api'
+import { CONSTANTS_TEXT, CURRENT_USER } from 'src/Text'
 
 export const AddOrders = () => {
   const [visible, setVisible] = useState(false)
-  const [ordersValues, setOrdersValues] = useState<IOrder | null>(null)
 
   const [form] = Form.useForm()
 
@@ -22,16 +20,11 @@ export const AddOrders = () => {
     form.resetFields()
   }
 
-  const createOrders = () => {
-    api()
-      .post('orders', ordersValues)
-      .then((response) => console.log(response.data))
-  }
-
   const onFinish = (values: OrderData) => {
-    setOrdersValues(initialOrderData(values))
-    if (ordersValues) {
-      createOrders()
+    if (values) {
+      api()
+        .post('orders', { ...values, user_id: CURRENT_USER.id })
+        .then((response) => console.log(response.data))
     }
     setVisible(false)
     form.resetFields()
@@ -40,8 +33,8 @@ export const AddOrders = () => {
   const getCurrenLocation = () => {
     form.setFieldsValue({
       location: {
-        latitude: currentUser.latitude,
-        longitude: currentUser.longitude,
+        latitude: CURRENT_USER.latitude,
+        longitude: CURRENT_USER.longitude,
       },
     })
   }

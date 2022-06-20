@@ -1,24 +1,11 @@
-import { IOrder } from '../../redux/orders/type'
-
-export type OrderData = {
-  product_name: string
-  price_min: number
-  price_max: number
-  address: string
-  description: string
-  location: {
-    latitude: string
-    longitude: string
-  }
+export const CONSTANTS_TEXT = {
+  CREATE_ORDERS: 'Create orders',
+  USE_CURRENT: 'Use current',
+  BUTTON_SAVE: 'Save',
+  BUTTON_CANCEL: 'Cancel',
 }
 
-export const initialOrderData = (orderData: OrderData): IOrder => ({
-  // send the id of the logged user
-  user_id: currentUser.id,
-  ...orderData,
-})
-
-export const currentUser = {
+export const CURRENT_USER = {
   id: 'c8e16622-56e5-43cf-8137-0230c1ca8d4d',
   is_active: false,
   image: 'http://placehold.it/32x32',

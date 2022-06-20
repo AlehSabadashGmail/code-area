@@ -1,6 +1,6 @@
+import { HTTP_METHODS } from 'src/helper/api'
+import Fetcher from 'src/services/Fetcher'
 import { UserInfoData, UserInfoResponse } from '.'
-import { HTTP_METHODS } from '../../../helper/api'
-import Fetcher from '../../../services/Fetcher'
 
 const fetcher = new Fetcher()
 

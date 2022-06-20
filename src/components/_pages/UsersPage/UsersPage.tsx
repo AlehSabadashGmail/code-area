@@ -1,6 +1,5 @@
 import React from 'react'
-import { UserList } from '../../_templates'
-import { AddUsers } from '../../_templates'
+import { AddUsers, UserList } from 'src/components/_templates'
 
 export const UsersPage = () => {
   return (

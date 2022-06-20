@@ -1,5 +1,5 @@
-import { HTTP_METHODS } from '../../../helper/api'
-import Fetcher from '../../../services/Fetcher'
+import { HTTP_METHODS } from 'src/helper/api'
+import Fetcher from 'src/services/Fetcher'
 import { FormData, AddUsersResponse } from './apiType'
 
 const fetcher = new Fetcher()

@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
 import { Typography } from 'antd'
-
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
-import { requestUserInfo } from '../../../redux/users/action'
-import { getUserInfo } from '../../../redux/users/selecor'
-import { List } from '../../_organisms'
 import './style.scss'
-import { USER_LIST } from '../../../constants'
+import { USER_LIST } from 'src/constants'
+import { requestUserInfo } from 'src/redux/users/action'
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
+import { getUserInfo } from 'src/redux/users/selecor'
+import { List } from 'src/components/_organisms'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()

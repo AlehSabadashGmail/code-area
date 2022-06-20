@@ -1,4 +1,4 @@
-import { IUser } from '../../../redux'
+import { IUser } from 'src/redux'
 
 export type UserInfoData = {
   id: string

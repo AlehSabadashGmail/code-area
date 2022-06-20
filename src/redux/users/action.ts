@@ -6,10 +6,10 @@ import {
   usersLoadSuccess,
 } from '../reducers/usersSlice'
 import { AppThunk } from '../store'
-import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
-import { reqestAddUsers as requestAddUsersAPI } from '../../components/_templates/AddUsers/api'
-import { reqestUserInfo as reqestUserInfoAPI } from '../../components/_templates/UserList/api'
-import { SignInData } from '../../components/_templates/SignIn'
+import { reqestSignIn as requestSignInAPI } from 'src/components/_templates/SignIn/api'
+import { reqestAddUsers as requestAddUsersAPI } from 'src/components/_templates/AddUsers/api'
+import { reqestUserInfo as reqestUserInfoAPI } from 'src/components/_templates/UserList/api'
+import { SignInData } from 'src/components/_templates/SignIn'
 import { FormData } from 'src/components/_templates/AddUsers/apiType'
 
 export type RequestSignInActionProps = {

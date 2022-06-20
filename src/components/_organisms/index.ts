@@ -1,1 +1,1 @@
-export { List } from './Table/Table'
+export { List } from './Table'

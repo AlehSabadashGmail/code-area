@@ -1,14 +1,14 @@
 import { Button, Form, Input, InputNumber, Select } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { initialData } from '../constants'
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
 import { Modal } from 'src/components/_atoms/Modal'
 import './AddUsers.scss'
 import { MODAL_TITLE, OPTIONS } from './constants'
-import { formRules } from './rules'
 import { getIsLoading } from 'src/redux/users/selecor'
 import { requestAddUsers } from 'src/redux/users/action'
 import { FormData } from './apiType'
+import { UtilsAddUsers } from 'src/utils'
+import { RULES_FORM } from 'src/helper/helper'
 
 export const AddUsers = () => {
   const dispatch = useAppDispatch()
@@ -22,7 +22,7 @@ export const AddUsers = () => {
   const onClose = () => setModalState(false)
 
   const onFinish = (values: FormData) => {
-    dispatch(requestAddUsers({ users: initialData(values) }))
+    dispatch(requestAddUsers({ users: UtilsAddUsers(values) }))
   }
 
   const loadingState = () => {
@@ -46,7 +46,7 @@ export const AddUsers = () => {
     roleRules,
     ageRule,
     passwordRule,
-  } = formRules()
+  } = RULES_FORM
 
   return (
     <div>

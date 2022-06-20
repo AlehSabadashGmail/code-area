@@ -1,13 +1,13 @@
 import { Button, Checkbox, Form, Input, Space, Typography } from 'antd'
 import { LockOutlined, MailOutlined } from '@ant-design/icons'
 import { useNavigate } from 'react-router-dom'
-import { requestSignIn } from '../../../redux/users/action'
-import { useAppDispatch } from '../../../redux/hooks'
-import { RULES_FORM } from '../../../helper/helper'
-import { UtilsSignIn } from '../../../utils'
 import '../SignIn/style.scss'
 import { FormDataSigIn } from '.'
-import { FORGOT_PASSWORD, REMEMBER_ME, SIGN_IN } from '../../../constants'
+import { useAppDispatch } from 'src/redux/hooks'
+import { requestSignIn } from 'src/redux/users/action'
+import { UtilsSignIn } from 'src/utils'
+import { FORGOT_PASSWORD, REMEMBER_ME, SIGN_IN } from 'src/constants'
+import { RULES_FORM } from 'src/helper/helper'
 
 export const SignIn = () => {
   const dispatch = useAppDispatch()

@@ -1,7 +1,7 @@
+import { FormData } from 'src/components/_templates/AddUsers/apiType'
 import { IUser } from 'src/redux'
-import { FormData } from './AddUsers/apiType'
 
-export const initialData = (formData: FormData): IUser => ({
+export const UtilsAddUsers = (formData: FormData): IUser => ({
   ...formData,
   gender: 'male',
   address: 'Homel',

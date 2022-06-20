@@ -1,4 +1,4 @@
-import { IUser } from '../../../redux/users/type'
+import { IUser } from 'src/redux'
 
 export type SignInData = {
   login: string

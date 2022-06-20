@@ -1,4 +1,4 @@
-import { Button, Form, Input, InputNumber, Modal } from 'antd'
+import { Button, Form, Input, InputNumber, Modal, notification } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import React, { useState } from 'react'
 import api from 'src/helper/api'
@@ -23,7 +23,11 @@ export const AddOrders = () => {
   const onFinish = (values: OrderData) => {
     api()
       .post('orders', { ...values, user_id: CURRENT_USER.id })
-      .then(() => console.log('Order successfully created!'))
+      .then(() =>
+        notification.open({
+          message: 'Order successfully created!',
+        }),
+      )
     setVisible(false)
     form.resetFields()
   }

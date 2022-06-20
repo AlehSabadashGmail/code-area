@@ -1,6 +1,6 @@
 import { IUser } from '../../../redux/users/type'
 
 export type TableType = {
-  children: Array<IUser>
+  data: IUser[]
   className?: string
 }

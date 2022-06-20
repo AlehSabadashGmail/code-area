@@ -1,7 +1,7 @@
-import { SignInData } from '../../components/_templates/SignIn/api'
-import { error, finish, loading, setUsers } from '../reducers/userSlice'
-import { AppThunk } from '../store'
 import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
+import { error, finish, loading, setUsers } from '../reducers/userSlice'
+import { SignInData } from '../../components/_templates/SignIn'
+import { AppThunk } from '../store'
 
 export type RequestSignInActionProps = {
   users: SignInData

@@ -1,25 +1,27 @@
 import React, { useEffect } from 'react'
 import { Typography } from 'antd'
 
-import '../UserList/styles.scss'
-import { loadUsersAsync } from '../../../redux/user/usersThunk'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
+import { requestUserInfo } from '../../../redux/users/action'
+import { getUserInfo } from '../../../redux/users/selecor'
 import { List } from '../../_organisms'
+import './style.scss'
+import { USER_LIST } from '../../../constants'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()
-  const { user } = useAppSelector((state) => state.user)
+  const { users } = useAppSelector(getUserInfo)
 
   useEffect(() => {
-    dispatch(loadUsersAsync())
+    dispatch(requestUserInfo())
   }, [])
 
   return (
     <div>
       <Typography className="header-list-user">
-        User List: {user.length}
+        {USER_LIST} {users.length}
       </Typography>
-      <List children={user} className={'user-list'} />
+      <List data={users} className={'user-list'} />
     </div>
   )
 }

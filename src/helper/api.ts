@@ -1,12 +1,9 @@
-import axios from 'axios'
+export const HTTP_METHODS = {
+  GET: 'GET',
+  POST: 'POST',
+  PUT: 'PUT',
+  PATCH: 'PATCH',
+  DELETE: 'DELETE',
+} as const
 
-const apiClient = () => {
-  const axiosInstance = axios.create({
-    baseURL: 'https://core-area-api.herokuapp.com/',
-    responseType: 'json',
-  })
-
-  return axiosInstance
-}
-
-export default apiClient
+export const API_HOSTS = '/'

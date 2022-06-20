@@ -1,3 +1,5 @@
+import { Typography } from 'antd'
+
 export const CONSTANTS_TEXT = {
   CREATE_ORDERS: 'Create orders',
   USE_CURRENT: 'Use current',
@@ -32,3 +34,5 @@ export const OPTIONS = [
   { label: 'lost', value: 'lost' },
   { label: 'on the way', value: 'on the way' },
 ]
+
+export const { Title } = Typography

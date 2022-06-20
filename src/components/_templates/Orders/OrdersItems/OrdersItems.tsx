@@ -1,12 +1,10 @@
-import { Typography } from 'antd'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { IOrdersState } from 'src/redux/orders/type'
 import { CONSTANTS_TEXT } from 'src/Text'
+import { Title } from 'src/Text/Text'
 import { OrderList } from '../OrderList'
 import './OrdersItems.scss'
-
-const { Title } = Typography
 
 export const OrdersItems = ({ orders }: IOrdersState) => {
   const { id } = useParams()

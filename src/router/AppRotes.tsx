@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage, UserList, OrdersList } from '../components/_pages'
+import { HomePage, UserList, OrdersList } from 'src/components/_pages'
 import { routes } from './Config/config.routes'
 
 const AppRoutes = () => {

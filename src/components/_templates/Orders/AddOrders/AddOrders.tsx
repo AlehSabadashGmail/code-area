@@ -1,53 +1,42 @@
-import { Button, Form, Input, InputNumber, Modal } from 'antd'
+import { Button, Form, Input, InputNumber, Modal, notification } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
-import React, { useEffect, useState } from 'react'
-import apiClient from 'src/helper/api'
-import { useAppDispatch } from 'src/redux/hooks'
-import { loadOrdersAsync } from 'src/redux/orders/orderThunk'
-import { IOrder } from 'src/redux/orders/type'
-import { CONSTANTS_TEXT } from '../constants'
-import { currentUser, initialOrderData, OrderData } from '../../constants'
-import { useRequire } from 'src/rules'
+import React, { useState } from 'react'
+import api from 'src/helper/api'
+import { useRequire } from 'src/rules/rules'
+import { OrderData } from 'src/api/Orders/api'
+import { CONSTANTS_TEXT, CURRENT_USER } from 'src/Text'
 
 export const AddOrders = () => {
-  const dispatch = useAppDispatch()
-
-  const [isModalVisible, setIsModalVisible] = useState(false)
-  const [ordersValues, setOrdersValues] = useState<IOrder | null>(null)
+  const [visible, setVisible] = useState(false)
 
   const [form] = Form.useForm()
 
-  const createOrders = () => {
-    apiClient()
-      .post('orders', ordersValues)
-      .then(() => {
-        dispatch(loadOrdersAsync())
-      })
-  }
-
   const showModal = () => {
-    setIsModalVisible(true)
+    setVisible(true)
   }
 
   const handleCancel = () => {
-    setIsModalVisible(false)
+    setVisible(false)
     form.resetFields()
   }
 
   const onFinish = (values: OrderData) => {
-    if (ordersValues) {
-      createOrders()
-    }
-    setOrdersValues(initialOrderData(values))
-    setIsModalVisible(false)
+    api()
+      .post('orders', { ...values, user_id: CURRENT_USER.id })
+      .then(() =>
+        notification.open({
+          message: 'Order successfully created!',
+        }),
+      )
+    setVisible(false)
     form.resetFields()
   }
 
   const getCurrenLocation = () => {
     form.setFieldsValue({
       location: {
-        latitude: currentUser.latitude,
-        longitude: currentUser.longitude,
+        latitude: CURRENT_USER.latitude,
+        longitude: CURRENT_USER.longitude,
       },
     })
   }
@@ -56,16 +45,14 @@ export const AddOrders = () => {
 
   return (
     <div>
-      <Button type="primary" onClick={showModal}>
-        Create orders
-      </Button>
+      <Button onClick={showModal}>{CONSTANTS_TEXT.CREATE_ORDERS}</Button>
       <Modal
-        title="Create order"
-        visible={isModalVisible}
+        visible={visible}
         onOk={form.submit}
         onCancel={handleCancel}
+        title={CONSTANTS_TEXT.CREATE_ORDERS}
       >
-        <Form name="complex-form" form={form} onFinish={onFinish}>
+        <Form form={form} onFinish={onFinish}>
           <Form.Item label="Product name" name="product_name" rules={[require]}>
             <Input
               autoComplete="new-password"

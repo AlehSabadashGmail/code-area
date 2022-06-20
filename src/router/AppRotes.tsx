@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { HomePage, UsersPage, SignInPage } from '../components/_pages'
+import { HomePage, UsersPage, SignInPage } from 'src/components/_pages'
 import { routes } from './Config/config.routes'
 
 const AppRoutes = () => {

@@ -1,6 +1,7 @@
 import { Table } from 'antd'
 import cn from 'classnames'
-import { Columns } from '../../../constants'
+import { columns } from 'src/constants'
+
 import { TableType } from './Table.d'
 
 export const List = ({ className, data }: TableType) => {

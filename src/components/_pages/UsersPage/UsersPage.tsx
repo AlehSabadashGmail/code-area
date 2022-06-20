@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserList } from '../../_templates'
+import { UserList } from 'src/components/_templates'
 
 export const UsersPage = () => {
   return (

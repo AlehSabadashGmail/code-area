@@ -1,6 +1,6 @@
-import { reqestUserInfo as reqestUserInfoAPI } from '../../components/_templates/UserList/api'
-import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
+import { reqestUserInfo as reqestUserInfoAPI } from 'src/components/_templates/UserList/api'
 import { reqestDeleteUsers as reqestDeleteUsersAPI } from '../../constants/Columns/api'
+import { reqestSignIn as requestSignInAPI } from 'src/components/_templates/SignIn/api'
 import { RequestSignInActionProps } from '..'
 import { AppThunk } from '../store'
 import {
@@ -13,7 +13,7 @@ import {
 } from '../reducers/usersSlice'
 
 export const requestSignIn =
-  ({ users, onSuccess, onError }: RequestSignInActionProps): AppThunk =>
+  ({ users }: RequestSignInActionProps): AppThunk =>
   async (dispatch) => {
     try {
       dispatch(loading())
@@ -21,11 +21,9 @@ export const requestSignIn =
       if (data) {
         dispatch(setUsers({ data: data.users }))
         localStorage.setItem('token', data.token)
-        onSuccess && onSuccess()
       }
     } catch (err) {
       dispatch(error({ error: err }))
-      onError && onError()
     } finally {
       dispatch(finish())
     }

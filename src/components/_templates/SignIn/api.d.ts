@@ -6,7 +6,6 @@ export type SignInData = {
 }
 
 export type SignInResponse = {
-  users: IUser[]
   token: string
 }
 

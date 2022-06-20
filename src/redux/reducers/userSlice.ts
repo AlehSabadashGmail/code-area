@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IUser, IUserState } from '..'
+import { IUserState } from '..'
 
 const initialState: IUserState = {
   users: [],
@@ -16,11 +16,6 @@ export const userSlice = createSlice({
       state.isLoading = true
       state.error = null
     },
-    setUsers(state: IUserState, action: PayloadAction<{ data: IUser[] }>) {
-      const { data } = action.payload
-      state.isLoaded = true
-      state.users = data
-    },
     finish(state: IUserState) {
       state.isLoading = false
     },
@@ -35,4 +30,4 @@ export const userSlice = createSlice({
 })
 
 export default userSlice.reducer
-export const { setUsers, loading, finish, error } = userSlice.actions
+export const { loading, finish, error } = userSlice.actions

@@ -4,7 +4,7 @@ import axios, {
   AxiosResponse,
   AxiosError,
 } from 'axios'
-import { API_HOSTS, HTTP_METHODS } from '../helper/api'
+import { API_HOSTS, BASE_URL, HTTP_METHODS } from '../helper/api'
 
 interface IRequest<TData = Object> extends Omit<AxiosRequestConfig, 'data'> {
   prefixURL?: string
@@ -13,7 +13,7 @@ interface IRequest<TData = Object> extends Omit<AxiosRequestConfig, 'data'> {
 
 const defaultConfig: IRequest = {
   prefixURL: '/',
-  baseURL: 'https://core-area-api.herokuapp.com',
+  baseURL: BASE_URL,
   method: HTTP_METHODS.GET,
   timeout: 30 * 1000,
 }
@@ -56,19 +56,8 @@ class Fetcher {
     const { status } = response as AxiosResponse<TResponse>
     if (response) {
       if (status === 401) {
-        // cleanUpPrivateStorage()
+        localStorage.clear()
       }
-      if (status === 403 || status === 500) {
-        // handleErrorPages(status)
-      }
-    }
-
-    if (status !== 404 && status !== 500) {
-      // store.dispatch(
-      //   addSnackbar({
-      //     message: (data as any)?.errorMessage,
-      //   }),
-      // )
     }
 
     throw e

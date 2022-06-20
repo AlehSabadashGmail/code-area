@@ -7,6 +7,8 @@ export const HTTP_METHODS = {
 } as const
 
 export const API_HOSTS = '/'
+export const BASE_URL = 'https://core-area-api.herokuapp.com'
+
 import axios from 'axios'
 
 const api = () => {

@@ -19,15 +19,9 @@ export const UserList: React.FC = () => {
   return (
     <div>
       <Typography className="header-list-user">
-<<<<<<< HEAD
         {USER_LIST} {users.length}
       </Typography>
       <List data={users} className={'user-list'} />
-=======
-        {USER_LIST} {0}
-      </Typography>
-      <List data={[]} className={'user-list'} />
->>>>>>> feature/sign-in
     </div>
   )
 }

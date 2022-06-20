@@ -1,3 +1,7 @@
+import { reqestUserInfo as reqestUserInfoAPI } from '../../components/_templates/UserList/api'
+import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
+import { RequestSignInActionProps } from '..'
+import { AppThunk } from '../store'
 import {
   error,
   finish,
@@ -5,16 +9,6 @@ import {
   setUsers,
   usersLoadSuccess,
 } from '../reducers/usersSlice'
-import { AppThunk } from '../store'
-import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
-import { reqestUserInfo as reqestUserInfoAPI } from '../../components/_templates/UserList/api'
-import { SignInData } from '../../components/_templates/SignIn'
-
-export type RequestSignInActionProps = {
-  users: SignInData
-  onSuccess?: Function
-  onError?: Function
-}
 
 export const requestSignIn =
   ({ users, onSuccess, onError }: RequestSignInActionProps): AppThunk =>

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { Typography } from 'antd'
 
-import '../UserList/styles.scss'
-import { List } from '../../_organisms'
-import { ModalFilter } from '../../_molecules'
-import { getFilteredUsers, getUserInfo } from '../../../redux/users/selectors'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { requestUserInfo } from '../../../redux/users/action'
+import { getUserInfo } from '../../../redux/users/selecor'
+import { List } from '../../_organisms'
+import './style.scss'
+import { USER_LIST } from '../../../constants'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -20,10 +20,9 @@ export const UserList: React.FC = () => {
   return (
     <div>
       <Typography className="header-list-user">
-        User List: {filterdUsers.length}
-        <ModalFilter children={users} />
+        {USER_LIST} {users.length}
       </Typography>
-      <List children={filterdUsers} className={'user-list'} />
+      <List data={users} className={'user-list'} />
     </div>
   )
 }

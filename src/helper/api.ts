@@ -6,8 +6,4 @@ export const HTTP_METHODS = {
   DELETE: 'DELETE',
 } as const
 
-export const API_HOSTS = {
-  AUTH: '/',
-  USERS: '/',
-  USERS_ID: '/',
-} as const
+export const API_HOSTS = '/'

@@ -6,7 +6,7 @@ import axios, {
 } from 'axios'
 import { API_HOSTS, HTTP_METHODS } from '../helper/api'
 
-interface IRequest<TData = undefined> extends Omit<AxiosRequestConfig, 'data'> {
+interface IRequest<TData = Object> extends Omit<AxiosRequestConfig, 'data'> {
   prefixURL?: string
   data?: TData
 }
@@ -56,7 +56,6 @@ class Fetcher {
     const { status } = response as AxiosResponse<TResponse>
     if (response) {
       if (status === 401) {
-        // TODO: redirect to login
         // cleanUpPrivateStorage()
       }
       if (status === 403 || status === 500) {
@@ -75,7 +74,7 @@ class Fetcher {
     throw e
   }
 
-  request = <TData, TResponse = unknown>(
+  request = <TData, TResponse = Object>(
     requestConfig: IRequest<TData>,
   ): Promise<AxiosResponse<TResponse>> => {
     return this.instance
@@ -89,20 +88,12 @@ class Fetcher {
       .then((resp) => resp)
   }
 
-  requestAuth = <TData, TResponse = unknown>(
+  requestToReceive = <TData, TResponse = Object>(
     requestConfig: Omit<IRequest<TData>, 'baseURL'>,
   ): Promise<AxiosResponse<TResponse>> =>
     this.request({
       ...requestConfig,
-      baseURL: API_HOSTS.AUTH,
-    })
-
-  requestUsersInfo = <TData, TResponse = unknown>(
-    requestConfig: Omit<IRequest<TData>, 'baseURL'>,
-  ): Promise<AxiosResponse<TResponse>> =>
-    this.request({
-      ...requestConfig,
-      baseURL: API_HOSTS.USERS,
+      baseURL: API_HOSTS,
     })
 
   requestDelete = <TData, TResponse = unknown>(

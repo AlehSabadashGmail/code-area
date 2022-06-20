@@ -90,7 +90,6 @@
     "@storybook/testing-library": "^0.0.11",
     "@types/classnames": "^2.3.1",
     "@types/node-sass": "^4.11.2",
-    "@types/react-highlight-words": "^0.16.4",
     "babel-plugin-named-exports-order": "^0.0.2",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.0",

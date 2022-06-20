@@ -21,11 +21,9 @@ export const AddOrders = () => {
   }
 
   const onFinish = (values: OrderData) => {
-    if (values) {
-      api()
-        .post('orders', { ...values, user_id: CURRENT_USER.id })
-        .then((response) => console.log(response.data))
-    }
+    api()
+      .post('orders', { ...values, user_id: CURRENT_USER.id })
+      .then(() => console.log('Order successfully created!'))
     setVisible(false)
     form.resetFields()
   }

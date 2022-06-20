@@ -6,7 +6,7 @@ import './style.scss'
 import { FormFilter } from '../../_organisms'
 import { ModalFilterType } from './ModalFilterType'
 
-export const ModalFilter = ({ ...props }: ModalFilterType): JSX.Element => {
+export const ModalFilter = ({ data }: ModalFilterType): JSX.Element => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
   const showModal = () => {
@@ -34,7 +34,7 @@ export const ModalFilter = ({ ...props }: ModalFilterType): JSX.Element => {
         onCancel={handleCancel}
         okButtonProps={{ style: { display: 'none' } }}
       >
-        <FormFilter children={props.children} onClick={handleOk} />
+        <FormFilter children={data} onClick={handleOk} />
       </Modal>
     </>
   )

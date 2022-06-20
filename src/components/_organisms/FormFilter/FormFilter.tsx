@@ -2,11 +2,11 @@ import React from 'react'
 import { Button, Form, Input, InputNumber, Select } from 'antd'
 
 import './style.scss'
-import { OPTIONS, RULES_FORM_FILTER } from '../../../helper/helper'
 import { FormDataFilters, FormFilterType } from './FormFilterType'
 import { useAppDispatch } from '../../../redux/hooks'
-import { setFilteredUsers } from '../../../redux/reducers/userSlice'
 import { filterFunction } from './constans'
+import { setFilteredUsers } from '../../../redux/reducers/usersSlice'
+import { OPTIONS, RULES_FORM_FILTER } from '../../../helper/helper'
 
 export const FormFilter = ({ ...props }: FormFilterType): JSX.Element => {
   const dispatch = useAppDispatch()

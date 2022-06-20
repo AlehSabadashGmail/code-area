@@ -1,4 +1,4 @@
-import { IUser } from '../../../redux/users/type'
+import { IUser } from '../../../redux'
 import { FormDataFilters } from './FormFilterType'
 
 const FilterFullname = (users: IUser[], filters: FormDataFilters) =>

@@ -8,3 +8,6 @@ export const RULES_FORM = {
     message: 'Please input your password!',
   },
 } as const
+import moment from 'moment'
+
+export const getDateNow = () => moment().format('DD-MM-YYYY')

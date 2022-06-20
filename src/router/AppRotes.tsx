@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import { OrdersList } from 'src/components/_pages/OrdersList'
 import { HomePage, UsersPage, SignInPage } from '../components/_pages'
 import { routes } from './Config/config.routes'
 import { PrivateRoute } from './PrivateRoute'
@@ -21,6 +22,14 @@ const AppRoutes = () => {
         element={
           <PrivateRoute>
             <UsersPage />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path={routes.ordersList}
+        element={
+          <PrivateRoute>
+            <OrdersList />
           </PrivateRoute>
         }
       />

@@ -16,14 +16,10 @@ export const userSlice = createSlice({
       state.isLoading = true
       state.error = null
     },
-    usersLoadStart(state: IUserState) {
-      state.isLoading = false
-      state.users = []
-    },
-    usersLoadSuccess(state: IUserState, action: PayloadAction<IUser[]>) {
-      state.isLoading = false
-      state.error = ''
-      state.users = action.payload
+    setUsers(state: IUserState, action: PayloadAction<{ data: IUser[] }>) {
+      const { data } = action.payload
+      state.isLoaded = true
+      state.users = data
     },
     finish(state: IUserState) {
       state.isLoading = false
@@ -35,24 +31,8 @@ export const userSlice = createSlice({
       const { error } = action.payload
       state.error = error
     },
-    setUsers(state: IUserState, action: PayloadAction<{ data: IUser[] }>) {
-      const { data } = action.payload
-      state.isLoaded = true
-      state.users = data
-    },
-    clearUsers(state: IUserState) {
-      state.users = []
-    },
   },
 })
 
 export default userSlice.reducer
-export const {
-  usersLoadStart,
-  usersLoadSuccess,
-  setUsers,
-  clearUsers,
-  loading,
-  finish,
-  error,
-} = userSlice.actions
+export const { setUsers, loading, finish, error } = userSlice.actions

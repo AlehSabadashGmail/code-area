@@ -6,7 +6,7 @@ import { requestSignIn } from '../../../redux/users/action'
 import { useAppDispatch } from '../../../redux/hooks'
 import { RULES_FORM } from '../../../helper/helper'
 import { UtilsSignIn } from '../../../utils'
-import '../SignIn/style.scss'
+import './style.scss'
 import { FormDataSigIn } from '.'
 import { FORGOT_PASSWORD, REMEMBER_ME, SIGN_IN } from '../../../constants'
 

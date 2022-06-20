@@ -1,16 +1,10 @@
 import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
 import { error, finish, loading, setUsers } from '../reducers/userSlice'
-import { SignInData } from '../../components/_templates/SignIn'
 import { AppThunk } from '../store'
-
-export type RequestSignInActionProps = {
-  users: SignInData
-  onSuccess?: Function
-  onError?: Function
-}
+import { RequestSignInActionProps } from '../types/RequestSignInActionProps'
 
 export const requestSignIn =
-  ({ users, onSuccess, onError }: RequestSignInActionProps): AppThunk =>
+  ({ users }: RequestSignInActionProps): AppThunk =>
   async (dispatch) => {
     try {
       dispatch(loading())
@@ -18,11 +12,9 @@ export const requestSignIn =
       if (data) {
         dispatch(setUsers({ data: data.users }))
         localStorage.setItem('token', data.token)
-        onSuccess && onSuccess()
       }
     } catch (err) {
       dispatch(error({ error: err }))
-      onError && onError()
     } finally {
       dispatch(finish())
     }

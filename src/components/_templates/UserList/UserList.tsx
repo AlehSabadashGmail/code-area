@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { Typography } from 'antd'
 
-import '../UserList/styles.scss'
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
+import { requestUserInfo } from '../../../redux/users/action'
 import { List } from '../../_organisms'
-import { loadUsersAsync } from '../../../redux/users/usersThunk'
-import { ModalFilter } from '../../_molecules'
+import { USER_LIST } from '../../../constants'
+import './style.scss'
 import { getFilteredUsers, getUserInfo } from '../../../redux/users/selectors'
+import { ModalFilter } from '../../_molecules'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -14,16 +15,16 @@ export const UserList: React.FC = () => {
   const filterdUsers = useAppSelector(getFilteredUsers)
 
   useEffect(() => {
-    dispatch(loadUsersAsync())
+    dispatch(requestUserInfo())
   }, [])
 
   return (
     <div>
       <Typography className="header-list-user">
-        User List: {filterdUsers.length}
-        <ModalFilter children={users} />
+        {USER_LIST} {filterdUsers.length}
+        <ModalFilter data={users} />
       </Typography>
-      <List children={filterdUsers} className={'user-list'} />
+      <List data={filterdUsers} className={'user-list'} />
     </div>
   )
 }

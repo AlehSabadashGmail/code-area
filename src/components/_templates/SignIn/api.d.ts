@@ -9,3 +9,8 @@ export type SignInResponse = {
   users: IUser[]
   token: string
 }
+
+export type FormDataSigIn = {
+  username: string
+  password: string
+}

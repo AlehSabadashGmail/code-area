@@ -1,2 +1,2 @@
 export { SignIn } from './SignIn'
-export type { SignInData, SignInResponse } from './api.d'
+export type { SignInData, SignInResponse, FormDataSigIn } from './api.d'

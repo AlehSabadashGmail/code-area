@@ -5,8 +5,8 @@ import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 import { requestUserInfo } from '../../../redux/users/action'
 import { getUserInfo } from '../../../redux/users/selecor'
 import { List } from '../../_organisms'
-import './style.scss'
 import { USER_LIST } from '../../../constants'
+import './style.scss'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()
@@ -19,9 +19,15 @@ export const UserList: React.FC = () => {
   return (
     <div>
       <Typography className="header-list-user">
+<<<<<<< HEAD
         {USER_LIST} {users.length}
       </Typography>
       <List data={users} className={'user-list'} />
+=======
+        {USER_LIST} {0}
+      </Typography>
+      <List data={[]} className={'user-list'} />
+>>>>>>> feature/sign-in
     </div>
   )
 }

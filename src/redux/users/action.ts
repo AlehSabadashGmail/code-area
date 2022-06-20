@@ -1,5 +1,6 @@
 import { reqestUserInfo as reqestUserInfoAPI } from '../../components/_templates/UserList/api'
 import { reqestSignIn as requestSignInAPI } from '../../components/_templates/SignIn/api'
+import { reqestDeleteUsers as reqestDeleteUsersAPI } from '../../constants/Columns/api'
 import { RequestSignInActionProps } from '..'
 import { AppThunk } from '../store'
 import {

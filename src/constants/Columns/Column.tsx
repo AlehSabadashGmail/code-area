@@ -1,20 +1,18 @@
-import { SearchOutlined } from '@ant-design/icons'
-
 import { ColumnsType } from 'antd/lib/table/interface'
+import { SearchOutlined } from '@ant-design/icons'
 import { Input } from 'antd'
 
-import { getDateFormat } from '../../../helper/helper'
-import { IUser } from '../../../redux/users/type'
-import { ButtonDeleteUser } from '../ButtonDeleteUser'
-import { useAppDispatch } from '../../../redux/hooks'
-import { deleteUsers } from '../../../redux/users/action'
+import { deleteUsers } from '../../redux/users/action'
+import { getDateFormat } from '../../helper/helper'
+import { useAppDispatch } from '../../redux/hooks'
+import { IUser } from '../../redux'
+import { ButtonDeleteUser } from '../../components/_molecules'
 
 export const Columns = () => {
   const dispatch = useAppDispatch()
 
   const deleteUser = (id: string) => {
     dispatch(deleteUsers(id))
-    console.log(id)
   }
 
   const columns: ColumnsType<IUser> = [

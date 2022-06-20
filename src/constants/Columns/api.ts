@@ -1,11 +1,11 @@
-import { HTTP_METHODS } from '../../../helper/api'
-import { IUser } from '../../../redux/users/type'
-import Fetcher from '../../../services/Fetcher'
+import { HTTP_METHODS } from '../../helper/api'
+import Fetcher from '../../services/Fetcher'
+import { IUser } from '../../redux'
 
 const fetcher = new Fetcher()
 
 export const reqestDeleteUsers = (id: string) =>
-  fetcher.requestDelete<any, any>({
+  fetcher.requestToReceive<IUser, Object>({
     url: `users/${id}`,
     method: HTTP_METHODS.DELETE,
   })

@@ -2,15 +2,14 @@ import React, { useEffect } from 'react'
 import { Typography } from 'antd'
 
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
+import { getFilteredUsers } from '../../../redux/users/selectors'
 import { requestUserInfo } from '../../../redux/users/action'
-import { getUserInfo } from '../../../redux/users/selecor'
+import { USER_LIST } from '../../../constants'
 import { List } from '../../_organisms'
 import './style.scss'
-import { USER_LIST } from '../../../constants'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()
-  const { users } = useAppSelector(getUserInfo)
   const filterdUsers = useAppSelector(getFilteredUsers)
 
   useEffect(() => {
@@ -20,9 +19,9 @@ export const UserList: React.FC = () => {
   return (
     <div>
       <Typography className="header-list-user">
-        {USER_LIST} {users.length}
+        {USER_LIST} {filterdUsers.length}
       </Typography>
-      <List data={users} className={'user-list'} />
+      <List data={filterdUsers} className={'user-list'} />
     </div>
   )
 }

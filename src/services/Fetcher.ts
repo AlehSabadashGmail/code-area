@@ -95,14 +95,6 @@ class Fetcher {
       ...requestConfig,
       baseURL: API_HOSTS,
     })
-
-  requestDelete = <TData, TResponse = unknown>(
-    requestConfig: Omit<IRequest<TData>, 'baseURL'>,
-  ): Promise<AxiosResponse<TResponse>> =>
-    this.request({
-      ...requestConfig,
-      baseURL: API_HOSTS.USERS_ID,
-    })
 }
 
 export default Fetcher

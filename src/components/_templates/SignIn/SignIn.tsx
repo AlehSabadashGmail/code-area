@@ -1,19 +1,18 @@
 import { Button, Checkbox, Form, Input, Space, Typography } from 'antd'
 import { LockOutlined, MailOutlined } from '@ant-design/icons'
+import { useNavigate } from 'react-router-dom'
 
 import { FORGOT_PASSWORD, REMEMBER_ME, SIGN_IN } from 'src/constants'
 import { requestSignIn } from 'src/redux/users/action'
-import { useAppDispatch } from 'src/redux/hooks'
-import { useNavigate } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
 import { RULES_FORM } from 'src/helper/helper'
 import { UtilsSignIn } from 'src/utils'
 import { FormDataSigIn } from '.'
 import './style.scss'
+import { useEffect } from 'react'
 
 export const SignIn = () => {
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
-
   const onFinish = (values: FormDataSigIn) => {
     dispatch(requestSignIn({ users: UtilsSignIn(values) }))
   }

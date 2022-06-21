@@ -6,6 +6,7 @@ const initialState: IUserState = {
   isLoading: false,
   isLoaded: false,
   error: null,
+  login: false,
 }
 
 export const userSlice = createSlice({
@@ -26,8 +27,11 @@ export const userSlice = createSlice({
       const { error } = action.payload
       state.error = error
     },
+    setLogin(state: IUserState, action: PayloadAction<boolean>) {
+      state.login = action.payload
+    },
   },
 })
 
 export default userSlice.reducer
-export const { loading, finish, error } = userSlice.actions
+export const { loading, finish, error, setLogin } = userSlice.actions

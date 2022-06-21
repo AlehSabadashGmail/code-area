@@ -5,7 +5,7 @@ export const HomePage = () => {
   const navigate = useNavigate()
 
   const LogOut = () => {
-    localStorage.setItem('token', '')
+    localStorage.clear()
     navigate('/')
   }
 

@@ -4,8 +4,8 @@ import { LockOutlined, MailOutlined } from '@ant-design/icons'
 import { FORGOT_PASSWORD, REMEMBER_ME, SIGN_IN } from 'src/constants'
 import { requestSignIn } from 'src/redux/users/action'
 import { useAppDispatch } from 'src/redux/hooks'
-import { RULES_FORM } from 'src/helper/helper'
 import { useNavigate } from 'react-router-dom'
+import { RULES_FORM } from 'src/helper/helper'
 import { UtilsSignIn } from 'src/utils'
 import { FormDataSigIn } from '.'
 import './style.scss'
@@ -16,7 +16,6 @@ export const SignIn = () => {
 
   const onFinish = (values: FormDataSigIn) => {
     dispatch(requestSignIn({ users: UtilsSignIn(values) }))
-    navigate('/users')
   }
 
   return (

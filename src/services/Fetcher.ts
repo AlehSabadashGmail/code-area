@@ -60,6 +60,10 @@ class Fetcher {
       }
     }
 
+    if (status === 400) {
+      localStorage.clear()
+    }
+
     throw e
   }
 
@@ -75,6 +79,7 @@ class Fetcher {
         ].join(''),
       })
       .then((resp) => resp)
+      .catch((e: AxiosError<TResponse>) => this.handlerCatch<TResponse>(e))
   }
 
   requestToReceive = <TData, TResponse = Object>(

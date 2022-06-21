@@ -11,3 +11,5 @@ export const RULES_FORM = {
 import moment from 'moment'
 
 export const getDateNow = () => moment().format('DD-MM-YYYY')
+
+export const isAuthenticated = localStorage.getItem('token')

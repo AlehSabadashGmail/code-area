@@ -1,7 +1,7 @@
 import { Navigate } from 'react-router-dom'
 
-const isAuthenticated = localStorage.getItem('token')
+import { isAuthenticated } from 'src/helper/helper'
 
 export const PrivateRoute = ({ children }: any) => {
-  return isAuthenticated !== '' ? children : <Navigate to="/" />
+  return isAuthenticated ? children : <Navigate to="/" />
 }

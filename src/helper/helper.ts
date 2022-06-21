@@ -1,3 +1,9 @@
+import moment from 'moment'
+
+export const getDateFormat = (date: string) => moment(date).format('DD-MM-YYYY')
+export const getDateNow = () => moment().format('DD-MM-YYYY')
+export const isAuthenticated = localStorage.getItem('token')
+
 export const RULES_FORM = {
   Username: {
     required: true,
@@ -10,6 +16,3 @@ export const RULES_FORM = {
 } as const
 import moment from 'moment'
 
-export const getDateNow = () => moment().format('DD-MM-YYYY')
-
-export const isAuthenticated = localStorage.getItem('token')

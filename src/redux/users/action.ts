@@ -23,3 +23,15 @@ export const requestSignIn =
       dispatch(finish())
     }
   }
+
+export const requestUserInfo = (): AppThunk => async (dispatch) => {
+  try {
+    dispatch(loading())
+    const response = await reqestUserInfoAPI()
+    dispatch(usersLoadSuccess(response.data))
+  } catch (err) {
+    dispatch(error({ error: err }))
+  } finally {
+    dispatch(finish())
+  }
+}

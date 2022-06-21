@@ -1,2 +1,2 @@
 export { columns } from './Columns'
-export { SIGN_IN, REMEMBER_ME, FORGOT_PASSWORD, USER_LIST } from './Text'
+export { USER_LIST } from './Text'

@@ -15,6 +15,7 @@ export const requestSignIn =
       }
     } catch (err) {
       dispatch(error({ error: err }))
+      alert('Wrong data')
     } finally {
       dispatch(finish())
     }

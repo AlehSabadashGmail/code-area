@@ -14,7 +14,7 @@ export interface IUser {
   latitude?: number
   longitude?: number
   role: string
-  created_at?: string
+  created_at: string
 }
 
 export interface IUserState {

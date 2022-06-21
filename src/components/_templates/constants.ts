@@ -13,6 +13,7 @@ export type FormData = {
   role: string
   phone: string
   password: string
+  created_at: string
 }
 
 export const initialData = (formData: FormData): IUser => ({
@@ -28,4 +29,5 @@ export const initialData = (formData: FormData): IUser => ({
   role: formData.role,
   phone: '+3752964928363',
   password: formData.password,
+  created_at: formData.created_at,
 })

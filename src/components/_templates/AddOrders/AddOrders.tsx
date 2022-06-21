@@ -1,7 +1,7 @@
 import { Button, Form, Input, InputNumber, Modal, notification } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import React, { useState } from 'react'
-import api from 'src/helper/api'
+import apiClient from 'src/helper/api'
 import { useRequire } from 'src/rules/rules'
 import { OrderData } from 'src/api/Orders/api'
 import { CONSTANTS_TEXT, CURRENT_USER } from 'src/Text'
@@ -21,7 +21,7 @@ export const AddOrders = () => {
   }
 
   const onFinish = (values: OrderData) => {
-    api()
+    apiClient()
       .post('orders', { ...values, user_id: CURRENT_USER.id })
       .then(() =>
         notification.open({

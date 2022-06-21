@@ -1,5 +1,6 @@
 export const CONSTANTS_TEXT = {
   CREATE_ORDERS: 'Create orders',
+  CREATE_USERS: 'Create user',
   USE_CURRENT: 'Use current',
   BUTTON_SAVE: 'Save',
   BUTTON_CANCEL: 'Cancel',
@@ -23,3 +24,9 @@ export const CURRENT_USER = {
   role: 'admin',
   created_at: '2022-02-21T07:47:53.231Z',
 }
+
+export const OPTIONS = [
+  { value: 'admin', label: 'admin' },
+  { value: 'user', label: 'user' },
+  { value: 'observer', label: 'observer' },
+]

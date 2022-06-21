@@ -1,48 +1,54 @@
-import { Button, Form, Input, InputNumber, Select } from 'antd'
+import { Form, Input, InputNumber, Select, Modal, Button } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { IUser } from 'src/redux/user/type'
 import apiClient from 'src/helper/api'
-import { FormData, initialData } from '../constants'
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
 import { loadUsersAsync } from 'src/redux/user/usersThunk'
-import { Modal } from 'src/components/_atoms/Modal'
-import './AddUsers.scss'
 import { getIsLoading } from 'src/redux/user/selectors'
-import { MODAL_TITLE, OPTIONS } from './constants'
-import { formRules } from './rules'
+import { FormData } from 'src/api/Users/api'
+import { CONSTANTS_TEXT, CURRENT_USER, OPTIONS } from 'src/Text'
+import { useRequire } from 'src/rules'
 
 export const AddUsers = () => {
   const dispatch = useAppDispatch()
 
   const { isLoading } = useAppSelector(getIsLoading)
 
-  const [isModalOpen, setModalState] = useState(false)
-  const [formValues, setFormValues] = useState<IUser | null>(null)
   const [isDisabled, setIsDisabled] = useState(false)
+  const [visible, setVisible] = useState(false)
 
-  const toggleModal = () => setModalState(!isModalOpen)
-  const onClose = () => setModalState(false)
+  const [form] = Form.useForm()
 
-  const createUser = () => {
-    apiClient()
-      .post('users', formValues)
-      .then(() => {
-        dispatch(loadUsersAsync())
-      })
+  const showModal = () => {
+    setVisible(true)
+  }
+
+  const handleCancel = () => {
+    setVisible(false)
+    form.resetFields()
   }
 
   const onFinish = (values: FormData) => {
-    setFormValues(initialData(values))
-    if (formValues) {
-      createUser()
-    }
+    apiClient()
+      .post('users', {
+        ...values,
+        gender: CURRENT_USER.gender,
+        address: CURRENT_USER.address,
+        latitude: CURRENT_USER.latitude,
+        longitude: CURRENT_USER.longitude,
+        phone: CURRENT_USER.phone,
+      })
+      .then(() => {
+        dispatch(loadUsersAsync())
+      })
+    setVisible(false)
+    form.resetFields()
   }
 
   const loadingState = () => {
-    if (isLoading && isModalOpen) {
+    if (isLoading && visible) {
       setIsDisabled(true)
-    } else if (!isLoading && isModalOpen) {
-      setModalState(false)
+    } else if (!isLoading && visible) {
+      setVisible(false)
       setIsDisabled(false)
     }
   }
@@ -51,40 +57,33 @@ export const AddUsers = () => {
     loadingState()
   }, [isLoading])
 
-  const {
-    firstNameRules,
-    lastNameRules,
-    userNameRules,
-    emailRules,
-    roleRules,
-    ageRule,
-    passwordRule,
-  } = formRules()
+  const require = useRequire()
 
   return (
     <div>
-      <Button onClick={toggleModal}>{MODAL_TITLE}</Button>
-      <Modal title={MODAL_TITLE} isOpen={isModalOpen} onClose={toggleModal}>
-        <Form name="complex-form" onFinish={onFinish}>
-          <Form.Item
-            label="First name"
-            name="first_name"
-            rules={[firstNameRules]}
-          >
+      <Button onClick={showModal}>{CONSTANTS_TEXT.CREATE_USERS}</Button>
+      <Modal
+        visible={visible}
+        onOk={form.submit}
+        onCancel={handleCancel}
+        title={CONSTANTS_TEXT.CREATE_USERS}
+      >
+        <Form name="complex-form" form={form} onFinish={onFinish}>
+          <Form.Item label="First name" name="first_name" rules={[require]}>
             <Input
               disabled={isDisabled}
               autoComplete="new-password"
               placeholder="Please input first name"
             />
           </Form.Item>
-          <Form.Item label="Last name" name="last_name" rules={[lastNameRules]}>
+          <Form.Item label="Last name" name="last_name" rules={[require]}>
             <Input
               disabled={isDisabled}
               autoComplete="new-password"
               placeholder="Please input last name"
             />
           </Form.Item>
-          <Form.Item name="user_name" label="User name" rules={[userNameRules]}>
+          <Form.Item name="user_name" label="User name" rules={[require]}>
             <Input
               disabled={isDisabled}
               autoComplete="new-password"
@@ -99,7 +98,7 @@ export const AddUsers = () => {
                 type: 'email',
                 message: 'The input is not valid E-mail!',
               },
-              emailRules,
+              require,
             ]}
           >
             <Input
@@ -108,30 +107,24 @@ export const AddUsers = () => {
               disabled={isDisabled}
             />
           </Form.Item>
-          <Form.Item label="Role" name="role" rules={[roleRules]}>
+          <Form.Item label="Role" name="role" rules={[require]}>
             <Select
               disabled={isDisabled}
               options={OPTIONS}
               placeholder="Select role"
             />
           </Form.Item>
-          <Form.Item label="Age" name="age" rules={[ageRule]}>
+          <Form.Item label="Age" name="age" rules={[require]}>
             <InputNumber disabled={isDisabled} placeholder="Input age" />
           </Form.Item>
-          <Form.Item label="Password" name="password" rules={[passwordRule]}>
+          <Form.Item label="Password" name="password" rules={[require]}>
             <Input.Password
               autoComplete="new-password"
               disabled={isDisabled}
               placeholder="Input password"
             />
           </Form.Item>
-          <Form.Item colon={false}>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
         </Form>
-        <Button onClick={onClose}>Cancel</Button>
       </Modal>
     </div>
   )

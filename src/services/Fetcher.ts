@@ -32,8 +32,7 @@ class Fetcher {
     })
 
     this.instance.interceptors.request.use((config) => {
-      const token =
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhiNmIyNWY0LTg1YmUtNGQyMy1iOTMyLWIwODlkZGViMDRjMiIsImVtYWlsIjoiemFtb3JhbWF4d2VsbEBpbnNlY3R1cy5jb20iLCJ1c2VyX25hbWUiOiJNQWc0b3dheWpXdCIsInBhc3N3b3JkIjoiNUhURE9QNHd4Y3VJTmpTIiwiZXhwIjoxNjU1ODE1ODYwNzA0LCJpYXQiOjE2NTU4MDg2NjA3MDR9.7knk7_vrhWUu_O5XbEZT9VBjXnAQOHRC4xOkUldIe8E'
+      const token = localStorage.getItem('token')
 
       if (!token) {
         return config

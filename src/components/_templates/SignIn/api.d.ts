@@ -1,5 +1,3 @@
-import { IUser } from 'src/redux/users/type'
-
 export type SignInData = {
   login: string
   password: string

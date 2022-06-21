@@ -14,5 +14,3 @@ export const RULES_FORM = {
     message: 'Please input your password!',
   },
 } as const
-import moment from 'moment'
-

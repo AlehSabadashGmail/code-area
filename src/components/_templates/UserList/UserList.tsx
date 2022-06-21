@@ -3,10 +3,10 @@ import { Typography } from 'antd'
 
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
 import { requestUserInfo } from 'src/redux/users/action'
-import { getUserInfo } from 'src/redux/users/selecor'
 import { List } from 'src/components/_organisms'
 import { USER_LIST } from 'src/constants'
 import './style.scss'
+import { getUserInfo } from 'src/redux/users/selectors'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()

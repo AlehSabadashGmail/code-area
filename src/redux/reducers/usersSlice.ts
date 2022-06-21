@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IUserState } from '..'
+import { IUser, IUserState } from '..'
 
 const initialState: IUserState = {
   users: [],
@@ -30,8 +30,14 @@ export const userSlice = createSlice({
     setLogin(state: IUserState, action: PayloadAction<boolean>) {
       state.login = action.payload
     },
+    usersLoadSuccess(state: IUserState, action: PayloadAction<IUser[]>) {
+      state.isLoading = false
+      state.error = ''
+      state.users = action.payload
+    },
   },
 })
 
 export default userSlice.reducer
-export const { loading, finish, error, setLogin } = userSlice.actions
+export const { loading, finish, error, setLogin, usersLoadSuccess } =
+  userSlice.actions

@@ -1,8 +1,15 @@
-import { notification } from 'antd'
+import { reqestUserInfo as reqestUserInfoAPI } from 'src/components/_templates/UserList/api'
 import { reqestSignIn as requestSignInAPI } from 'src/components/_templates/SignIn/api'
-import { error, finish, loading, setLogin } from '../reducers/userSlice'
 import { AppThunk } from '../store'
-import { RequestSignInActionProps } from '../types/RequestSignInActionProps'
+import {
+  error,
+  finish,
+  loading,
+  setLogin,
+  usersLoadSuccess,
+} from '../reducers/usersSlice'
+import { RequestSignInActionProps } from '../types'
+import { notification } from 'antd'
 
 export const requestSignIn =
   ({ dataLogin }: RequestSignInActionProps): AppThunk =>

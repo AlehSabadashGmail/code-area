@@ -1,6 +1,6 @@
-import { HTTP_METHODS } from '../../helper/api'
-import Fetcher from '../../services/Fetcher'
-import { IUser } from '../../redux'
+import { HTTP_METHODS } from 'src/helper/api'
+import Fetcher from 'src/services/Fetcher'
+import { IUser } from 'src/redux'
 
 const fetcher = new Fetcher()
 

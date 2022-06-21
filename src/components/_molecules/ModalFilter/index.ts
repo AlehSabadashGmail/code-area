@@ -1,1 +1,0 @@
-export { ModalFilter } from './ModalFilter'

@@ -22,5 +22,4 @@ export interface IUserState {
   isLoading: boolean
   isLoaded: boolean
   error: any | null
-  filteredUsers: IUser[]
 }

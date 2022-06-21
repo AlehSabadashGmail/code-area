@@ -1,6 +1,4 @@
 import { IUser } from '../../redux/user/type'
-import moment from 'moment'
-import { getDateNow } from 'src/helper/helper'
 
 export type FormData = {
   first_name: string

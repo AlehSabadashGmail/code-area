@@ -1,3 +1,5 @@
+import { IUser } from 'src/redux/users/type'
+
 export type FormData = {
   first_name: string
   last_name: string
@@ -12,4 +14,8 @@ export type FormData = {
   phone: string
   password: string
   created_at: string
+}
+
+export type UsersResponse = {
+  users: IUser[]
 }

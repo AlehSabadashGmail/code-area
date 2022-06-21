@@ -1,12 +1,12 @@
 import { Form, Input, InputNumber, Select, Modal, Button } from 'antd'
 import React, { useEffect, useState } from 'react'
-import apiClient from 'src/helper/api'
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
-import { loadUsersAsync } from 'src/redux/user/usersThunk'
-import { getIsLoading } from 'src/redux/user/selectors'
+import { getIsLoading } from 'src/redux/users/selectors'
 import { FormData } from 'src/api/Users/api'
-import { CONSTANTS_TEXT, CURRENT_USER, OPTIONS } from 'src/Text'
+import { CONSTANTS_TEXT, OPTIONS } from 'src/Text'
 import { useRequire } from 'src/rules'
+import { requestAddUsers } from 'src/redux/users/actions'
+import { UtilsAddUsers } from 'src/utils/UsersUtils'
 
 export const AddUsers = () => {
   const dispatch = useAppDispatch()
@@ -28,18 +28,7 @@ export const AddUsers = () => {
   }
 
   const onFinish = (values: FormData) => {
-    apiClient()
-      .post('users', {
-        ...values,
-        gender: CURRENT_USER.gender,
-        address: CURRENT_USER.address,
-        latitude: CURRENT_USER.latitude,
-        longitude: CURRENT_USER.longitude,
-        phone: CURRENT_USER.phone,
-      })
-      .then(() => {
-        dispatch(loadUsersAsync())
-      })
+    dispatch(requestAddUsers({ users: UtilsAddUsers(values) }))
     setVisible(false)
     form.resetFields()
   }

@@ -1,4 +1,4 @@
-import { IUser } from '../../../redux/user/type'
+import { IUser } from '../../../redux/users/type'
 
 export type TableType = {
   data: Array<IUser>

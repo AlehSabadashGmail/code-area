@@ -4,7 +4,7 @@ import axios, {
   AxiosResponse,
   AxiosError,
 } from 'axios'
-import { API_HOSTS, HTTP_METHODS } from '../helper/api'
+import { API_HOSTS, BASE_URL, HTTP_METHODS } from '../helper/api'
 
 interface IRequest<TData = Object> extends Omit<AxiosRequestConfig, 'data'> {
   prefixURL?: string
@@ -13,7 +13,7 @@ interface IRequest<TData = Object> extends Omit<AxiosRequestConfig, 'data'> {
 
 const defaultConfig: IRequest = {
   prefixURL: '/',
-  baseURL: 'https://core-area-api.herokuapp.com',
+  baseURL: BASE_URL,
   method: HTTP_METHODS.GET,
   timeout: 30 * 1000,
 }
@@ -32,7 +32,8 @@ class Fetcher {
     })
 
     this.instance.interceptors.request.use((config) => {
-      const token = localStorage.getItem('token')
+      const token =
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhiNmIyNWY0LTg1YmUtNGQyMy1iOTMyLWIwODlkZGViMDRjMiIsImVtYWlsIjoiemFtb3JhbWF4d2VsbEBpbnNlY3R1cy5jb20iLCJ1c2VyX25hbWUiOiJNQWc0b3dheWpXdCIsInBhc3N3b3JkIjoiNUhURE9QNHd4Y3VJTmpTIiwiZXhwIjoxNjU1ODE1ODYwNzA0LCJpYXQiOjE2NTU4MDg2NjA3MDR9.7knk7_vrhWUu_O5XbEZT9VBjXnAQOHRC4xOkUldIe8E'
 
       if (!token) {
         return config
@@ -56,19 +57,12 @@ class Fetcher {
     const { status } = response as AxiosResponse<TResponse>
     if (response) {
       if (status === 401) {
-        // cleanUpPrivateStorage()
-      }
-      if (status === 403 || status === 500) {
-        // handleErrorPages(status)
+        localStorage.clear()
       }
     }
 
-    if (status !== 404 && status !== 500) {
-      // store.dispatch(
-      //   addSnackbar({
-      //     message: (data as any)?.errorMessage,
-      //   }),
-      // )
+    if (status === 400) {
+      localStorage.clear()
     }
 
     throw e
@@ -86,6 +80,7 @@ class Fetcher {
         ].join(''),
       })
       .then((resp) => resp)
+      .catch((e: AxiosError<TResponse>) => this.handlerCatch<TResponse>(e))
   }
 
   requestToReceive = <TData, TResponse = Object>(

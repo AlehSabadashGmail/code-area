@@ -2,9 +2,10 @@ import React, { useEffect } from 'react'
 import { Typography } from 'antd'
 
 import '../UserList/styles.scss'
-import { loadUsersAsync } from '../../../redux/users/usersThunk'
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
-import { List } from '../../_organisms'
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
+import { List } from 'src/components/_organisms'
+import './style.scss'
+import { loadUsersAsync } from 'src/redux/users/usersThunk'
 
 export const UserList: React.FC = () => {
   const dispatch = useAppDispatch()

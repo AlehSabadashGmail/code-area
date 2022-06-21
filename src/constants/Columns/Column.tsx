@@ -1,8 +1,8 @@
 import { Button, Input } from 'antd'
 import { ColumnsType } from 'antd/lib/table/interface'
-import { getDateFormat } from '../../helper/helper'
-import { IUser } from '../../redux/users/type'
 import { SearchOutlined } from '@ant-design/icons'
+import { getDateFormat } from 'src/helper/helper'
+import { IUser } from 'src/redux'
 
 export const columns: ColumnsType<IUser> = [
   {

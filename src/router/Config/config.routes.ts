@@ -3,5 +3,5 @@ export const routes = {
   homepage: '/home-page',
   usersList: '/users',
   usersById: '/users/:id',
-  filter: '/filter',
+  ordersList: '/orders',
 }

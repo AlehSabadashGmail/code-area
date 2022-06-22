@@ -1,12 +1,12 @@
 import { Form, Input, InputNumber, Select, Modal, Button } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
-import { getIsLoading } from 'src/redux/users/selectors'
-import { FormData } from 'src/api/Users/api'
-import { CONSTANTS_TEXT, OPTIONS } from 'src/Text'
+import { FormData } from 'src/constants/Api/Users/api'
 import { useRequire } from 'src/rules'
-import { requestAddUsers } from 'src/redux/users/actions'
 import { UtilsAddUsers } from 'src/utils/UsersUtils'
+import { CONSTANTS_TEXT, OPTIONS } from 'src/constants'
+import { requestAddUsers } from 'src/redux/users/action'
+import { getIsLoading } from 'src/redux/users/selecor'
 
 export const AddUsers = () => {
   const dispatch = useAppDispatch()
@@ -29,8 +29,6 @@ export const AddUsers = () => {
 
   const onFinish = (values: FormData) => {
     dispatch(requestAddUsers({ users: UtilsAddUsers(values) }))
-    setVisible(false)
-    form.resetFields()
   }
 
   const loadingState = () => {
@@ -39,6 +37,7 @@ export const AddUsers = () => {
     } else if (!isLoading && visible) {
       setVisible(false)
       setIsDisabled(false)
+      form.resetFields()
     }
   }
 

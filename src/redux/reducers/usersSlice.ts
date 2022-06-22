@@ -17,13 +17,13 @@ export const userSlice = createSlice({
       state.error = null
     },
     usersLoadStart(state: IUserState) {
-      state.isLoading = false
+      state.isLoading = true
       state.users = []
     },
     usersLoadSuccess(state: IUserState, action: PayloadAction<IUser[]>) {
       state.isLoading = false
       state.error = ''
-      state.users = action.payload
+      state.users = action.payload.reverse()
     },
     finish(state: IUserState) {
       state.isLoading = false

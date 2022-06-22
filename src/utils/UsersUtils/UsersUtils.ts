@@ -1,6 +1,6 @@
-import { FormData } from 'src/api/Users/api'
+import { FormData } from 'src/constants/Api/Users/api'
+import { CURRENT_USER } from 'src/constants'
 import { IUser } from 'src/redux/users/type'
-import { CURRENT_USER } from 'src/Text'
 
 export const UtilsAddUsers = (formData: FormData): IUser => ({
   ...formData,

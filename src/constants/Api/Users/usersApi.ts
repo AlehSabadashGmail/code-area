@@ -6,7 +6,7 @@ const fetcher = new Fetcher()
 
 export const requestAddUsers = (data: FormData) =>
   fetcher.requestToReceive<FormData, UsersResponse>({
-    url: 'https://core-area-api.herokuapp.com/users',
+    url: 'users',
     method: HTTP_METHODS.POST,
     data,
   })

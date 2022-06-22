@@ -3,8 +3,8 @@ import TextArea from 'antd/lib/input/TextArea'
 import React, { useState } from 'react'
 import apiClient from 'src/helper/api'
 import { useRequire } from 'src/rules/rules'
-import { OrderData } from 'src/api/Orders/api'
-import { CONSTANTS_TEXT, CURRENT_USER } from 'src/Text'
+import { OrderData } from 'src/constants/Api/Orders/api'
+import { CONSTANTS_TEXT, CURRENT_USER } from 'src/constants'
 
 export const AddOrders = () => {
   const [visible, setVisible] = useState(false)

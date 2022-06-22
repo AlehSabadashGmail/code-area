@@ -1,5 +1,5 @@
 import { reqestUserInfo as reqestUserInfoAPI } from 'src/components/_templates/UserList/api'
-import { reqestDeleteUsers as reqestDeleteUsersAPI } from '../../constants/Columns/api'
+import { reqestDeleteUsers as reqestDeleteUsersAPI } from 'src/components/_molecules/index'
 import { AppThunk } from '../store'
 import {
   error,

@@ -16,14 +16,10 @@ export const userSlice = createSlice({
       state.isLoading = true
       state.error = null
     },
-    usersLoadStart(state: IUserState) {
-      state.isLoading = true
-      state.users = []
-    },
     usersLoadSuccess(state: IUserState, action: PayloadAction<IUser[]>) {
       state.isLoading = false
       state.error = ''
-      state.users = action.payload.reverse()
+      state.users = action.payload
     },
     finish(state: IUserState) {
       state.isLoading = false
@@ -48,7 +44,6 @@ export const userSlice = createSlice({
 
 export default userSlice.reducer
 export const {
-  usersLoadStart,
   usersLoadSuccess,
   setUsers,
   clearUsers,

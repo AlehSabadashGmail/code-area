@@ -1,5 +1,3 @@
 export type ButtonDeleteUserType = {
-  onConfirm:
-    | ((e?: React.MouseEvent<HTMLElement, MouseEvent> | undefined) => void)
-    | undefined
+  onConfirm: (e?: React.MouseEvent<HTMLElement, MouseEvent> | undefined) => void
 }

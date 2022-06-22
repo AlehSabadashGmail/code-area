@@ -6,7 +6,6 @@ const initialState: IUserState = {
   isLoading: false,
   isLoaded: false,
   error: null,
-  login: false,
 }
 
 export const userSlice = createSlice({
@@ -27,9 +26,6 @@ export const userSlice = createSlice({
       const { error } = action.payload
       state.error = error
     },
-    setLogin(state: IUserState, action: PayloadAction<boolean>) {
-      state.login = action.payload
-    },
     usersLoadSuccess(state: IUserState, action: PayloadAction<IUser[]>) {
       state.isLoading = false
       state.error = ''
@@ -39,5 +35,4 @@ export const userSlice = createSlice({
 })
 
 export default userSlice.reducer
-export const { loading, finish, error, setLogin, usersLoadSuccess } =
-  userSlice.actions
+export const { loading, finish, error, usersLoadSuccess } = userSlice.actions

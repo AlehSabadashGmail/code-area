@@ -5,7 +5,6 @@ import {
   error,
   finish,
   loading,
-  setLogin,
   usersLoadSuccess,
 } from '../reducers/usersSlice'
 import { RequestSignInActionProps } from '../types'
@@ -19,7 +18,6 @@ export const requestSignIn =
       const { data } = await requestSignInAPI(dataLogin)
       if (data) {
         localStorage.setItem('token', data.token)
-        dispatch(setLogin(true))
       }
     } catch (err) {
       dispatch(error({ error: err }))
@@ -38,7 +36,7 @@ export const requestUserInfo = (): AppThunk => async (dispatch) => {
     dispatch(usersLoadSuccess(response.data))
   } catch (err) {
     dispatch(error({ error: err }))
-    dispatch(setLogin(false))
+    localStorage.clear()
   } finally {
     dispatch(finish())
   }

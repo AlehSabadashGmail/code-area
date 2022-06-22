@@ -1,15 +1,12 @@
 import { Button } from 'antd'
-
-import { setLogin } from 'src/redux/reducers/usersSlice'
-import { useAppDispatch } from 'src/redux/hooks'
+import { useNavigate } from 'react-router-dom'
+import { routes } from 'src/router/Config/config.routes'
 
 export const HomePage = () => {
-  const dispatch = useAppDispatch()
-
+  const navigate = useNavigate()
   const LogOut = () => {
     localStorage.clear()
-    dispatch(setLogin(false))
-    location.href = '/'
+    navigate(routes.default)
   }
 
   return (

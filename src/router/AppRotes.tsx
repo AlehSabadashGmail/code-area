@@ -5,22 +5,13 @@ import {
   SignInPage,
   UsersPage,
 } from 'src/components/_pages'
-import { isAuthenticated } from 'src/helper/helper'
-import { useAppSelector } from 'src/redux/hooks'
-import { getLoginUser } from 'src/redux/users/selectors'
 import { routes } from './Config/config.routes'
 import { PrivateRoute } from './PrivateRoute'
 
 const AppRoutes = () => {
-  const login = useAppSelector(getLoginUser)
   return (
     <Routes>
-      <Route
-        path={routes.default}
-        element={
-          login === false && !isAuthenticated ? <SignInPage /> : <UsersPage />
-        }
-      />
+      <Route path={routes.default} element={<SignInPage />} />
       <Route
         path={routes.homepage}
         element={

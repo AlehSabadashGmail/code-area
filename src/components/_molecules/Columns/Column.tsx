@@ -1,10 +1,7 @@
 import { ColumnsType } from 'antd/lib/table/interface'
-import { SearchOutlined } from '@ant-design/icons'
-import { Input } from 'antd'
-
+import { InputDefault } from 'src/components/_atoms/Input'
 import { getDateFormat } from 'src/helper/helper'
 import { IUser } from 'src/redux'
-import { DelteButton } from './index'
 
 export const columns: ColumnsType<IUser> = [
   {
@@ -14,8 +11,7 @@ export const columns: ColumnsType<IUser> = [
     filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => {
       return (
         <>
-          <Input
-            autoFocus
+          <InputDefault
             placeholder="Search username"
             value={selectedKeys[0]}
             onChange={(e) => {

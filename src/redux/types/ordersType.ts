@@ -8,3 +8,10 @@ export interface IOrder {
   location: object
   description: string
 }
+
+export interface IOrdersState {
+  orders: IOrder[]
+  isLoading: boolean
+  isLoaded: boolean
+  error: any | null
+}

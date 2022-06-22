@@ -1,4 +1,7 @@
+import { IOrder } from 'src/redux'
+
 export type OrderData = {
+  user_id: string
   product_name: string
   price_min: number
   price_max: number
@@ -8,4 +11,12 @@ export type OrderData = {
     latitude: string
     longitude: string
   }
+}
+
+export type OrdersResponse = {
+  orders: IOrder[]
+}
+
+export type RequestAddOrdersActionProps = {
+  orders: OrderData
 }

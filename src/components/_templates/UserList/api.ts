@@ -1,4 +1,7 @@
-import { UserInfoData, UserInfoResponse } from '.'
+import {
+  UserInfoData,
+  UserInfoResponse,
+} from 'src/components/_templates/UserList'
 import { HTTP_METHODS } from 'src/helper/api'
 import Fetcher from 'src/services/Fetcher'
 

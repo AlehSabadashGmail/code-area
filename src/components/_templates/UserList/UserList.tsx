@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Typography } from 'antd'
-
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
 import { requestUserInfo } from 'src/redux/users/action'
 import { getUserInfo } from 'src/redux/users/selecor'

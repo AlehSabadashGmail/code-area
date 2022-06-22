@@ -1,13 +1,12 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import commonSlice from './reducers/commonSlice'
 import ordersSlice from './reducers/ordersSlice'
-import userSlice from './reducers/usersSlice'
+import usersSlice from './reducers/usersSlice'
 
 export const store = configureStore({
   reducer: {
     common: commonSlice,
-    orders: ordersSlice,
-    users: userSlice,
+    users: usersSlice,
   },
 })
 

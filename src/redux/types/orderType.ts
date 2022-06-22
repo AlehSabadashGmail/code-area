@@ -8,6 +8,7 @@ export interface IOrder {
   address: string
   location: object
   description: string
+  created_at: string
 }
 
 export interface IOrdersState {

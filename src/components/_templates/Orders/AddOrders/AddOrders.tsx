@@ -1,12 +1,12 @@
 import { Button, Form, Input, InputNumber, Modal } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import React, { useState } from 'react'
-import api from 'src/helper/api'
+import apiClient from 'src/helper/api'
 import { useRequire } from 'src/rules/rules'
-import { OrderData } from 'src/api/Orders/api'
-import { CONSTANTS_TEXT, CURRENT_USER } from 'src/Text'
 import { useAppDispatch } from 'src/redux/hooks'
-import { loadOrdersAsync } from 'src/redux/orders/orderThunk'
+import { OrderData } from 'src/constants/Api/Orders/api'
+import { CONSTANTS_TEXT, CURRENT_USER } from 'src/constants'
+import { loadOrdersAsync } from 'src/redux/types/orderThunk'
 
 export const AddOrders = () => {
   const dispatch = useAppDispatch()
@@ -25,7 +25,7 @@ export const AddOrders = () => {
   }
 
   const onFinish = (values: OrderData) => {
-    api()
+    apiClient()
       .post('orders', { ...values, user_id: CURRENT_USER.id })
       .then(() => dispatch(loadOrdersAsync()))
     setVisible(false)

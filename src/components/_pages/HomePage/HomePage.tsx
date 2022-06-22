@@ -1,10 +1,5 @@
-import { Button } from 'antd'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 
 export const HomePage = () => {
-  return (
-    <>
-      <div className="home-page">Home page</div>
-    </>
-  )
+  return <div className="home-page">Home page</div>
 }

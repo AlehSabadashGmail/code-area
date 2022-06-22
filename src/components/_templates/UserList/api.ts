@@ -1,4 +1,4 @@
-import { UserInfoData, UserInfoResponse } from '.'
+import { UserInfoData, UserInfoResponse } from './api.d'
 import { HTTP_METHODS } from 'src/helper/api'
 import Fetcher from 'src/services/Fetcher'
 

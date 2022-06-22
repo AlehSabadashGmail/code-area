@@ -1,8 +1,13 @@
 import { Route, Routes } from 'react-router-dom'
-import { OrdersList } from 'src/components/_pages/OrdersList'
+import {
+  HomePage,
+  OrdersList,
+  SignInPage,
+  UsersPage,
+} from 'src/components/_pages'
+import { isAuthenticated } from 'src/helper/helper'
 import { useAppSelector } from 'src/redux/hooks'
 import { getLoginUser } from 'src/redux/users/selectors'
-import { HomePage, UsersPage, SignInPage } from '../components/_pages'
 import { routes } from './Config/config.routes'
 import { PrivateRoute } from './PrivateRoute'
 
@@ -12,9 +17,10 @@ const AppRoutes = () => {
     <Routes>
       <Route
         path={routes.default}
-        element={login === true ? <UsersPage /> : <SignInPage />}
+        element={
+          login === false && !isAuthenticated ? <SignInPage /> : <UsersPage />
+        }
       />
-
       <Route
         path={routes.homepage}
         element={

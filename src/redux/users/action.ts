@@ -38,6 +38,7 @@ export const requestUserInfo = (): AppThunk => async (dispatch) => {
     dispatch(usersLoadSuccess(response.data))
   } catch (err) {
     dispatch(error({ error: err }))
+    dispatch(setLogin(false))
   } finally {
     dispatch(finish())
   }

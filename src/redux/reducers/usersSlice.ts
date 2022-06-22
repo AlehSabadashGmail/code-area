@@ -43,10 +43,6 @@ export const userSlice = createSlice({
     clearUsers(state: IUserState) {
       state.users = []
     },
-    remove(state: IUserState, action: PayloadAction<any>) {
-      const { uuid } = action.payload
-      state.users = state.users.filter((i) => i.id !== uuid)
-    },
   },
 })
 
@@ -59,5 +55,4 @@ export const {
   error,
   finish,
   loading,
-  remove,
 } = userSlice.actions

@@ -6,7 +6,6 @@ import {
   finish,
   loading,
   usersLoadSuccess,
-  remove,
 } from '../reducers/usersSlice'
 
 export const requestUserInfo = (): AppThunk => async (dispatch) => {
@@ -28,7 +27,6 @@ export const deleteUsers =
       dispatch(loading())
       const result = await reqestDeleteUsersAPI(id)
       if (result) {
-        dispatch(remove({ id }))
         dispatch(requestUserInfo())
       }
     } catch (err) {

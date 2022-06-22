@@ -1,8 +1,4 @@
-import {
-  usersLoadStart,
-  usersLoadFinish,
-  setUsers,
-} from '../reducers/userSlice'
+import { usersLoadStart, finish, setUsers } from '../reducers/usersSlice'
 import { requestAddUsers as requestAddUsersAPI } from 'src/api/Users/usersApi'
 import { AppThunk } from '../store'
 import { FormData } from 'src/api/Users/api'
@@ -21,6 +17,6 @@ export const requestAddUsers =
         dispatch(setUsers({ data: data.users }))
       }
     } finally {
-      dispatch(usersLoadFinish())
+      dispatch(finish())
     }
   }

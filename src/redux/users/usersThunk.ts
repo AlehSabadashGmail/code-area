@@ -1,4 +1,4 @@
-import { usersLoadStart, usersLoadSuccess } from '../reducers/userSlice'
+import { usersLoadStart, usersLoadSuccess } from '../reducers/usersSlice'
 import UsersService from '../../services/services'
 import { AppDispatch } from '../store'
 

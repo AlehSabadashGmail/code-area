@@ -1,3 +1,3 @@
 import { IUserState } from './type'
 
-export const getIsLoading = (state: { user: IUserState }) => state.user
+export const getIsLoading = (state: { users: IUserState }) => state.users

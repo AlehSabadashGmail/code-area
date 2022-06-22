@@ -1,6 +1,9 @@
 import { ColumnsType } from 'antd/lib/table/interface'
+import { SearchOutlined } from '@ant-design/icons'
+
 import { InputDefault } from 'src/components/_atoms/Input'
 import { getDateFormat } from 'src/helper/helper'
+import { DeleteButton } from './ButtonDeleteUser'
 import { IUser } from 'src/redux'
 
 export const columns: ColumnsType<IUser> = [
@@ -81,6 +84,6 @@ export const columns: ColumnsType<IUser> = [
   {
     title: 'Delete Users',
     dataIndex: 'delete',
-    render: (text, record, index) => DelteButton(record.id),
+    render: (text, record, index) => DeleteButton(record.id),
   },
 ]

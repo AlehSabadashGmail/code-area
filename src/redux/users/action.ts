@@ -1,5 +1,5 @@
 import { reqestUserInfo as reqestUserInfoAPI } from 'src/components/_templates/UserList/api'
-import { reqestDeleteUsers as reqestDeleteUsersAPI } from 'src/components/_molecules/index'
+import { reqestDeleteUsers as reqestDeleteUsersAPI } from 'src/components/_molecules/Columns/api'
 import { AppThunk } from '../store'
 import { requestAddUsers as requestAddUsersAPI } from 'src/constants/Api/Users/usersApi'
 import {
@@ -24,7 +24,7 @@ export const requestUserInfo = (): AppThunk => async (dispatch) => {
 }
 
 export const deleteUsers =
-  (id: string): AppThunk =>
+  (id: string | undefined): AppThunk =>
   async (dispatch) => {
     try {
       dispatch(loading())

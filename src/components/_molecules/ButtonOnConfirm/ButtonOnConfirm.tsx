@@ -1,6 +1,5 @@
 import { DeleteOutlined } from '@ant-design/icons'
 import { Button, Popconfirm } from 'antd'
-import { useAppDispatch } from 'src/redux/hooks'
 import { ButtonOnConfirmType } from './ButtonOnConfirmType'
 
 export const ButtonOnConfirm = ({ onConfirm }: ButtonOnConfirmType) => {

@@ -6,7 +6,7 @@ import { useRequire } from 'src/rules'
 import { UtilsAddUsers } from 'src/utils/UsersUtils'
 import { CONSTANTS_TEXT, OPTIONS } from 'src/constants'
 import { requestAddUsers } from 'src/redux/users/action'
-import { getIsLoading } from 'src/redux/users/selecor'
+import { getIsLoading } from 'src/redux/users/selectors'
 
 export const AddUsers = () => {
   const dispatch = useAppDispatch()

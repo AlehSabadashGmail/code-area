@@ -7,6 +7,7 @@ export const store = configureStore({
   reducer: {
     common: commonSlice,
     users: usersSlice,
+    orders: ordersSlice,
   },
 })
 

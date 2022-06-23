@@ -4,9 +4,9 @@ import React, { useState } from 'react'
 import apiClient from 'src/helper/api'
 import { useRequire } from 'src/rules/rules'
 import { useAppDispatch } from 'src/redux/hooks'
-import { OrderData } from 'src/constants/Api/Orders/api'
 import { CONSTANTS_TEXT, CURRENT_USER } from 'src/constants'
 import { loadOrdersAsync } from 'src/redux/types/orderThunk'
+import { OrderData } from 'src/constants/Api/Orders/api'
 
 export const AddOrders = () => {
   const dispatch = useAppDispatch()

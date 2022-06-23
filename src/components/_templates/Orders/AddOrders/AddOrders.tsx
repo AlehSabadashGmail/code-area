@@ -5,7 +5,7 @@ import apiClient from 'src/helper/api'
 import { useRequire } from 'src/rules/rules'
 import { useAppDispatch } from 'src/redux/hooks'
 import { CONSTANTS_TEXT, CURRENT_USER } from 'src/constants'
-import { loadOrdersAsync } from 'src/redux/types/orderThunk'
+import { loadOrdersAsync } from 'src/redux/orders/orderThunk'
 import { OrderData } from 'src/constants/Api/Orders/api'
 
 export const AddOrders = () => {

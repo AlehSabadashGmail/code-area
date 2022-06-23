@@ -4,6 +4,7 @@ import { CONSTANTS_TEXT, SELECT_OPTIONS } from 'src/constants'
 import apiClient from 'src/helper/api'
 import { useAppSelector } from 'src/redux/hooks'
 import { IOrder } from 'src/redux/types/orderType'
+import { getOrders } from 'src/redux/types/selectors'
 import { Title } from 'src/typography'
 import { AddOrders } from '../AddOrders'
 import { OrdersDetails } from '../OrdersDetails'
@@ -14,7 +15,7 @@ export const OrderList = () => {
   const [currenValue, setCurrenrValue] = useState(['in storage'])
   const [currentOrder, setCurrentOrder] = useState<IOrder>()
 
-  const { orders } = useAppSelector((state) => state.orders)
+  const { orders } = useAppSelector(getOrders)
 
   useEffect(() => {
     apiClient()

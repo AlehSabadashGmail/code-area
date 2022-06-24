@@ -5,7 +5,7 @@ import { useRequire } from 'src/rules'
 import { useAppDispatch } from 'src/redux/hooks'
 import { CONSTANTS_TEXT, CURRENT_USER } from 'src/constants'
 import { OrderData } from 'src/constants/Api/Orders/api'
-import { requestAddOrders } from 'src/redux/orders/actions'
+import { requestAddOrders } from 'src/redux/types/actions'
 
 export const AddOrders = () => {
   const [visible, setVisible] = useState(false)

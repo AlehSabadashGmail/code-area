@@ -1,5 +1,5 @@
 export interface IUser {
-  id: string
+  id?: string
   is_active?: boolean
   image?: string
   age: number

@@ -1,5 +1,5 @@
 export interface IOrder {
-  id?: string
+  id: string
   user_id: string
   product_name: string
   price_min: number
@@ -8,4 +8,11 @@ export interface IOrder {
   location: object
   description: string
   created_at: string
+}
+
+export interface IOrdersState {
+  orders: IOrder[]
+  isLoading: boolean
+  isLoaded: boolean
+  error: any | null
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
 export const StringCompression = () => {
-  const initialString = 'aaafffffzzzzsss'
+  const initialString = 'vaaafffffzzzzsss'
   const resultString = initialString.replace(
-    /(\w)\1+/g,
+    /(\w)\1{0,}/g,
     (initialString) => `${initialString[0]}${initialString.length}`,
   )
   return (

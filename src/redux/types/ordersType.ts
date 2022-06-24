@@ -1,5 +1,5 @@
 export interface IOrder {
-  id?: string
+  id: string
   user_id: string
   product_name: string
   price_min: number
@@ -7,6 +7,7 @@ export interface IOrder {
   address: string
   location: object
   description: string
+  created_at: string
 }
 
 export interface IOrdersState {

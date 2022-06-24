@@ -1,1 +1,1 @@
-export { USER_LIST, CONSTANTS_TEXT, CURRENT_USER } from './Text'
+export { CONSTANTS_TEXT, CURRENT_USER, OPTIONS, USER_LIST } from './Text'

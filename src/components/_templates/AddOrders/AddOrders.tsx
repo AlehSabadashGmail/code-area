@@ -3,9 +3,9 @@ import TextArea from 'antd/lib/input/TextArea'
 import React, { useState } from 'react'
 import { useRequire } from 'src/rules'
 import { useAppDispatch } from 'src/redux/hooks'
-import { requestAddOrders } from 'src/redux/orders/actions'
 import { CONSTANTS_TEXT, CURRENT_USER } from 'src/constants'
 import { OrderData } from 'src/constants/Api/Orders/api'
+import { requestAddOrders } from 'src/redux/orders/actions'
 
 export const AddOrders = () => {
   const [visible, setVisible] = useState(false)

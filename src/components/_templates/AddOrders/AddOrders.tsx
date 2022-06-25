@@ -1,13 +1,15 @@
-import { Button, Form, Input, InputNumber, Modal, notification } from 'antd'
+import { Button, Form, Input, InputNumber, Modal } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import React, { useState } from 'react'
-import apiClient from 'src/helper/api'
-import { useRequire } from 'src/rules/rules'
-import { OrderData } from 'src/constants/Api/Orders/api'
+import { useRequire } from 'src/rules'
+import { useAppDispatch } from 'src/redux/hooks'
 import { CONSTANTS_TEXT, CURRENT_USER } from 'src/constants'
+import { OrderData } from 'src/constants/Api/Orders/api'
+import { requestAddOrders } from 'src/redux/orders/actions'
 
 export const AddOrders = () => {
   const [visible, setVisible] = useState(false)
+  const dispatch = useAppDispatch()
 
   const [form] = Form.useForm()
 
@@ -21,13 +23,9 @@ export const AddOrders = () => {
   }
 
   const onFinish = (values: OrderData) => {
-    apiClient()
-      .post('orders', { ...values, user_id: CURRENT_USER.id })
-      .then(() =>
-        notification.open({
-          message: 'Order successfully created!',
-        }),
-      )
+    dispatch(
+      requestAddOrders({ orders: { ...values, user_id: CURRENT_USER.id } }),
+    )
     setVisible(false)
     form.resetFields()
   }

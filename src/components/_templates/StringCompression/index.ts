@@ -1,0 +1,1 @@
+export { StringCompression } from './StringCompression'

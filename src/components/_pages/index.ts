@@ -1,4 +1,4 @@
 export { UsersPage } from './UsersPage'
 export { HomePage } from './HomePage'
-export { OrdersList } from './OrdersList'
+export { Order } from './Order'
 export { TasksList } from './TasksList'

@@ -12,6 +12,11 @@ export const ordersSlice = createSlice({
   name: 'orders',
   initialState,
   reducers: {
+    ordersLoadSuccess(state: IOrdersState, action: PayloadAction<IOrder[]>) {
+      state.isLoading = false
+      state.error = ''
+      state.orders = action.payload
+    },
     ordersLoading(state: IOrdersState) {
       state.isLoading = true
       state.error = null
@@ -35,5 +40,10 @@ export const ordersSlice = createSlice({
 })
 
 export default ordersSlice.reducer
-export const { setOrders, ordersLoading, ordersFinishLoading, error } =
-  ordersSlice.actions
+export const {
+  ordersLoadSuccess,
+  setOrders,
+  ordersLoading,
+  ordersFinishLoading,
+  error,
+} = ordersSlice.actions

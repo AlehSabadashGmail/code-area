@@ -5,6 +5,8 @@ export const CONSTANTS_TEXT = {
   USE_CURRENT: 'Use current',
   BUTTON_SAVE: 'Save',
   BUTTON_CANCEL: 'Cancel',
+  TITLE_DETAILS: 'Order details',
+  ORDERS_LIST: 'Order list',
 }
 
 export const CURRENT_USER = {
@@ -20,4 +22,11 @@ export const OPTIONS = [
   { value: 'admin', label: 'admin' },
   { value: 'user', label: 'user' },
   { value: 'observer', label: 'observer' },
+]
+
+export const SELECT_OPTIONS = [
+  { label: 'in storage', value: 'in storage' },
+  { label: 'done', value: 'done' },
+  { label: 'lost', value: 'lost' },
+  { label: 'on the way', value: 'on the way' },
 ]

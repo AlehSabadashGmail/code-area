@@ -17,6 +17,12 @@ export type OrdersResponse = {
   orders: IOrder[]
 }
 
+export type OrdersInfoResponse = IOrder[]
+
+export type RequestStatusValue = {
+  status: string
+}
+
 export type RequestAddOrdersActionProps = {
   orders: OrderData
 }

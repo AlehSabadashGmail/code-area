@@ -3,5 +3,6 @@ export const routes = {
   usersList: '/users',
   usersById: '/users/:id',
   ordersList: '/orders',
+  ordersById: '/orders/:id',
   tasks: '/tasks',
 }

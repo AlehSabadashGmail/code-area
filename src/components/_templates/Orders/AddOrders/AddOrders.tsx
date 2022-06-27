@@ -1,13 +1,17 @@
 import { Button, Form, Input, InputNumber, Modal } from 'antd'
 import TextArea from 'antd/lib/input/TextArea'
 import React, { useState } from 'react'
-import { useRequire } from 'src/rules'
-import { useAppDispatch } from 'src/redux/hooks'
 import { CONSTANTS_TEXT, CURRENT_USER } from 'src/constants'
 import { OrderData } from 'src/constants/Api/Orders/api'
+import { useAppDispatch } from 'src/redux/hooks'
 import { requestAddOrders } from 'src/redux/orders/actions'
+import { useRequire } from 'src/rules'
 
-export const AddOrders = () => {
+interface IProps {
+  currentStatus: string[]
+}
+
+export const AddOrders = ({ currentStatus }: IProps) => {
   const [visible, setVisible] = useState(false)
   const dispatch = useAppDispatch()
 
@@ -24,7 +28,12 @@ export const AddOrders = () => {
 
   const onFinish = (values: OrderData) => {
     dispatch(
-      requestAddOrders({ orders: { ...values, user_id: CURRENT_USER.id } }),
+      requestAddOrders(
+        {
+          orders: { ...values, user_id: CURRENT_USER.id },
+        },
+        { status: currentStatus },
+      ),
     )
     setVisible(false)
     form.resetFields()

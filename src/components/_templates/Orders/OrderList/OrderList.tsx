@@ -1,9 +1,9 @@
 import { List, Select } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { CONSTANTS_TEXT, SELECT_OPTIONS } from 'src/constants'
-import apiClient from 'src/helper/api'
-import { useAppSelector } from 'src/redux/hooks'
-import { IOrder } from 'src/redux/types/orderType'
+import { IOrder } from 'src/redux'
+import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
+import { requestOrdersInfo } from 'src/redux/orders/actions'
 import { getOrders } from 'src/redux/orders/selectors'
 import { Title } from 'src/typography'
 import { AddOrders } from '../AddOrders'
@@ -11,28 +11,19 @@ import { OrdersDetails } from '../OrdersDetails'
 import './OrderList.scss'
 
 export const OrderList = () => {
-  const [filteredOrders, setFilteredOrders] = useState<IOrder[]>()
-  const [currenValue, setCurrenrValue] = useState(['in storage'])
+  const [currentStatus, setCurrentStatus] = useState(['in storage'])
   const [currentOrder, setCurrentOrder] = useState<IOrder>()
+
+  const dispatch = useAppDispatch()
 
   const { orders } = useAppSelector(getOrders)
 
   useEffect(() => {
-    apiClient()
-      .get(
-        `orders?${
-          currenValue.length
-            ? currenValue.map((value) => `status=${value}`).join('&')
-            : ''
-        }`,
-      )
-      .then((response) => {
-        setFilteredOrders(response.data)
-      })
-  }, [currenValue, orders])
+    dispatch(requestOrdersInfo({ status: currentStatus }))
+  }, [currentStatus])
 
   const handleChange = (value: string[]) => {
-    setCurrenrValue(value)
+    setCurrentStatus(value)
   }
 
   const orderClickHandler = (order: IOrder) => () => {
@@ -45,7 +36,7 @@ export const OrderList = () => {
         <Select
           mode="multiple"
           className="select"
-          value={currenValue}
+          value={currentStatus}
           placeholder="select statuses"
           onChange={handleChange}
           optionLabelProp="label"
@@ -54,7 +45,7 @@ export const OrderList = () => {
         <Title level={3}>{CONSTANTS_TEXT.ORDERS_LIST}</Title>
         <List
           itemLayout="horizontal"
-          dataSource={filteredOrders}
+          dataSource={orders}
           renderItem={(item) => (
             <List.Item onClick={orderClickHandler(item)}>
               <List.Item.Meta title={item.product_name} />
@@ -62,7 +53,7 @@ export const OrderList = () => {
           )}
         />
         <div>
-          <AddOrders />
+          <AddOrders currentStatus={currentStatus} />
         </div>
       </div>
       <OrdersDetails order={currentOrder} />

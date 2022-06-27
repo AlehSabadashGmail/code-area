@@ -1,3 +1,3 @@
-import { IOrdersState } from '../types/orderType'
+import { IOrdersState } from '../types'
 
 export const getOrders = (state: { orders: IOrdersState }) => state.orders

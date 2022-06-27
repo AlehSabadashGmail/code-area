@@ -12,11 +12,7 @@ export const ordersSlice = createSlice({
   name: 'orders',
   initialState,
   reducers: {
-    ordersLoadStart(state: IOrdersState) {
-      state.isLoading = true
-      state.orders = []
-    },
-    ordersLoadFinish(state: IOrdersState, action: PayloadAction<IOrder[]>) {
+    ordersLoadSuccess(state: IOrdersState, action: PayloadAction<IOrder[]>) {
       state.isLoading = false
       state.error = ''
       state.orders = action.payload
@@ -45,8 +41,7 @@ export const ordersSlice = createSlice({
 
 export default ordersSlice.reducer
 export const {
-  ordersLoadStart,
-  ordersLoadFinish,
+  ordersLoadSuccess,
   setOrders,
   ordersLoading,
   ordersFinishLoading,

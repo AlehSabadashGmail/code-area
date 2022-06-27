@@ -8,7 +8,6 @@ export const store = configureStore({
     common: commonSlice,
     orders: ordersSlice,
     users: usersSlice,
-    orders: ordersSlice,
   },
 })
 

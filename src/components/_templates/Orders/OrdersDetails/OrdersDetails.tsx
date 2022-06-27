@@ -1,6 +1,6 @@
 import React from 'react'
 import { CONSTANTS_TEXT } from 'src/constants'
-import { IOrder } from 'src/redux/types/orderType'
+import { IOrder } from 'src/redux'
 import { Title } from 'src/typography'
 import './OrdersItems.scss'
 

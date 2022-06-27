@@ -1,6 +1,6 @@
-import { reqestUserInfo as reqestUserInfoAPI } from 'src/components/_templates/UserList/api'
 import { AppThunk } from '../store'
 import { requestAddUsers as requestAddUsersAPI } from 'src/constants/Api/Users/usersApi'
+import { reqestUserInfo as reqestUserInfoAPI } from 'src/constants/Api/Users/usersApi'
 import {
   error,
   finish,
@@ -8,7 +8,7 @@ import {
   setUsers,
   usersLoadSuccess,
 } from '../reducers/usersSlice'
-import { RequestAddUsersActionProps } from './constants'
+import { RequestAddUsersActionProps } from 'src/constants/Api/Users/api'
 
 export const requestUserInfo = (): AppThunk => async (dispatch) => {
   try {

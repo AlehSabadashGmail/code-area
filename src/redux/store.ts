@@ -6,6 +6,7 @@ import usersSlice from './reducers/usersSlice'
 export const store = configureStore({
   reducer: {
     common: commonSlice,
+    orders: ordersSlice,
     users: usersSlice,
     orders: ordersSlice,
   },

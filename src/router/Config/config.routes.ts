@@ -4,4 +4,5 @@ export const routes = {
   usersById: '/users/:id',
   ordersList: '/orders',
   ordersById: '/orders/:id',
+  tasks: '/tasks',
 }

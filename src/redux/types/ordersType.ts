@@ -15,4 +15,5 @@ export interface IOrdersState {
   orders: IOrder[]
   isLoading?: boolean
   error?: any | null
+  isLoaded: boolean
 }

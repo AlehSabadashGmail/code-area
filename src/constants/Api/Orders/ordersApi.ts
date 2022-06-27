@@ -4,11 +4,9 @@ import { OrderData, OrdersInfoResponse, OrdersResponse } from './api'
 
 const fetcher = new Fetcher()
 
-export const requestOrdersInfo = (data: string[]) =>
+export const requestOrdersInfo = (data: string) =>
   fetcher.requestToReceive<OrderData, OrdersInfoResponse>({
-    url: `orders?${
-      data.length ? data.map((value) => `status=${value}`).join('&') : ''
-    }`,
+    url: `orders?${data}`,
     method: HTTP_METHODS.GET,
   })
 

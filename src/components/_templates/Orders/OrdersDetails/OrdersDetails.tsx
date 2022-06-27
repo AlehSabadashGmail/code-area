@@ -5,7 +5,7 @@ import { Title } from 'src/typography'
 import './OrdersItems.scss'
 
 interface IProps {
-  order?: IOrder
+  order: IOrder
 }
 
 export const OrdersDetails = ({ order }: IProps) => {

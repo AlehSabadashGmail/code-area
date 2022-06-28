@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { StringCompression } from 'src/components/_templates'
+import { EmailMask, StringCompression } from 'src/components/_templates'
 
 export const TasksList = () => {
   return (
     <>
-      <div>Tasks list</div>
+      <div className="home-page">Tasks list</div>
+      <EmailMask />
       <StringCompression />
     </>
   )

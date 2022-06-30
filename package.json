@@ -22,6 +22,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "moment": "^2.29.3",
     "node-sass": "^7.0.1",
+    "rc-virtual-list": "^3.4.8",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^8.0.2",

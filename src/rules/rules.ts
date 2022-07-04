@@ -11,3 +11,11 @@ export const useRequireWithoutMessage = () => {
     message: '',
   }
 }
+
+export const useRequirePositiveNumber = () => {
+  return {
+    required: true,
+    message: '',
+    pattern: new RegExp(/^[0-9]+$/),
+  }
+}

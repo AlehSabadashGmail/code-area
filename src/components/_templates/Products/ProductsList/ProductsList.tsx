@@ -1,43 +1,35 @@
-import { Button, Card, Form } from 'antd'
+import { Button, Card, Dropdown, Form } from 'antd'
 import {
   EditOutlined,
   DeleteOutlined,
   ExclamationCircleOutlined,
   PlusCircleOutlined,
+  EllipsisOutlined,
 } from '@ant-design/icons'
 import { useState } from 'react'
-import './ProductsList.scss'
-import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
-import {
-  addProducts,
-  deleteProducts,
-  editProducts,
-} from 'src/redux/reducers/productsSlice'
-import { ProductsData } from 'src/constants/ProductsType'
-import { format } from 'date-fns'
+import { INITIAL_DATA, ProductsData } from 'src/constants'
 import confirm from 'antd/lib/modal/confirm'
 import { IProduct } from 'src/redux/types'
-import { getProducts } from 'src/redux/products/selectors'
-import VirtualList from 'rc-virtual-list'
-import { FormDefault } from 'src/components/_atoms/Form/form'
+import { FormDefault } from 'src/components/_organisms/Form'
+import { Title } from 'src/Typography'
+import moment from 'moment'
+import { VirtualScroll } from 'src/components/_atoms'
+import './ProductsList.scss'
 
 export const ProductsList = () => {
-  const dispatch = useAppDispatch()
-  const { products } = useAppSelector(getProducts)
   const [isAdd, setIsAdd] = useState(false)
   const [isEdit, setIsEdit] = useState(false)
+  const [products, setProducts] = useState<ProductsData[]>(INITIAL_DATA)
   const [currentProducts, setCurrentProducts] = useState<IProduct | null>()
   const [addForm] = Form.useForm()
   const [editForm] = Form.useForm()
 
   const onFinish = (values: ProductsData) => {
-    dispatch(
-      addProducts({
-        ...values,
-        id: Date.now().toString(),
-        createdAt: format(new Date(), 'MM/dd/yyyy'),
-      }),
-    )
+    products.push({
+      ...values,
+      id: Math.random().toString(16).slice(2),
+      createdAt: moment().format('MM/dd/yyyy'),
+    })
     setIsAdd(false)
     addForm.resetFields()
   }
@@ -45,6 +37,7 @@ export const ProductsList = () => {
   const editProductsHandler = (product: IProduct) => () => {
     if (isEdit) {
       showNextEditConfirm(product)
+      setIsEdit(false)
     } else {
       setIsEdit(true)
       setCurrentProducts(product)
@@ -53,7 +46,14 @@ export const ProductsList = () => {
   }
 
   const deleteProductsHandler = (product: IProduct) => () => {
-    dispatch(deleteProducts(product))
+    confirm({
+      title: 'Do you want to delete product?',
+      icon: <ExclamationCircleOutlined />,
+
+      onOk() {
+        setProducts(products.filter((item) => item.id !== product.id))
+      },
+    })
   }
 
   const showConfirm = () => {
@@ -68,17 +68,20 @@ export const ProductsList = () => {
     })
   }
 
-  const showEditConfirm = () => {
-    confirm({
-      title: 'Do you want to return?',
-      icon: <ExclamationCircleOutlined />,
+  const showEditConfirm = (product: IProduct) => () => {
+    JSON.stringify(product) ===
+    JSON.stringify({ ...currentProducts, ...editForm.getFieldsValue() })
+      ? (setCurrentProducts(null), setIsEdit(false))
+      : confirm({
+          title: 'Do you want to cancel editing?',
+          icon: <ExclamationCircleOutlined />,
 
-      onOk() {
-        setCurrentProducts(null)
-        editForm.resetFields()
-        setIsEdit(false)
-      },
-    })
+          onOk() {
+            setCurrentProducts(null)
+            editForm.resetFields()
+            setIsEdit(false)
+          },
+        })
   }
 
   const showNextEditConfirm = (product: IProduct) => {
@@ -94,7 +97,13 @@ export const ProductsList = () => {
   }
 
   const onEditFinish = (product: IProduct) => {
-    dispatch(editProducts({ ...currentProducts, ...product }))
+    setProducts(
+      products.map((item) =>
+        ({ ...currentProducts, ...product }.id === item.id
+          ? { ...item, ...{ ...currentProducts, ...product } }
+          : item),
+      ),
+    )
     setCurrentProducts(null)
     setIsEdit(false)
   }
@@ -103,22 +112,34 @@ export const ProductsList = () => {
     setIsAdd(true)
   }
 
-  const addCard = isAdd ? (
-    <Card className="form">
-      <FormDefault
-        form={addForm}
-        onFinish={onFinish}
-        onSubmit={showConfirm}
-        submitButtonName="Add"
-      />
-    </Card>
-  ) : (
-    <Card>
-      <Button onClick={showAddButton}>
+  const showMenu = (product: IProduct) => () =>
+    (
+      <>
+        <Button onClick={editProductsHandler(product)}>
+          <EditOutlined />
+        </Button>
+        <Button onClick={deleteProductsHandler(product)}>
+          <DeleteOutlined />
+        </Button>
+      </>
+    )
+
+  const addCard = [
+    isAdd ? (
+      <div className="form">
+        <FormDefault
+          form={addForm}
+          onFinish={onFinish}
+          onClick={showConfirm}
+          submitButtonName="Add"
+        />
+      </div>
+    ) : (
+      <Button className="button" size="large" onClick={showAddButton}>
         <PlusCircleOutlined />
       </Button>
-    </Card>
-  )
+    ),
+  ]
 
   const cards = [
     ...products.map((product) => (
@@ -128,7 +149,7 @@ export const ProductsList = () => {
             <FormDefault
               form={editForm}
               onFinish={onEditFinish}
-              onSubmit={showEditConfirm}
+              onClick={showEditConfirm(product)}
               submitButtonName="Update"
             />
           </Card>
@@ -136,27 +157,29 @@ export const ProductsList = () => {
           <Card
             key={product.id}
             extra={[
-              <Button onClick={editProductsHandler(product)}>
-                <EditOutlined />
-              </Button>,
-              <Button onClick={deleteProductsHandler(product)}>
-                <DeleteOutlined />
-              </Button>,
+              <Dropdown overlay={showMenu(product)} trigger={['click']}>
+                <EllipsisOutlined />
+              </Dropdown>,
             ]}
           >
-            <div>Name: {product.product_name}</div>
+            <Title level={2}>Name: {product.product_name}</Title>
             <div>Price: {product.price}</div>
             <div>Description: {product.description}</div>
           </Card>
         )}
       </>
     )),
-    addCard,
+    ...addCard,
   ]
 
   return (
-    <VirtualList data={cards} itemKey="cards">
-      {(product) => product}
-    </VirtualList>
+    <>
+      <VirtualScroll
+        height="500px"
+        rowHeight={213.5}
+        data={cards}
+        visibleElements={6}
+      />
+    </>
   )
 }

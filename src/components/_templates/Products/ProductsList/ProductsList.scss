@@ -1,22 +1,7 @@
-.rc-virtual-list-holder-inner {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
+.form {
+  grid-column: 1/-1;
 }
 
-.form{
-    grid-column: 1/-1;
+.button.button{
+  height: 213.5px;
 }
-
-@media screen and (max-width: 1080px) {
-    .rc-virtual-list-holder-inner {
-        grid-template-columns: repeat(2, 1fr) !important;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .rc-virtual-list-holder-inner {
-        grid-template-columns: repeat(1, 1fr) !important;
-    }
-}
-
-

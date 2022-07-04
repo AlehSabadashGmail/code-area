@@ -1,1 +1,5 @@
-export { useRequire, useRequireWithoutMessage } from './rules'
+export {
+  useRequire,
+  useRequireWithoutMessage,
+  useRequirePositiveNumber,
+} from './rules'

@@ -1,10 +1,9 @@
 import React from 'react'
 import { Button, Form, Input, InputNumber } from 'antd'
-import { FromType } from './formType'
-import { useRequireWithoutMessage } from 'src/rules'
-import TextArea from 'antd/lib/input/TextArea'
+import { FormType } from './formType'
+import { useRequireWithoutMessage, useRequirePositiveNumber } from 'src/rules'
 
-export const FormDefault = ({ ...props }: FromType) => (
+export const FormDefault: React.FC<FormType> = ({ ...props }) => (
   <div>
     <Form form={props.form} onFinish={props.onFinish}>
       <Form.Item
@@ -14,7 +13,7 @@ export const FormDefault = ({ ...props }: FromType) => (
       >
         <Input />
       </Form.Item>
-      <Form.Item label="Price" name="price" rules={[useRequireWithoutMessage]}>
+      <Form.Item label="Price" name="price" rules={[useRequirePositiveNumber]}>
         <InputNumber />
       </Form.Item>
       <Form.Item
@@ -22,7 +21,7 @@ export const FormDefault = ({ ...props }: FromType) => (
         name="description"
         rules={[useRequireWithoutMessage]}
       >
-        <TextArea />
+        <Input.TextArea />
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit">
@@ -30,7 +29,7 @@ export const FormDefault = ({ ...props }: FromType) => (
         </Button>
       </Form.Item>
     </Form>
-    <Button type="primary" htmlType="submit" onClick={props.onSubmit}>
+    <Button type="primary" onClick={props.onClick}>
       Cancel
     </Button>
   </div>

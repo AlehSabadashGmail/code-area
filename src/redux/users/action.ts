@@ -1,6 +1,7 @@
 import { AppThunk } from '../store'
 import { requestAddUsers as requestAddUsersAPI } from 'src/constants/Api/Users/usersApi'
 import { reqestUserInfo as reqestUserInfoAPI } from 'src/constants/Api/Users/usersApi'
+import { requestEditUser as requestEditUserAPI } from 'src/constants/Api/Users/usersApi'
 import {
   error,
   finish,
@@ -8,7 +9,7 @@ import {
   setUsers,
   usersLoadSuccess,
 } from '../reducers/usersSlice'
-import { RequestAddUsersActionProps } from 'src/constants/Api/Users/api'
+import { RequestUsersActionProps } from 'src/constants/Api/Users/api'
 
 export const requestUserInfo = (): AppThunk => async (dispatch) => {
   try {
@@ -23,7 +24,7 @@ export const requestUserInfo = (): AppThunk => async (dispatch) => {
 }
 
 export const requestAddUsers =
-  ({ users }: RequestAddUsersActionProps): AppThunk =>
+  ({ users }: RequestUsersActionProps): AppThunk =>
   async (dispatch) => {
     try {
       dispatch(loading())
@@ -33,6 +34,25 @@ export const requestAddUsers =
         const response = await reqestUserInfoAPI()
         dispatch(usersLoadSuccess(response.data))
       }
+    } catch (err) {
+      dispatch(error({ error: err }))
+    } finally {
+      dispatch(finish())
+    }
+  }
+
+export const requestEditUser =
+  ({ users }: RequestUsersActionProps): AppThunk =>
+  async (dispatch) => {
+    try {
+      dispatch(loading())
+      const { data } = await requestEditUserAPI(users)
+      if (data) {
+        const response = await reqestUserInfoAPI()
+        dispatch(usersLoadSuccess(response.data))
+      }
+      const response = await reqestUserInfoAPI()
+      dispatch(usersLoadSuccess(response.data))
     } catch (err) {
       dispatch(error({ error: err }))
     } finally {

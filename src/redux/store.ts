@@ -1,5 +1,6 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit'
 import commonSlice from './reducers/commonSlice'
+import employeesSlice from './reducers/employeesSlice'
 import ordersSlice from './reducers/ordersSlice'
 import usersSlice from './reducers/usersSlice'
 
@@ -8,6 +9,7 @@ export const store = configureStore({
     common: commonSlice,
     orders: ordersSlice,
     users: usersSlice,
+    employees: employeesSlice,
   },
 })
 

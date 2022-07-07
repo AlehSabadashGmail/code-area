@@ -8,7 +8,6 @@ export const requestOrdersInfo = (status: string) =>
   fetcher.requestToReceive<OrderData, OrdersInfoResponse>({
     url: 'orders',
     params: { status },
-    method: HTTP_METHODS.GET,
   })
 
 export const requestAddOrders = (data: OrderData) =>

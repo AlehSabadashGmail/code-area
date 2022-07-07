@@ -2,6 +2,7 @@ import { List, Select } from 'antd'
 import Item from 'antd/lib/list/Item'
 import React, { useEffect, useState } from 'react'
 import { CONSTANTS_TEXT, SELECT_OPTIONS } from 'src/constants'
+import { getStatusValue } from 'src/helper/helper'
 import { IOrder } from 'src/redux'
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
 import { requestOrdersInfo } from 'src/redux/orders/actions'
@@ -20,7 +21,7 @@ export const OrderList = () => {
   const { orders } = useAppSelector(getOrders)
 
   useEffect(() => {
-    dispatch(requestOrdersInfo({ status: currentStatus }))
+    dispatch(requestOrdersInfo({ status: getStatusValue(currentStatus) }))
   }, [currentStatus])
 
   const handleChange = (value: string) => {

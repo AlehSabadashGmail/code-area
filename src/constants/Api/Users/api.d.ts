@@ -1,7 +1,7 @@
-import { IUser } from 'src/redux/users/type'
+import { IUser } from 'src/redux'
 
 export type FormData = {
-  id?: string
+  id: string
   first_name: string
   last_name: string
   user_name: string

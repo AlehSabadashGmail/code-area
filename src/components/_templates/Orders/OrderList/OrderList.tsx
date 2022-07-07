@@ -1,4 +1,5 @@
 import { List, Select } from 'antd'
+import Item from 'antd/lib/list/Item'
 import React, { useEffect, useState } from 'react'
 import { CONSTANTS_TEXT, SELECT_OPTIONS } from 'src/constants'
 import { IOrder } from 'src/redux'
@@ -11,7 +12,7 @@ import { OrdersDetails } from '../OrdersDetails'
 import './OrderList.scss'
 
 export const OrderList = () => {
-  const [currentStatus, setCurrentStatus] = useState(['in storage'])
+  const [currentStatus, setCurrentStatus] = useState('in storage')
   const [currentOrder, setCurrentOrder] = useState<IOrder>()
 
   const dispatch = useAppDispatch()
@@ -22,7 +23,7 @@ export const OrderList = () => {
     dispatch(requestOrdersInfo({ status: currentStatus }))
   }, [currentStatus])
 
-  const handleChange = (value: string[]) => {
+  const handleChange = (value: string) => {
     setCurrentStatus(value)
   }
 
@@ -45,6 +46,7 @@ export const OrderList = () => {
         <Title level={3}>{CONSTANTS_TEXT.ORDERS_LIST}</Title>
         <List
           itemLayout="horizontal"
+          rowKey={(item) => item.id}
           dataSource={orders}
           renderItem={(item) => (
             <List.Item onClick={orderClickHandler(item)}>
@@ -52,11 +54,9 @@ export const OrderList = () => {
             </List.Item>
           )}
         />
-        <div>
-          <AddOrders currentStatus={currentStatus} />
-        </div>
+        <AddOrders currentStatus={currentStatus} />
       </div>
-      <OrdersDetails order={currentOrder} />
+      {currentOrder && <OrdersDetails order={currentOrder} />}
     </div>
   )
 }

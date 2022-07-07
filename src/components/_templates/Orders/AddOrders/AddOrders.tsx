@@ -8,7 +8,7 @@ import { requestAddOrders } from 'src/redux/orders/actions'
 import { useRequire } from 'src/rules'
 
 interface IProps {
-  currentStatus: string[]
+  currentStatus: string
 }
 
 export const AddOrders = ({ currentStatus }: IProps) => {

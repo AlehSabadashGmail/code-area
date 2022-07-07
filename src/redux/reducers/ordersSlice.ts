@@ -14,7 +14,7 @@ export const ordersSlice = createSlice({
   reducers: {
     ordersLoadSuccess(state: IOrdersState, action: PayloadAction<IOrder[]>) {
       state.isLoading = false
-      state.error = ''
+      state.error = 'Something wrong'
       state.orders = action.payload
     },
     ordersLoading(state: IOrdersState) {

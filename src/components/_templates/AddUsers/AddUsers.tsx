@@ -1,17 +1,14 @@
 import { Form, Button } from 'antd'
-import React, { useEffect, useState } from 'react'
-import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
+import React, { useState } from 'react'
+import { useAppDispatch } from 'src/redux/hooks'
 import { FormData } from 'src/constants/Api/Users/api'
 import { UtilsAddUsers } from 'src/utils/UsersUtils'
 import { CONSTANTS_TEXT } from 'src/constants'
 import { requestAddUsers } from 'src/redux/users/action'
-import { getIsLoading } from 'src/redux/users/selecor'
 import { ModalDefault } from 'src/components/_organisms'
 
 export const AddUsers = () => {
   const dispatch = useAppDispatch()
-
-  const { isLoading } = useAppSelector(getIsLoading)
 
   const [isDisabled, setIsDisabled] = useState(false)
   const [visible, setVisible] = useState(false)
@@ -27,23 +24,18 @@ export const AddUsers = () => {
     form.resetFields()
   }
 
-  const onFinish = (values: FormData) => {
-    dispatch(requestAddUsers({ users: UtilsAddUsers(values) }))
+  const getFormDataPromise = async (values: FormData) => {
+    return dispatch(requestAddUsers({ users: UtilsAddUsers(values) }))
   }
 
-  const loadingState = () => {
-    if (isLoading && visible) {
-      setIsDisabled(true)
-    } else if (!isLoading && visible) {
+  const onFinish = (values: FormData) => {
+    setIsDisabled(true)
+    getFormDataPromise(values).finally(() => {
       setVisible(false)
       setIsDisabled(false)
       form.resetFields()
-    }
+    })
   }
-
-  useEffect(() => {
-    loadingState()
-  }, [isLoading])
 
   return (
     <div>

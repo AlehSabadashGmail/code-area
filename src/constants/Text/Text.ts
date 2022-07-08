@@ -2,6 +2,7 @@ export const USER_LIST = 'User list: '
 export const CONSTANTS_TEXT = {
   CREATE_ORDERS: 'Create orders',
   CREATE_USERS: 'Create user',
+  EDIT_USER: 'Edit user',
   USE_CURRENT: 'Use current',
   BUTTON_SAVE: 'Save',
   BUTTON_CANCEL: 'Cancel',

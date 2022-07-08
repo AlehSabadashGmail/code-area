@@ -1,7 +1,7 @@
 import { SearchOutlined } from '@ant-design/icons'
-
 import { ColumnsType } from 'antd/lib/table/interface'
 import { InputDefault } from 'src/components/_atoms/Input'
+import { EditUsers } from 'src/components/_templates'
 import { getDateFormat } from 'src/helper/helper'
 import { IUser } from 'src/redux'
 
@@ -79,5 +79,10 @@ export const columns: ColumnsType<IUser> = [
     defaultSortOrder: 'descend',
     sorter: (a, b: IUser) => a.created_at.localeCompare(b.created_at),
     render: (date: string) => getDateFormat(date),
+  },
+  {
+    render: (text, record) => {
+      return <EditUsers user={record} />
+    },
   },
 ]

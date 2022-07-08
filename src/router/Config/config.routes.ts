@@ -4,4 +4,6 @@ export const routes = {
   usersById: '/users/:id',
   ordersList: '/orders',
   tasks: '/tasks',
+  profile: '/profile',
+  login: '/login',
 }

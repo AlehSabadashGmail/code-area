@@ -1,0 +1,9 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 450px);
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 10px;
+  grid-auto-flow: dense;
+  word-wrap: break-word;
+}

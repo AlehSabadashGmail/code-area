@@ -2,6 +2,9 @@
   grid-column: 1/-1;
 }
 
-.button.button{
+.button.button {
   height: 213.5px;
+  svg {
+    font-size: 200px;
+  }
 }

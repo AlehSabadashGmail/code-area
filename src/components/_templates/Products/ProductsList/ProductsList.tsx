@@ -37,7 +37,7 @@ export const ProductsList = () => {
   const editProductsHandler = (product: IProduct) => () => {
     if (isEdit) {
       showNextEditConfirm(product)
-      setIsEdit(false)
+      setIsEdit(true)
     } else {
       setIsEdit(true)
       setCurrentProducts(product)
@@ -85,15 +85,18 @@ export const ProductsList = () => {
   }
 
   const showNextEditConfirm = (product: IProduct) => {
-    confirm({
-      title: 'Do you want to switch edited product?',
-      icon: <ExclamationCircleOutlined />,
+    JSON.stringify(currentProducts) ===
+    JSON.stringify({ ...currentProducts, ...editForm.getFieldsValue() })
+      ? (setCurrentProducts(product), editForm.setFieldsValue(product))
+      : confirm({
+          title: 'Do you want to switch edited product?',
+          icon: <ExclamationCircleOutlined />,
 
-      onOk() {
-        setCurrentProducts(product)
-        editForm.setFieldsValue(product)
-      },
-    })
+          onOk() {
+            setCurrentProducts(product)
+            editForm.setFieldsValue(product)
+          },
+        })
   }
 
   const onEditFinish = (product: IProduct) => {

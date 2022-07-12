@@ -7,7 +7,7 @@ import logo from 'src/image/logo.png'
 export const FlowersHeader = () => {
   const { Link } = Anchor
   return (
-    <Anchor className="anchor">
+    <Anchor affix={false} className="anchor">
       <div className="logo">
         <img src={logo} />
       </div>

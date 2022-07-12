@@ -1,0 +1,184 @@
+[{
+    "id": 1,
+    "name": "Acacia",
+    "price": 5300,
+    "flowers_type": "popular",
+    "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+}, 
+{
+    "id": 2,
+    "name": "Heather",
+    "price": 6300,
+    "flowers_type": "popular",
+    "img": "https://avatars.mds.yandex.net/get-mpic/5236038/img_id1851575801398898227.jpeg"
+},
+{
+    "id": 3,
+    "name": 3,
+    "price": 5900,
+    "flowers_type": "popular",
+    "img": "https://www.rosemarkt.ru/resources/data/photos/5a95aba8511ed/big.jpg"
+},
+{
+    "id": 4,
+    "name": "Aconite",
+    "price": 55900,
+    "flowers_type": "combined",
+    "img": "https://komsomolsk-na-amure.loveflowers.ru/wp-content/uploads/2021/04/tsvety-v-korzinke-sekret-lyubvi.jpg"
+},
+{
+    "id": 5,
+    "name": "Ageratum",
+    "price": 2200,
+    "flowers_type": "combined",
+    "img": "https://avatars.mds.yandex.net/get-mpic/5236407/img_id95013185744472046.jpeg/orig"
+},
+{
+    "id": 6,
+    "name": "Alyssum",
+    "price": 9400,
+    "flowers_type": "popular",
+    "img": "https://avatars.mds.yandex.net/get-mpic/5247291/img_id6077539720663664491.jpeg/orig"
+}
+,
+{
+    "id": 7,
+    "name": "Helenium",
+    "price": 5300,
+    "flowers_type": "combined",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/white-pink-kalmia.jpg"
+},
+{
+    "id": 8,
+    "name": "Kalmia",
+    "price": 4700,
+    "flowers_type": "popular",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/laelia-orchid.jpg"
+},
+{
+    "id": 9,
+    "name": "Laelia",
+    "price": 4000,
+    "flowers_type": "combined",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/mountain-larkspur.jpg"
+},
+{
+    "id": 10,
+    "name": 1,
+    "price": 5300,
+    "flowers_type": "wedding",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/pink-oleander.jpg"
+},
+{
+    "id": 11,
+    "name": "Lavatera",
+    "price": 3900,
+    "flowers_type": "combined",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/oriental-lily.jpg"
+},
+{
+    "id": 12,
+    "name": 1,
+    "price": 5300,
+    "flowers_type": "combined",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/dotted-pink-cattleya.jpg"
+},
+{
+    "id": 13,
+    "name": "Orchid",
+    "price": 53900,
+    "flowers_type": "wedding",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/ornithogalum-montanum.jpg"
+},
+{
+    "id": 14,
+    "name": "Ornithogalum",
+    "price": 5200,
+    "flowers_type": "wedding",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/african-daisy.jpg"
+},
+{
+    "id": 15,
+    "name": "Osteospermum",
+    "price": 5300,
+    "flowers_type": "popular",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/oxeye-daisy.jpg"
+},
+{
+    "id": 16,
+    "name": "Oxalis",
+    "price": 5300,
+    "flowers_type": "monobooks",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/blue-oxalis.jpg"
+},
+{
+    "id": 17,
+    "name": "Statice",
+    "price": 5300,
+    "flowers_type": "popular",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/trientalis-borealis.jpg"
+},
+{
+    "id": 18,
+    "name": "Starflower",
+    "price": 6300,
+    "flowers_type": "wedding",
+    "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+},
+{
+    "id": 19,
+    "name": "Soapwort",
+    "price": 4900,
+    "flowers_type": "monobooks",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/soapwort.jpg"
+},
+{
+    "id": 20,
+    "name": "Speedwell",
+    "price": 5900,
+    "flowers_type": "monobooks",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/garden-speedwell.jpg"
+},
+{
+    "id": 21,
+    "name": "Penstemon",
+    "price": 5300,
+    "flowers_type": "popular",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/red-penstemon.jpg"
+},
+{
+    "id": 22,
+    "name": "Peony",
+    "price": 2000,
+    "flowers_type": "monobooks",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/pink-peony.jpg"
+},
+{
+    "id": 23,
+    "name": "Periwinkle",
+    "price": 7400,
+    "flowers_type": "compositions",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/pink-periwinkle.jpg"
+},
+{
+    "id": 24,
+    "name": "Pelargonium",
+    "price": 5300,
+    "flowers_type": "compositions",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/angel-pelargonium.jpg"
+},
+{
+    "id": 25,
+    "name": "Parodia",
+    "price": 9800,
+    "flowers_type": "popular",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/yellow-parodia.jpg"
+},
+{
+    "id": 26,
+    "name": "Pansy",
+    "price": 5200,
+    "flowers_type": "popular",
+    "img": "https://florgeous.com/wp-content/uploads/2019/10/colorful-pansies.jpg"
+}
+]

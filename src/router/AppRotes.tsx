@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import {
+  FlowersPage,
   HomePage,
   OrdersList,
   TasksList,
@@ -14,6 +15,7 @@ const AppRoutes = () => {
       <Route path={routes.usersList} element={<UsersPage />} />
       <Route path={routes.ordersList} element={<OrdersList />} />
       <Route path={routes.tasks} element={<TasksList />} />
+      <Route path={routes.flowers} element={<FlowersPage />} />
     </Routes>
   )
 }

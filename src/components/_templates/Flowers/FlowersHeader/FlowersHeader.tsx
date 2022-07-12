@@ -12,9 +12,7 @@ export const FlowersHeader = () => {
         <img src={logo} />
       </div>
       <Link href="#catalog" title="Catalog" className="link" />
-      <Link href="#feedback" title="Feedback" className="link" />
-      <Link href="#" title="Delivery and payment" className="link" />
-      <Link href="#" title="Contacts" className="link" />
+      <Link href="#questions" title="Questions" className="link" />
       <div className="phone">
         <PhoneOutlined className="phone_image" />
         <div>8(900)663-32-92</div>

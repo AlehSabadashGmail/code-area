@@ -1,4 +1,6 @@
 export type CardType = {
-  children: string
-  className?: string
+  image: string
+  title: string
+  price: number
+  onClick?: (flower: IFlowers) => void
 }

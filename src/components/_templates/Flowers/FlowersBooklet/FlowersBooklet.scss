@@ -1,9 +1,5 @@
 @import '../../../../constants/Style/style.scss';
 
-.wrapper{
-    width: 100%;
-}
-
 .main { 
     display: flex;
 }
@@ -33,17 +29,6 @@
         justify-content: center;
         color: $brown;
     }
-}
-
-.button.ant-btn.ant-btn-default{
-    color:white;
-    background: #DC6846;
-    box-shadow: 0px 5px 5px #d34216;
-    border:none;
-    width: 50%;
-    border-radius: 20px;
-    margin-top: 20px;
-    margin-left: 150px;
 }
 
 .addition{

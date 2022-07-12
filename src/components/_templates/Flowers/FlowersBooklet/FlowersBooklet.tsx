@@ -13,7 +13,7 @@ import './FlowersBooklet.scss'
 
 export const FlowersBooklet = () => {
   return (
-    <div className="wrapper">
+    <>
       <div className="main">
         <div className="social">
           <Link to="/">
@@ -56,6 +56,6 @@ export const FlowersBooklet = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

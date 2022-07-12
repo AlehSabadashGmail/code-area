@@ -1,6 +1,6 @@
 import { FlowersBooklet } from './FlowersBooklet'
 import { FlowersCatalog } from './FlowersCatalog'
-import { FlowersFeedback } from './FlowersFeedback'
+import { FlowersQuestions } from './FlowersQuestions'
 import { FlowersHeader } from './FlowersHeader'
 import './Flowers.scss'
 
@@ -10,7 +10,7 @@ export const Flowers = () => {
       <FlowersHeader />
       <FlowersBooklet />
       <FlowersCatalog />
-      <FlowersFeedback />
+      <FlowersQuestions />
     </div>
   )
 }

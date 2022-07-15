@@ -21,3 +21,12 @@ export const OPTIONS = [
   { value: 'user', label: 'user' },
   { value: 'observer', label: 'observer' },
 ]
+
+export const GENDER = [
+  { label: 'female', value: 'female' },
+  { label: 'male', value: 'male' },
+]
+
+export const SINGLLE_OPTIONS = [{ label: 'is active', value: true }]
+
+export const DOWNLOAD_SIZE = 20

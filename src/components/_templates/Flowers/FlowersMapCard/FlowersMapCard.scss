@@ -1,38 +1,38 @@
 @import '../../../../constants/Style/style.scss';
 
-.contacts_info{
-    display: flex;
+.contacts_info {
+  display: flex;
 }
 
-.contact_card.ant-card{
-    width: 20%;
-    background-color: white;
-    box-shadow: 0px 0px 81px -25px rgba(154, 154, 154, 0.86);
-    border-radius: 20px;
-    position: absolute;
-    margin-top: 5%;
-    margin-left: 20%;
-    z-index: 2;
+.contact_card.ant-card {
+  width: 20%;
+  background-color: white;
+  box-shadow: 0px 0px 81px -25px rgba(154, 154, 154, 0.86);
+  border-radius: 20px;
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 20%;
+  z-index: 2;
 }
 
-.contacts_item{
-    margin-left: 10px;
-    margin-top: 15px;
+.contacts_item {
+  margin-left: 10px;
+  margin-top: 15px;
 }
 
-.contacts_icon{
-    margin-top: 30px;
-    font-size: 30px;
-    svg {
-      fill: $dark-orange;
-    }
+.contacts_icon {
+  margin-top: 30px;
+  font-size: 30px;
+  svg {
+    fill: $dark-orange;
+  }
 }
 
-.social_icon{
-    margin-top: 30px;
-    font-size: 25px;
-    margin-left: 25px;
-    svg {
-      fill: $dark-orange;
-    }
+.social_icon {
+  margin-top: 30px;
+  font-size: 25px;
+  margin-left: 25px;
+  svg {
+    fill: $dark-orange;
+  }
 }

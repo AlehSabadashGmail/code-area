@@ -1,4 +1,4 @@
-import { Avatar, Card, Divider, List, Skeleton } from 'antd'
+import { Avatar, Divider, List, Skeleton } from 'antd'
 import React, { useEffect, useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { DOWNLOAD_SIZE } from 'src/constants/Text'

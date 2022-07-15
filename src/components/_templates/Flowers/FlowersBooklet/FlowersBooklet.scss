@@ -1,52 +1,51 @@
 @import '../../../../constants/Style/style.scss';
 
-.main { 
-    display: flex;
+.main {
+  display: flex;
 }
 
-.social{
-    margin: 10% 5% 15% 20%;
-    display: flex;
-    flex-direction: column;
-    &_item{
-        margin-bottom: 50%;
-        font-size: 30px;
-         svg{
-            fill: $dark-orange;
-         }
+.social {
+  margin: 10% 5% 15% 20%;
+  display: flex;
+  flex-direction: column;
+  &_item {
+    margin-bottom: 50%;
+    font-size: 30px;
+    svg {
+      fill: $dark-orange;
     }
+  }
 }
 
-.text{
+.text {
+  display: flex;
+  margin-top: 9%;
+  flex-direction: column;
+  &_main.ant-typography {
+    color: $brown;
+  }
+  &_secondary.ant-typography {
     display: flex;
-    margin-top: 9%;
-    flex-direction: column;
-    &_main.ant-typography{
-        color: $brown;
-    }
-    &_secondary.ant-typography{
-        display: flex;
-        justify-content: center;
-        color: $brown;
-    }
+    justify-content: center;
+    color: $brown;
+  }
 }
 
-.addition{
+.addition {
+  display: flex;
+  justify-content: space-around;
+  &_item {
+    font-size: 40px;
+    svg {
+      fill: $dark-orange;
+    }
+  }
+  &_block {
     display: flex;
-    justify-content: space-around;
-    &_item{
-        font-size: 40px;
-         svg{
-            fill: $dark-orange;
-         }
+    width: 15%;
+    &_text {
+      font-size: 15px;
+      margin-left: 5px;
     }
-    &_block{
-        display: flex;
-        width: 15%;
-        &_text{
-            font-size: 15px;
-            margin-left: 5px;
-        }
-    }
+  }
 }
-

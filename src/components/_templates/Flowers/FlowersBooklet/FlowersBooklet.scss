@@ -1,0 +1,66 @@
+@import '../../../../constants/Style/style.scss';
+
+.booklet_wrapper {
+  width: 100%;
+}
+
+.main {
+  display: flex;
+}
+
+.social {
+  margin: 10% 5% 15% 20%;
+  display: flex;
+  flex-direction: column;
+  &_item {
+    margin-bottom: 50%;
+    font-size: 30px;
+    svg {
+      fill: $dark-orange;
+    }
+  }
+}
+
+.text {
+  display: flex;
+  margin-top: 9%;
+  flex-direction: column;
+  &_main.ant-typography {
+    color: $brown;
+  }
+  &_secondary.ant-typography {
+    display: flex;
+    justify-content: center;
+    color: $brown;
+  }
+}
+
+.button.ant-btn.ant-btn-default {
+  color: white;
+  background: #dc6846;
+  box-shadow: 0px 5px 5px #d34216;
+  border: none;
+  width: 50%;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-left: 150px;
+}
+
+.addition {
+  display: flex;
+  justify-content: space-around;
+  &_item {
+    font-size: 40px;
+    svg {
+      fill: $dark-orange;
+    }
+  }
+  &_block {
+    display: flex;
+    width: 15%;
+    &_text {
+      font-size: 15px;
+      margin-left: 5px;
+    }
+  }
+}

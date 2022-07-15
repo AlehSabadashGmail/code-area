@@ -1,0 +1,8 @@
+@import '../../../constants/Style/style.scss';
+
+.wrapper {
+  background-color: $pink;
+  background-image: url(../../../image/flower.png);
+  background-position: top 50px right;
+  background-repeat: no-repeat;
+}

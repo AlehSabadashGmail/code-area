@@ -1,1 +1,6 @@
-export { useRequire } from './rules'
+export {
+  useRequire,
+  useCardNumber,
+  useCVCNumber,
+  usePhoneNumber,
+} from './rules'

@@ -1,0 +1,23 @@
+.menu {
+  position: fixed;
+  width: 50vw;
+  height: 20vh;
+  top: 50px;
+  left: 0;
+  transform: translateX(-100%);
+
+  &_content {
+    width: 30%;
+    height: 100%;
+    background-color: #f7cece;
+  }
+}
+
+.menu.active {
+  transform: translateX(0);
+}
+
+.link {
+  margin-left: 20px;
+  color: black;
+}

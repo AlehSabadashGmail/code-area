@@ -5,4 +5,5 @@ export const routes = {
   ordersList: '/orders',
   tasks: '/tasks',
   flowers: '/flowers',
+  people: '/people',
 }

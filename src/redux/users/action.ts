@@ -10,17 +10,19 @@ import {
 } from '../reducers/usersSlice'
 import { RequestAddUsersActionProps } from 'src/constants/Api/Users/api'
 
-export const requestUserInfo = (): AppThunk => async (dispatch) => {
-  try {
-    dispatch(loading())
-    const response = await reqestUserInfoAPI()
-    dispatch(usersLoadSuccess(response.data))
-  } catch (err) {
-    dispatch(error({ error: err }))
-  } finally {
-    dispatch(finish())
+export const requestUserInfo =
+  (pageNumber?: number, limit?: number): AppThunk =>
+  async (dispatch) => {
+    try {
+      dispatch(loading())
+      const response = await reqestUserInfoAPI(pageNumber, limit)
+      dispatch(usersLoadSuccess(response.data))
+    } catch (err) {
+      dispatch(error({ error: err }))
+    } finally {
+      dispatch(finish())
+    }
   }
-}
 
 export const requestAddUsers =
   ({ users }: RequestAddUsersActionProps): AppThunk =>

@@ -1,1 +1,1 @@
-export { useRequire } from './rules'
+export { useRequire, useAgeValidation } from './rules'

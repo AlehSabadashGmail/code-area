@@ -19,7 +19,7 @@ export const userSlice = createSlice({
     usersLoadSuccess(state: IUserState, action: PayloadAction<IUser[]>) {
       state.isLoading = false
       state.error = ''
-      state.users = action.payload
+      state.users = [...state.users, ...action.payload]
     },
     finish(state: IUserState) {
       state.isLoading = false

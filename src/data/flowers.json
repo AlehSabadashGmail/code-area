@@ -1,0 +1,213 @@
+{
+  "combined": [
+    {
+      "id": 12,
+      "name": "Lavatera",
+      "type_id": 2,
+      "price": 5300,
+      "flowers_type": "combined",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Lavatera",
+      "price": 3900,
+      "type_id": 2,
+      "flowers_type": "combined",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Laelia",
+      "price": 4000,
+      "type_id": 2,
+      "flowers_type": "combined",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Helenium",
+      "price": 5300,
+      "type_id": 2,
+      "flowers_type": "combined",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Ageratum",
+      "price": 2200,
+      "type_id": 2,
+      "flowers_type": "combined",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Aconite",
+      "price": 55900,
+      "type_id": 2,
+      "flowers_type": "combined",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    }
+  ],
+  "wedding": [
+    {
+      "id": 18,
+      "name": "Starflower",
+      "price": 6300,
+      "flowers_type": "wedding",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Ornithogalum",
+      "price": 5200,
+      "flowers_type": "wedding",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 13,
+      "name": "Orchid",
+      "price": 53900,
+      "flowers_type": "wedding",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Lavatera",
+      "price": 5300,
+      "type_id": 3,
+      "flowers_type": "wedding",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    }
+  ],
+  "monobooks": [
+    {
+      "id": 22,
+      "name": "Peony",
+      "price": 2000,
+      "flowers_type": "monobooks",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 20,
+      "name": "Speedwell",
+      "price": 5900,
+      "flowers_type": "monobooks",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 19,
+      "name": "Soapwort",
+      "price": 4900,
+      "flowers_type": "monobooks",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 16,
+      "name": "Oxalis",
+      "price": 5300,
+      "flowers_type": "monobooks",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    }
+  ],
+  "compositions": [
+    {
+      "id": 27,
+      "name": "Pelargonium",
+      "price": 5300,
+      "flowers_type": "compositions",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 24,
+      "name": "Pelargonium",
+      "price": 5300,
+      "flowers_type": "compositions",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 23,
+      "name": "Periwinkle",
+      "price": 7400,
+      "flowers_type": "compositions",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    }
+  ],
+  "popular": [
+    {
+      "id": 26,
+      "name": "Pansy",
+      "price": 5200,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 25,
+      "name": "Parodia",
+      "price": 9800,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 21,
+      "name": "Penstemon",
+      "price": 5300,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 17,
+      "name": "Statice",
+      "price": 5300,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 15,
+      "name": "Osteospermum",
+      "price": 5300,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Kalmia",
+      "price": 4700,
+      "type_id": 1,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Alyssum",
+      "price": 9400,
+      "type_id": 1,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Lavatera",
+      "price": 5900,
+      "type_id": 1,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 1,
+      "type_id": 1,
+      "name": "Acacia",
+      "price": 5300,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Heather",
+      "type_id": 1,
+      "price": 6300,
+      "flowers_type": "popular",
+      "img": "https://flowers-astrahan.ru/assets/images/products/427/gerber-5sht-ranunkulyus-5-rozyi-5-gvozdika-7-3000r.jpg"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+@import '../../../../constants/Style/style.scss';
+
+.anchor .ant-anchor-ink-ball.visible {
+  display: none;
+}
+
+.anchor .ant-anchor {
+  display: flex;
+  justify-content: space-around;
+}
+
+.link a.ant-anchor-link-title {
+  color: $brown;
+  font-size: 20px;
+}
+
+.logo {
+  width: 150px;
+  margin-top: 2px;
+}
+
+.phone {
+  display: flex;
+  font-size: 20px;
+  margin-top: 5px;
+  color: $dark-orange;
+  &_image {
+    margin-top: 5px;
+    margin-right: 5px;
+  }
+}

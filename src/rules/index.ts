@@ -1,1 +1,0 @@
-export { useRequire } from './rules'

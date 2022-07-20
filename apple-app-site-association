@@ -1,15 +1,25 @@
 {
-    "applinks": {
-        "apps": [],
-        "details": [
-            {
-                "appID": "9K6X6H5AX7.com.stint.v3",
-                "paths": [ "*" ]
-            },
-            {
-                "appID": "9K6X6H5AX7.com.stint.stint",
-                "paths": [ "*" ]
-            }
-        ]
+  "applinks": {
+      "details": [
+           {
+             "appIDs": [ "9K6X6H5AX7.com.stint.v3", "9K6X6H5AX7.com.stint.stint" ],
+             "components": [
+               {
+                  "/": "*",
+                  "comment": "*"
+               },
+               {
+                  "/": "/*",
+                  "comment": "/*"
+               }
+             ]
+           }
+       ]
+   },
+   "webcredentials": {
+      "apps": []
+   },
+    "appclips": {
+        "apps": []
     }
 }
